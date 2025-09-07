@@ -9,7 +9,7 @@
 	},
 	"packageManager": "pnpm@10.15.1",
 	"scripts": {
-		"build": "tsc -p tsconfig.json",
+		"build": "tsc -p tsconfig.json && cp -R src/design-tokens dist/design-tokens",
 		"start": "node dist/server.js",
 		"dev": "tsx watch src/server.ts",
 		"typecheck": "tsc -p tsconfig.json --noEmit",

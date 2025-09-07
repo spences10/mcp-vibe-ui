@@ -1,0 +1,40 @@
+{
+	"version": "1",
+	"id": "organic-flow",
+	"name": "Organic Flow",
+	"tags": ["natural", "rounded", "green", "fluid"],
+	"aliases": ["organic"],
+	"daisyThemeVars": {
+		"--color-base-100": "oklch(98% 0.02 150)",
+		"--color-base-200": "oklch(95% 0.02 150)",
+		"--color-base-300": "oklch(90% 0.02 150)",
+		"--color-base-content": "oklch(22% 0.02 150)",
+		"--color-primary": "oklch(68% 0.16 150)",
+		"--color-primary-content": "oklch(12% 0.02 150)",
+		"--color-secondary": "oklch(72% 0.14 200)",
+		"--color-secondary-content": "oklch(12% 0.02 200)",
+		"--color-accent": "oklch(78% 0.14 100)",
+		"--color-accent-content": "oklch(20% 0.03 100)",
+		"--color-neutral": "oklch(38% 0.02 150)",
+		"--color-neutral-content": "oklch(96% 0.01 150)",
+		"--color-info": "oklch(70% 0.10 230)",
+		"--color-info-content": "oklch(14% 0.02 230)",
+		"--color-success": "oklch(66% 0.16 150)",
+		"--color-success-content": "oklch(98% 0.01 150)",
+		"--color-warning": "oklch(84% 0.16 85)",
+		"--color-warning-content": "oklch(22% 0.04 85)",
+		"--color-error": "oklch(62% 0.20 25)",
+		"--color-error-content": "oklch(98% 0.01 25)",
+		"--radius-selector": "1rem",
+		"--radius-field": "1rem",
+		"--radius-box": "1.5rem",
+		"--size-selector": "0.25rem",
+		"--size-field": "0.25rem",
+		"--border": "1px",
+		"--depth": "0",
+		"--noise": "0"
+	},
+	"metadata": {
+		"description": "Organic rounded shapes with nature-inspired palette."
+	}
+}

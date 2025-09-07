@@ -1,0 +1,40 @@
+{
+	"version": "1",
+	"id": "monochrome",
+	"name": "Monochrome",
+	"tags": ["grayscale", "neutral", "clean"],
+	"aliases": ["mono"],
+	"daisyThemeVars": {
+		"--color-base-100": "oklch(98% 0.00 240)",
+		"--color-base-200": "oklch(94% 0.00 240)",
+		"--color-base-300": "oklch(90% 0.00 240)",
+		"--color-base-content": "oklch(18% 0.00 240)",
+		"--color-primary": "oklch(40% 0.00 240)",
+		"--color-primary-content": "oklch(98% 0.00 240)",
+		"--color-secondary": "oklch(60% 0.00 240)",
+		"--color-secondary-content": "oklch(10% 0.00 240)",
+		"--color-accent": "oklch(70% 0.00 240)",
+		"--color-accent-content": "oklch(14% 0.00 240)",
+		"--color-neutral": "oklch(30% 0.00 240)",
+		"--color-neutral-content": "oklch(96% 0.00 240)",
+		"--color-info": "oklch(75% 0.00 240)",
+		"--color-info-content": "oklch(12% 0.00 240)",
+		"--color-success": "oklch(65% 0.00 240)",
+		"--color-success-content": "oklch(98% 0.00 240)",
+		"--color-warning": "oklch(80% 0.00 240)",
+		"--color-warning-content": "oklch(22% 0.00 240)",
+		"--color-error": "oklch(55% 0.00 240)",
+		"--color-error-content": "oklch(98% 0.00 240)",
+		"--radius-selector": "0.25rem",
+		"--radius-field": "0.25rem",
+		"--radius-box": "0.25rem",
+		"--size-selector": "0.25rem",
+		"--size-field": "0.25rem",
+		"--border": "1px",
+		"--depth": "0",
+		"--noise": "0"
+	},
+	"metadata": {
+		"description": "Strict grayscale palette with clean edges."
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"version": "1",
+	"id": "industrial",
+	"name": "Industrial",
+	"tags": ["utility", "gritty", "bold", "high-contrast"],
+	"aliases": ["factory"],
+	"daisyThemeVars": {
+		"--color-base-100": "oklch(96% 0.01 240)",
+		"--color-base-200": "oklch(90% 0.01 240)",
+		"--color-base-300": "oklch(84% 0.01 240)",
+		"--color-base-content": "oklch(18% 0.02 240)",
+		"--color-primary": "oklch(78% 0.20 85)",
+		"--color-primary-content": "oklch(16% 0.02 85)",
+		"--color-secondary": "oklch(45% 0.03 240)",
+		"--color-secondary-content": "oklch(96% 0.01 240)",
+		"--color-accent": "oklch(68% 0.20 25)",
+		"--color-accent-content": "oklch(98% 0.01 25)",
+		"--color-neutral": "oklch(30% 0.02 240)",
+		"--color-neutral-content": "oklch(96% 0.01 240)",
+		"--color-info": "oklch(66% 0.12 230)",
+		"--color-info-content": "oklch(14% 0.02 230)",
+		"--color-success": "oklch(62% 0.16 150)",
+		"--color-success-content": "oklch(98% 0.01 150)",
+		"--color-warning": "oklch(82% 0.20 85)",
+		"--color-warning-content": "oklch(22% 0.04 85)",
+		"--color-error": "oklch(58% 0.24 25)",
+		"--color-error-content": "oklch(98% 0.01 25)",
+		"--radius-selector": "0.25rem",
+		"--radius-field": "0.25rem",
+		"--radius-box": "0.25rem",
+		"--size-selector": "0.25rem",
+		"--size-field": "0.25rem",
+		"--border": "2px",
+		"--depth": "1",
+		"--noise": "1"
+	},
+	"metadata": {
+		"description": "Utility look with warning accents and rugged surfaces."
+	}
+}

@@ -1,0 +1,40 @@
+{
+	"version": "1",
+	"id": "flat",
+	"name": "Flat",
+	"tags": ["minimal", "flat", "no-shadow"],
+	"aliases": [],
+	"daisyThemeVars": {
+		"--color-base-100": "oklch(98% 0.02 240)",
+		"--color-base-200": "oklch(94% 0.02 240)",
+		"--color-base-300": "oklch(90% 0.02 240)",
+		"--color-base-content": "oklch(20% 0.03 240)",
+		"--color-primary": "oklch(62% 0.18 260)",
+		"--color-primary-content": "oklch(98% 0.01 260)",
+		"--color-secondary": "oklch(58% 0.16 25)",
+		"--color-secondary-content": "oklch(98% 0.01 25)",
+		"--color-accent": "oklch(64% 0.16 150)",
+		"--color-accent-content": "oklch(14% 0.02 150)",
+		"--color-neutral": "oklch(40% 0.02 240)",
+		"--color-neutral-content": "oklch(96% 0.01 240)",
+		"--color-info": "oklch(68% 0.12 230)",
+		"--color-info-content": "oklch(12% 0.02 230)",
+		"--color-success": "oklch(64% 0.16 150)",
+		"--color-success-content": "oklch(98% 0.01 150)",
+		"--color-warning": "oklch(80% 0.18 85)",
+		"--color-warning-content": "oklch(22% 0.04 85)",
+		"--color-error": "oklch(60% 0.20 25)",
+		"--color-error-content": "oklch(98% 0.01 25)",
+		"--radius-selector": "0.25rem",
+		"--radius-field": "0.25rem",
+		"--radius-box": "0.25rem",
+		"--size-selector": "0.25rem",
+		"--size-field": "0.25rem",
+		"--border": "1px",
+		"--depth": "0",
+		"--noise": "0"
+	},
+	"metadata": {
+		"description": "Flat design with minimal depth and crisp color blocks."
+	}
+}

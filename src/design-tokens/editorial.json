@@ -1,0 +1,40 @@
+{
+	"version": "1",
+	"id": "editorial",
+	"name": "Editorial",
+	"tags": ["clean", "classic", "serif-friendly", "print"],
+	"aliases": ["magazine"],
+	"daisyThemeVars": {
+		"--color-base-100": "oklch(99% 0.01 240)",
+		"--color-base-200": "oklch(96% 0.02 240)",
+		"--color-base-300": "oklch(93% 0.02 240)",
+		"--color-base-content": "oklch(20% 0.03 240)",
+		"--color-primary": "oklch(45% 0.05 250)",
+		"--color-primary-content": "oklch(96% 0.01 250)",
+		"--color-secondary": "oklch(55% 0.07 30)",
+		"--color-secondary-content": "oklch(98% 0.01 30)",
+		"--color-accent": "oklch(68% 0.09 120)",
+		"--color-accent-content": "oklch(14% 0.02 120)",
+		"--color-neutral": "oklch(32% 0.02 240)",
+		"--color-neutral-content": "oklch(98% 0.01 240)",
+		"--color-info": "oklch(70% 0.10 230)",
+		"--color-info-content": "oklch(14% 0.02 230)",
+		"--color-success": "oklch(65% 0.12 150)",
+		"--color-success-content": "oklch(98% 0.01 150)",
+		"--color-warning": "oklch(82% 0.14 85)",
+		"--color-warning-content": "oklch(22% 0.04 85)",
+		"--color-error": "oklch(60% 0.20 25)",
+		"--color-error-content": "oklch(98% 0.01 25)",
+		"--radius-selector": "0.25rem",
+		"--radius-field": "0.25rem",
+		"--radius-box": "0.5rem",
+		"--size-selector": "0.25rem",
+		"--size-field": "0.25rem",
+		"--border": "1px",
+		"--depth": "0",
+		"--noise": "0"
+	},
+	"metadata": {
+		"description": "Clean, content-first look inspired by editorial layouts."
+	}
+}

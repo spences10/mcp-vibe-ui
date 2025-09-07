@@ -1,0 +1,15 @@
+{
+	"version": "1",
+	"designs": [
+		{
+			"id": "neu-brutalist",
+			"name": "Neu‑Brutalist",
+			"tags": ["bold", "high-contrast", "flat"]
+		},
+		{
+			"id": "cyberpunk",
+			"name": "Cyberpunk",
+			"tags": ["neon", "dark", "futuristic"]
+		}
+	]
+}
