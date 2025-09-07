@@ -1,0 +1,12 @@
+node_modules
+dist
+build
+coverage
+.pnpm-store
+.cache
+.tmp
+.temp
+pnpm-lock.yaml
+CHANGELOG.md
+.changeset
+

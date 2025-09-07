@@ -1,0 +1,33 @@
+{
+	"name": "mcp-vibe-ui",
+	"version": "0.0.0",
+	"private": true,
+	"description": "Minimal MCP server in TypeScript for mcp-vibe-ui",
+	"type": "module",
+	"engines": {
+		"node": ">=18.17.0"
+	},
+	"packageManager": "pnpm@10.15.1",
+	"scripts": {
+		"build": "tsc -p tsconfig.json",
+		"start": "node dist/server.js",
+		"dev": "tsx watch src/server.ts",
+		"typecheck": "tsc -p tsconfig.json --noEmit",
+		"format": "prettier --write .",
+		"format:check": "prettier --check .",
+		"changeset": "changeset",
+		"version-packages": "changeset version",
+		"release": "changeset publish"
+	},
+	"dependencies": {
+		"@modelcontextprotocol/sdk": "^1.17.5"
+	},
+	"devDependencies": {
+		"@changesets/cli": "^2.29.6",
+		"@types/node": "^24.3.1",
+		"prettier": "^3.6.2",
+		"tsx": "^4.20.5",
+		"typescript": "^5.9.2",
+		"valibot": "^1.1.0"
+	}
+}
