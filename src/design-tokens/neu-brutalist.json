@@ -1,9 +1,17 @@
 {
 	"version": "1",
 	"id": "neu-brutalist",
-	"name": "Neu‑Brutalist",
-	"tags": ["bold", "high-contrast", "flat", "blocky"],
-	"aliases": ["neubrutalism", "brutalist"],
+	"name": "Neu-Brutalist",
+	"tags": [
+		"bold",
+		"high-contrast",
+		"flat",
+		"blocky"
+	],
+	"aliases": [
+		"neubrutalism",
+		"brutalist"
+	],
 	"daisyThemeVars": {
 		"--color-base-100": "oklch(97% 0.02 250)",
 		"--color-base-200": "oklch(93% 0.03 250)",
