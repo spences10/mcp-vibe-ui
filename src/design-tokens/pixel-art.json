@@ -50,9 +50,103 @@
 			"heading": "bitmap-chunky",
 			"body": "pixel-perfect",
 			"fontStacks": {
-				"display": "PressStart2P, 'Courier New', monospace",
-				"body": "PixelOperator, 'MS Gothic', monospace",
-				"bitmap": "Silkscreen, 'Terminal', monospace"
+				"display": {
+					"fontsource": {
+						"package": "@fontsource/press-start-2p",
+						"family": "Press Start 2P",
+						"weights": [
+							400
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"Courier New",
+						"Monaco",
+						"monospace"
+					],
+					"css": "'Press Start 2P', 'Courier New', Monaco, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": true,
+						"priority": "high"
+					}
+				},
+				"body": {
+					"fontsource": {
+						"package": "@fontsource/vt323",
+						"family": "VT323",
+						"weights": [
+							400
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"MS Gothic",
+						"Terminal",
+						"monospace"
+					],
+					"css": "'VT323', 'MS Gothic', Terminal, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "medium"
+					}
+				},
+				"mono": {
+					"fontsource": {
+						"package": "@fontsource/vt323",
+						"family": "VT323",
+						"weights": [
+							400
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"Terminal",
+						"Monaco",
+						"monospace"
+					],
+					"css": "'VT323', Terminal, Monaco, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "low"
+					}
+				},
+				"bitmap": {
+					"fontsource": {
+						"package": "@fontsource/silkscreen",
+						"family": "Silkscreen",
+						"weights": [
+							400,
+							700
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"Terminal",
+						"Monaco",
+						"monospace"
+					],
+					"css": "'Silkscreen', Terminal, Monaco, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "low"
+					}
+				}
 			}
 		},
 		"pixelArt": {

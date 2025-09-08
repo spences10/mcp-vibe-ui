@@ -49,8 +49,96 @@
 			"heading": "strong-contrast",
 			"body": "clean-hierarchy",
 			"fontStacks": {
-				"display": "Helvetica Neue, sans-serif",
-				"body": "Inter, sans-serif"
+				"display": {
+					"fontsource": {
+						"package": "@fontsource/helvetica-neue",
+						"family": "Helvetica Neue",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"Helvetica",
+						"Arial",
+						"sans-serif"
+					],
+					"css": "'Helvetica Neue', Helvetica, Arial, sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": true,
+						"priority": "high"
+					}
+				},
+				"body": {
+					"fontsource": {
+						"package": "@fontsource/inter",
+						"family": "Inter",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"system-ui",
+						"-apple-system",
+						"BlinkMacSystemFont",
+						"Segoe UI",
+						"sans-serif"
+					],
+					"css": "'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "medium"
+					}
+				},
+				"mono": {
+					"fontsource": {
+						"package": "@fontsource/ibm-plex-mono",
+						"family": "IBM Plex Mono",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'IBM Plex Mono', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "low"
+					}
+				}
 			}
 		},
 		"strictPalette": {

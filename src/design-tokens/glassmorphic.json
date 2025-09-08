@@ -2,8 +2,14 @@
 	"version": "1",
 	"id": "glassmorphic",
 	"name": "Glassmorphic",
-	"tags": ["frosted", "translucent", "modern"],
-	"aliases": ["glass"],
+	"tags": [
+		"frosted",
+		"translucent",
+		"modern"
+	],
+	"aliases": [
+		"glass"
+	],
 	"daisyThemeVars": {
 		"--color-base-100": "oklch(98% 0.02 240)",
 		"--color-base-200": "oklch(96% 0.02 240)",
@@ -43,8 +49,100 @@
 			"heading": "light-expanded",
 			"body": "normal",
 			"fontStacks": {
-				"display": "Inter, sans-serif",
-				"body": "System UI, sans-serif"
+				"display": {
+					"fontsource": {
+						"package": "@fontsource/inter",
+						"family": "Inter",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700,
+							800,
+							900
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"system-ui",
+						"-apple-system",
+						"BlinkMacSystemFont",
+						"Segoe UI",
+						"Roboto",
+						"sans-serif"
+					],
+					"css": "'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": true,
+						"priority": "high"
+					}
+				},
+				"body": {
+					"fontsource": {
+						"package": "@fontsource/system-ui",
+						"family": "system-ui",
+						"weights": [
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"-apple-system",
+						"BlinkMacSystemFont",
+						"Segoe UI",
+						"Roboto",
+						"Arial",
+						"sans-serif"
+					],
+					"css": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "medium"
+					}
+				},
+				"mono": {
+					"fontsource": {
+						"package": "@fontsource/fira-code",
+						"family": "Fira Code",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'Fira Code', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "low"
+					}
+				}
 			}
 		},
 		"effects": {

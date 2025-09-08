@@ -47,8 +47,96 @@
 			"heading": "strong-weight-contrast",
 			"body": "clean-modern",
 			"fontStacks": {
-				"display": "Open Sans, sans-serif",
-				"body": "Lato, sans-serif"
+				"display": {
+					"fontsource": {
+						"package": "@fontsource/open-sans",
+						"family": "Open Sans",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700,
+							800
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"Helvetica Neue",
+						"Helvetica",
+						"Arial",
+						"sans-serif"
+					],
+					"css": "'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": true,
+						"priority": "high"
+					}
+				},
+				"body": {
+					"fontsource": {
+						"package": "@fontsource/lato",
+						"family": "Lato",
+						"weights": [
+							300,
+							400,
+							700,
+							900
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"Helvetica Neue",
+						"Helvetica",
+						"Arial",
+						"sans-serif"
+					],
+					"css": "'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "medium"
+					}
+				},
+				"mono": {
+					"fontsource": {
+						"package": "@fontsource/roboto-mono",
+						"family": "Roboto Mono",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'Roboto Mono', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "low"
+					}
+				}
 			}
 		},
 		"flatDesign": {

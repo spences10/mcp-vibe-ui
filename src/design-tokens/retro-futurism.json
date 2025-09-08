@@ -2,8 +2,16 @@
 	"version": "1",
 	"id": "retro-futurism",
 	"name": "Retro Futurism",
-	"tags": ["neon", "vaporwave", "dark", "futuristic"],
-	"aliases": ["retrowave", "vaporwave"],
+	"tags": [
+		"neon",
+		"vaporwave",
+		"dark",
+		"futuristic"
+	],
+	"aliases": [
+		"retrowave",
+		"vaporwave"
+	],
 	"daisyThemeVars": {
 		"--color-base-100": "oklch(14% 0.04 300)",
 		"--color-base-200": "oklch(18% 0.04 300)",
@@ -43,8 +51,91 @@
 			"heading": "bold-condensed",
 			"body": "normal",
 			"fontStacks": {
-				"display": "Orbitron, monospace",
-				"body": "Share Tech Mono, monospace"
+				"display": {
+					"fontsource": {
+						"package": "@fontsource/orbitron",
+						"family": "Orbitron",
+						"weights": [
+							400,
+							500,
+							600,
+							700,
+							800,
+							900
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'Orbitron', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": true,
+						"priority": "high"
+					}
+				},
+				"body": {
+					"fontsource": {
+						"package": "@fontsource/share-tech-mono",
+						"family": "Share Tech Mono",
+						"weights": [
+							400
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'Share Tech Mono', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "medium"
+					}
+				},
+				"mono": {
+					"fontsource": {
+						"package": "@fontsource/source-code-pro",
+						"family": "Source Code Pro",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'Source Code Pro', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "low"
+					}
+				}
 			}
 		},
 		"effects": {
@@ -59,7 +150,12 @@
 			}
 		},
 		"synthColors": {
-			"backgrounds": ["#1a0033", "#330066", "#0d001a", "#1a0d33"],
+			"backgrounds": [
+				"#1a0033",
+				"#330066",
+				"#0d001a",
+				"#1a0d33"
+			],
 			"neons": [
 				"#ff0080",
 				"#00ffff",

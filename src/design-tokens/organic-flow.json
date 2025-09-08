@@ -2,8 +2,15 @@
 	"version": "1",
 	"id": "organic-flow",
 	"name": "Organic Flow",
-	"tags": ["natural", "rounded", "green", "fluid"],
-	"aliases": ["organic"],
+	"tags": [
+		"natural",
+		"rounded",
+		"green",
+		"fluid"
+	],
+	"aliases": [
+		"organic"
+	],
 	"daisyThemeVars": {
 		"--color-base-100": "oklch(98% 0.02 150)",
 		"--color-base-200": "oklch(95% 0.02 150)",
@@ -43,8 +50,94 @@
 			"heading": "normal-flowing",
 			"body": "relaxed",
 			"fontStacks": {
-				"display": "Comfortaa, sans-serif",
-				"body": "Source Sans Pro, sans-serif"
+				"display": {
+					"fontsource": {
+						"package": "@fontsource/comfortaa",
+						"family": "Comfortaa",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"Quicksand",
+						"Helvetica Neue",
+						"Arial",
+						"sans-serif"
+					],
+					"css": "'Comfortaa', Quicksand, 'Helvetica Neue', Arial, sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": true,
+						"priority": "high"
+					}
+				},
+				"body": {
+					"fontsource": {
+						"package": "@fontsource/source-sans-pro",
+						"family": "Source Sans Pro",
+						"weights": [
+							300,
+							400,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"Helvetica Neue",
+						"Helvetica",
+						"Arial",
+						"sans-serif"
+					],
+					"css": "'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "medium"
+					}
+				},
+				"mono": {
+					"fontsource": {
+						"package": "@fontsource/source-code-pro",
+						"family": "Source Code Pro",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'Source Code Pro', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "low"
+					}
+				}
 			}
 		},
 		"effects": {
@@ -59,9 +152,24 @@
 			}
 		},
 		"naturalColors": {
-			"earth": ["#8B7355", "#A0956B", "#C4B5A0", "#D4C4AA"],
-			"growth": ["#22c55e", "#16a34a", "#15803d", "#166534"],
-			"sky": ["#87CEEB", "#B0E0E6", "#E0F6FF", "#F0F8FF"],
+			"earth": [
+				"#8B7355",
+				"#A0956B",
+				"#C4B5A0",
+				"#D4C4AA"
+			],
+			"growth": [
+				"#22c55e",
+				"#16a34a",
+				"#15803d",
+				"#166534"
+			],
+			"sky": [
+				"#87CEEB",
+				"#B0E0E6",
+				"#E0F6FF",
+				"#F0F8FF"
+			],
 			"gradients": [
 				"linear-gradient(135deg, #22c55e, #16a34a, #15803d)",
 				"radial-gradient(circle, #87CEEB, #22c55e, #8B7355)"
@@ -79,7 +187,13 @@
 				"blob3": "border-radius: 40% 60% 60% 40% / 60% 30% 60% 40%"
 			},
 			"flowingSpacing": {
-				"rhythm": ["8px", "13px", "21px", "34px", "55px"],
+				"rhythm": [
+					"8px",
+					"13px",
+					"21px",
+					"34px",
+					"55px"
+				],
 				"golden": "1.618"
 			}
 		}

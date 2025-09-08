@@ -49,9 +49,118 @@
 			"heading": "monospaced-geometric",
 			"body": "uniform-spacing",
 			"fontStacks": {
-				"display": "Fira Code, monospace",
-				"body": "IBM Plex Mono, monospace",
-				"labels": "SF Mono, 'Consolas', monospace"
+				"display": {
+					"fontsource": {
+						"package": "@fontsource/fira-code",
+						"family": "Fira Code",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'Fira Code', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": true,
+						"priority": "high"
+					}
+				},
+				"body": {
+					"fontsource": {
+						"package": "@fontsource/ibm-plex-mono",
+						"family": "IBM Plex Mono",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'IBM Plex Mono', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "medium"
+					}
+				},
+				"mono": {
+					"fontsource": {
+						"package": "@fontsource/sf-mono",
+						"family": "SF Mono",
+						"weights": [
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "low"
+					}
+				},
+				"labels": {
+					"fontsource": {
+						"package": "@fontsource/sf-mono",
+						"family": "SF Mono",
+						"weights": [
+							400,
+							500
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"Consolas",
+						"Monaco",
+						"monospace"
+					],
+					"css": "'SF Mono', Consolas, Monaco, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "medium"
+					}
+				}
 			}
 		},
 		"blueprint": {

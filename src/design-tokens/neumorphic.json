@@ -2,8 +2,15 @@
 	"version": "1",
 	"id": "neumorphic",
 	"name": "Neumorphic",
-	"tags": ["soft", "shadowed", "embossed", "light"],
-	"aliases": ["neumorphism"],
+	"tags": [
+		"soft",
+		"shadowed",
+		"embossed",
+		"light"
+	],
+	"aliases": [
+		"neumorphism"
+	],
 	"daisyThemeVars": {
 		"--color-base-100": "oklch(98% 0.01 240)",
 		"--color-base-200": "oklch(95% 0.01 240)",
@@ -43,8 +50,95 @@
 			"heading": "normal",
 			"body": "normal",
 			"fontStacks": {
-				"display": "SF Pro Display, system-ui, sans-serif",
-				"body": "SF Pro Text, system-ui, sans-serif"
+				"display": {
+					"fontsource": {
+						"package": "@fontsource/inter",
+						"family": "Inter",
+						"weights": [
+							400,
+							500,
+							600,
+							700,
+							800
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"SF Pro Display",
+						"system-ui",
+						"-apple-system",
+						"BlinkMacSystemFont",
+						"sans-serif"
+					],
+					"css": "'Inter', 'SF Pro Display', system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": true,
+						"priority": "high"
+					}
+				},
+				"body": {
+					"fontsource": {
+						"package": "@fontsource/inter",
+						"family": "Inter",
+						"weights": [
+							300,
+							400,
+							500,
+							600
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"SF Pro Text",
+						"system-ui",
+						"-apple-system",
+						"BlinkMacSystemFont",
+						"sans-serif"
+					],
+					"css": "'Inter', 'SF Pro Text', system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "medium"
+					}
+				},
+				"mono": {
+					"fontsource": {
+						"package": "@fontsource/sf-mono",
+						"family": "SF Mono",
+						"weights": [
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "low"
+					}
+				}
 			}
 		},
 		"effects": {
@@ -59,9 +153,22 @@
 			}
 		},
 		"softColors": {
-			"backgrounds": ["#f0f0f3", "#e6e6ea", "#f5f5f7", "#ebebef"],
-			"raised": ["#f8f8fb", "#f2f2f5", "#fafafa"],
-			"pressed": ["#e8e8eb", "#dedee2", "#e0e0e4"]
+			"backgrounds": [
+				"#f0f0f3",
+				"#e6e6ea",
+				"#f5f5f7",
+				"#ebebef"
+			],
+			"raised": [
+				"#f8f8fb",
+				"#f2f2f5",
+				"#fafafa"
+			],
+			"pressed": [
+				"#e8e8eb",
+				"#dedee2",
+				"#e0e0e4"
+			]
 		},
 		"animations": {
 			"soft-press": "soft-press 0.15s ease-out",

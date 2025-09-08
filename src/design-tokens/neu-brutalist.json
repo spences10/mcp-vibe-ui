@@ -2,8 +2,16 @@
 	"version": "1",
 	"id": "neu-brutalist",
 	"name": "Neu-Brutalist",
-	"tags": ["bold", "high-contrast", "flat", "blocky"],
-	"aliases": ["neubrutalism", "brutalist"],
+	"tags": [
+		"bold",
+		"high-contrast",
+		"flat",
+		"blocky"
+	],
+	"aliases": [
+		"neubrutalism",
+		"brutalist"
+	],
 	"daisyThemeVars": {
 		"--color-base-100": "oklch(97% 0.02 250)",
 		"--color-base-200": "oklch(93% 0.03 250)",
@@ -43,8 +51,86 @@
 			"heading": "bold-tight",
 			"body": "normal",
 			"fontStacks": {
-				"display": "Arial Black, sans-serif",
-				"body": "Space Grotesk, monospace"
+				"display": {
+					"fontsource": {
+						"package": "@fontsource/arial-black",
+						"family": "Arial Black",
+						"weights": [
+							900
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"Arial",
+						"Helvetica",
+						"sans-serif"
+					],
+					"css": "'Arial Black', Arial, Helvetica, sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": true,
+						"priority": "high"
+					}
+				},
+				"body": {
+					"fontsource": {
+						"package": "@fontsource/space-grotesk",
+						"family": "Space Grotesk",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'Space Grotesk', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "medium"
+					}
+				},
+				"mono": {
+					"fontsource": {
+						"package": "@fontsource/space-mono",
+						"family": "Space Mono",
+						"weights": [
+							400,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'Space Mono', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "low"
+					}
+				}
 			}
 		},
 		"spacing": {
@@ -57,7 +143,11 @@
 				"rotate(2deg)",
 				"rotate(-0.5deg)"
 			],
-			"skews": ["skew(-2deg)", "skew(2deg)", "skew(-1deg)"],
+			"skews": [
+				"skew(-2deg)",
+				"skew(2deg)",
+				"skew(-1deg)"
+			],
 			"shadows": [
 				"8px 8px 0 0 #000",
 				"12px 12px 0 0 #000",
@@ -107,8 +197,16 @@
 				"polygon(5% 0, 100% 0, 95% 100%, 0 100%)"
 			],
 			"asymmetricSpacing": {
-				"paddingVariants": ["p-4 pl-8", "p-6 pr-12", "p-5 pb-10"],
-				"marginVariants": ["m-4 ml-8", "m-3 mr-6", "m-5 mb-8"]
+				"paddingVariants": [
+					"p-4 pl-8",
+					"p-6 pr-12",
+					"p-5 pb-10"
+				],
+				"marginVariants": [
+					"m-4 ml-8",
+					"m-3 mr-6",
+					"m-5 mb-8"
+				]
 			}
 		}
 	},

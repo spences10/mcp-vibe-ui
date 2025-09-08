@@ -2,8 +2,15 @@
 	"version": "1",
 	"id": "industrial",
 	"name": "Industrial",
-	"tags": ["utility", "gritty", "bold", "high-contrast"],
-	"aliases": ["factory"],
+	"tags": [
+		"utility",
+		"gritty",
+		"bold",
+		"high-contrast"
+	],
+	"aliases": [
+		"factory"
+	],
 	"daisyThemeVars": {
 		"--color-base-100": "oklch(96% 0.01 240)",
 		"--color-base-200": "oklch(90% 0.01 240)",
@@ -43,8 +50,90 @@
 			"heading": "bold-condensed",
 			"body": "mono-spaced",
 			"fontStacks": {
-				"display": "Bebas Neue, Impact, sans-serif",
-				"body": "JetBrains Mono, monospace"
+				"display": {
+					"fontsource": {
+						"package": "@fontsource/bebas-neue",
+						"family": "Bebas Neue",
+						"weights": [
+							400
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"Impact",
+						"Arial Black",
+						"sans-serif"
+					],
+					"css": "'Bebas Neue', Impact, 'Arial Black', sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": true,
+						"priority": "high"
+					}
+				},
+				"body": {
+					"fontsource": {
+						"package": "@fontsource/jetbrains-mono",
+						"family": "JetBrains Mono",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'JetBrains Mono', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "medium"
+					}
+				},
+				"mono": {
+					"fontsource": {
+						"package": "@fontsource/jetbrains-mono",
+						"family": "JetBrains Mono",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'JetBrains Mono', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "low"
+					}
+				}
 			}
 		},
 		"effects": {
@@ -58,9 +147,24 @@
 			}
 		},
 		"utilityColors": {
-			"warning": ["#f59e0b", "#d97706", "#b45309", "#92400e"],
-			"danger": ["#dc2626", "#b91c1c", "#991b1b", "#7f1d1d"],
-			"metal": ["#71717a", "#52525b", "#3f3f46", "#27272a"],
+			"warning": [
+				"#f59e0b",
+				"#d97706",
+				"#b45309",
+				"#92400e"
+			],
+			"danger": [
+				"#dc2626",
+				"#b91c1c",
+				"#991b1b",
+				"#7f1d1d"
+			],
+			"metal": [
+				"#71717a",
+				"#52525b",
+				"#3f3f46",
+				"#27272a"
+			],
 			"gradients": [
 				"linear-gradient(135deg, #71717a, #3f3f46, #27272a)",
 				"linear-gradient(45deg, #f59e0b, #dc2626, #71717a)"

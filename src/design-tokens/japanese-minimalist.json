@@ -51,9 +51,120 @@
 			"heading": "light-elegant",
 			"body": "widely-spaced",
 			"fontStacks": {
-				"display": "Noto Sans JP, sans-serif",
-				"body": "Source Serif Pro, serif",
-				"refined": "Hiragino Sans, Yu Gothic, sans-serif"
+				"display": {
+					"fontsource": {
+						"package": "@fontsource/noto-sans-jp",
+						"family": "Noto Sans JP",
+						"weights": [
+							300,
+							400,
+							500,
+							700,
+							900
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"Hiragino Sans",
+						"Yu Gothic",
+						"Meiryo",
+						"sans-serif"
+					],
+					"css": "'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', Meiryo, sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": true,
+						"priority": "high"
+					}
+				},
+				"body": {
+					"fontsource": {
+						"package": "@fontsource/source-serif-pro",
+						"family": "Source Serif Pro",
+						"weights": [
+							300,
+							400,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"Georgia",
+						"Times New Roman",
+						"Times",
+						"serif"
+					],
+					"css": "'Source Serif Pro', Georgia, 'Times New Roman', Times, serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "medium"
+					}
+				},
+				"mono": {
+					"fontsource": {
+						"package": "@fontsource/noto-sans-mono",
+						"family": "Noto Sans Mono",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'Noto Sans Mono', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "low"
+					}
+				},
+				"refined": {
+					"fontsource": {
+						"package": "@fontsource/noto-sans-jp",
+						"family": "Noto Sans JP",
+						"weights": [
+							300,
+							400,
+							500
+						],
+						"styles": [
+							"normal"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"Hiragino Sans",
+						"Yu Gothic",
+						"Meiryo",
+						"sans-serif"
+					],
+					"css": "'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', Meiryo, sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "medium"
+					}
+				}
 			}
 		},
 		"zen": {
