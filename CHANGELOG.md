@@ -1,5 +1,11 @@
 # mcp-vibe-ui
 
+## 0.0.3
+
+### Patch Changes
+
+- caed4dc: valibot as a runtime dependency
+
 ## 0.0.2
 
 ### Patch Changes
