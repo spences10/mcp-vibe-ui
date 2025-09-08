@@ -2,8 +2,14 @@
 	"version": "1",
 	"id": "monochrome",
 	"name": "Monochrome",
-	"tags": ["grayscale", "neutral", "clean"],
-	"aliases": ["mono"],
+	"tags": [
+		"grayscale",
+		"neutral",
+		"clean"
+	],
+	"aliases": [
+		"mono"
+	],
 	"daisyThemeVars": {
 		"--color-base-100": "oklch(98% 0.00 240)",
 		"--color-base-200": "oklch(94% 0.00 240)",
@@ -35,6 +41,72 @@
 		"--noise": "0"
 	},
 	"metadata": {
-		"description": "Strict grayscale palette with clean edges."
-	}
+		"description": "Strict grayscale palette with clean edges.",
+		"builtInThemeHint": "black"
+	},
+	"extended": {
+		"typography": {
+			"heading": "strong-contrast",
+			"body": "clean-hierarchy",
+			"fontStacks": {
+				"display": "Helvetica Neue, sans-serif",
+				"body": "Inter, sans-serif"
+			}
+		},
+		"strictPalette": {
+			"black": "#000000",
+			"white": "#FFFFFF",
+			"greys": [
+				"#000000",
+				"#1A1A1A",
+				"#333333",
+				"#4D4D4D",
+				"#666666",
+				"#808080",
+				"#999999",
+				"#B3B3B3",
+				"#CCCCCC",
+				"#E6E6E6",
+				"#F5F5F5",
+				"#FFFFFF"
+			],
+			"singleAccent": {
+				"red": "#DC2626",
+				"blue": "#2563EB"
+			}
+		},
+		"contrast": {
+			"strong": "ensure AA accessibility",
+			"hierarchy": "use weight and size, not color",
+			"separation": "rely on spacing and contrast"
+		},
+		"interactions": {
+			"invert": {
+				"hover": "background: black to white, text: white to black",
+				"active": "full inversion for clarity",
+				"focus": "outline: 2px solid accent or invert"
+			},
+			"buttons": {
+				"outlined": "border: 2px solid black; background: transparent",
+				"filled": "background: black; color: white",
+				"ghost": "background: transparent; color: black"
+			}
+		},
+		"animations": {
+			"invert-hover": "all 0.2s ease",
+			"fade-in": "opacity 0.3s ease",
+			"clean-transition": "all 0.15s ease-out"
+		},
+		"layout": {
+			"grid": {
+				"clean": "use CSS Grid for precise alignment",
+				"spacing": "generous whitespace for separation"
+			},
+			"minimalism": {
+				"elegant": "less is more",
+				"timeless": "avoid trendy effects"
+			}
+		}
+	},
+	"notes": "Maintain strict monochrome discipline. Single accent color for alerts only. Use inversion for hover states."
 }

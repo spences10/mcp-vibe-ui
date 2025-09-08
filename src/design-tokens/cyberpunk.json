@@ -41,10 +41,53 @@
 	"extended": {
 		"typography": {
 			"heading": "semi-condensed",
-			"body": "normal"
+			"body": "normal",
+			"fontStacks": {
+				"display": "Orbitron, monospace",
+				"body": "Exo 2, sans-serif"
+			}
 		},
 		"effects": {
-			"glow": "subtle"
+			"glow": "subtle",
+			"neonGlow": {
+				"primary": "0 0 20px var(--color-primary)",
+				"secondary": "0 0 30px var(--color-secondary)",
+				"accent": "0 0 25px var(--color-accent)"
+			}
+		},
+		"neonColors": {
+			"backgrounds": [
+				"#ff006e",
+				"#8338ec",
+				"#3a86ff",
+				"#06ffa5",
+				"#ffbe0b"
+			],
+			"accents": [
+				"#ff0080",
+				"#00ffff",
+				"#ff8c00",
+				"#ff1493",
+				"#00ff41",
+				"#bf00ff"
+			],
+			"gradients": [
+				"linear-gradient(45deg, #ff006e, #8338ec, #3a86ff)",
+				"linear-gradient(135deg, #06ffa5 0%, #ff0080 50%, #8338ec 100%)"
+			]
+		},
+		"animations": {
+			"neon-pulse": "neon-pulse 2s ease-in-out infinite alternate",
+			"cyber-glitch": "cyber-glitch 0.3s linear infinite",
+			"matrix-scroll": "matrix-scroll 1s linear infinite"
+		},
+		"layout": {
+			"scanlines": "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,255,0.03) 2px, rgba(0,255,255,0.03) 4px)",
+			"chromatic": {
+				"redShift": "2px",
+				"blueShift": "-2px"
+			}
 		}
-	}
+	},
+	"notes": "Use neon glow effects sparingly for performance. Consider dark mode compatibility."
 }

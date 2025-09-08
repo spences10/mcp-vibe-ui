@@ -35,6 +35,53 @@
 		"--noise": "1"
 	},
 	"metadata": {
-		"description": "Utility look with warning accents and rugged surfaces."
-	}
+		"description": "Utility look with warning accents and rugged surfaces.",
+		"builtInThemeHint": "business"
+	},
+	"extended": {
+		"typography": {
+			"heading": "bold-condensed",
+			"body": "mono-spaced",
+			"fontStacks": {
+				"display": "Bebas Neue, Impact, sans-serif",
+				"body": "JetBrains Mono, monospace"
+			}
+		},
+		"effects": {
+			"metal": {
+				"brushed": "linear-gradient(135deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%)",
+				"worn": "repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)"
+			},
+			"textures": {
+				"grit": "radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px)",
+				"rust": "background-image: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"20\" cy=\"20\" r=\"2\" fill=\"%23B45309\" opacity=\"0.3\"/><circle cx=\"80\" cy=\"40\" r=\"1\" fill=\"%23DC2626\" opacity=\"0.2\"/></svg>')"
+			}
+		},
+		"utilityColors": {
+			"warning": ["#f59e0b", "#d97706", "#b45309", "#92400e"],
+			"danger": ["#dc2626", "#b91c1c", "#991b1b", "#7f1d1d"],
+			"metal": ["#71717a", "#52525b", "#3f3f46", "#27272a"],
+			"gradients": [
+				"linear-gradient(135deg, #71717a, #3f3f46, #27272a)",
+				"linear-gradient(45deg, #f59e0b, #dc2626, #71717a)"
+			]
+		},
+		"animations": {
+			"heavy-click": "heavy-click 0.1s ease-out",
+			"warning-pulse": "warning-pulse 2s ease-in-out infinite",
+			"machinery": "machinery 3s linear infinite"
+		},
+		"layout": {
+			"utilityPatterns": {
+				"hazard": "repeating-linear-gradient(45deg, #f59e0b, #f59e0b 10px, #000 10px, #000 20px)",
+				"caution": "repeating-linear-gradient(90deg, #dc2626, #dc2626 2px, transparent 2px, transparent 8px)"
+			},
+			"borders": {
+				"reinforced": "3px solid #71717a",
+				"warning": "2px solid #f59e0b",
+				"danger": "2px solid #dc2626"
+			}
+		}
+	},
+	"notes": "High contrast required for safety applications. Test visibility in various lighting."
 }

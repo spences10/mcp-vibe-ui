@@ -2,6 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
+	any,
 	array,
 	object,
 	optional,
@@ -60,7 +61,7 @@ const design_schema = object({
 			builtInThemeHint: optional(string()),
 		}),
 	),
-	extended: optional(record(string(), record(string(), string()))),
+	extended: optional(record(string(), any())),
 	notes: optional(string()),
 });
 

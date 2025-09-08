@@ -35,6 +35,59 @@
 		"--noise": "0"
 	},
 	"metadata": {
-		"description": "Dark neon palette with retro futuristic vibes."
-	}
+		"description": "Dark neon palette with retro futuristic vibes.",
+		"builtInThemeHint": "synthwave"
+	},
+	"extended": {
+		"typography": {
+			"heading": "bold-condensed",
+			"body": "normal",
+			"fontStacks": {
+				"display": "Orbitron, monospace",
+				"body": "Share Tech Mono, monospace"
+			}
+		},
+		"effects": {
+			"synthGlow": {
+				"pink": "0 0 30px #ff0080",
+				"cyan": "0 0 25px #00ffff",
+				"purple": "0 0 35px #8b00ff"
+			},
+			"gridLines": {
+				"horizontal": "repeating-linear-gradient(90deg, transparent, transparent 79px, #ff008050 79px, #ff008050 81px)",
+				"vertical": "repeating-linear-gradient(0deg, transparent, transparent 19px, #00ffff30 19px, #00ffff30 21px)"
+			}
+		},
+		"synthColors": {
+			"backgrounds": ["#1a0033", "#330066", "#0d001a", "#1a0d33"],
+			"neons": [
+				"#ff0080",
+				"#00ffff",
+				"#ff6600",
+				"#8b00ff",
+				"#00ff41",
+				"#ffff00"
+			],
+			"gradients": [
+				"linear-gradient(45deg, #ff0080, #8b00ff, #00ffff)",
+				"linear-gradient(135deg, #1a0033 0%, #330066 50%, #ff0080 100%)"
+			]
+		},
+		"animations": {
+			"retro-scan": "retro-scan 3s linear infinite",
+			"vhs-glitch": "vhs-glitch 0.5s steps(10, end) infinite",
+			"neon-flicker": "neon-flicker 1.5s ease-in-out infinite alternate"
+		},
+		"layout": {
+			"perspective": {
+				"grid": "perspective(500px) rotateX(60deg)",
+				"vanishing": "perspective(800px) rotateX(45deg)"
+			},
+			"scanlines": "repeating-linear-gradient(0deg, transparent 0px, rgba(255,0,128,0.05) 1px, rgba(255,0,128,0.05) 2px, transparent 3px)",
+			"chromatic": {
+				"aberration": "drop-shadow(2px 0 0 #ff0080) drop-shadow(-2px 0 0 #00ffff)"
+			}
+		}
+	},
+	"notes": "Heavy visual effects - use sparingly. Consider reduced motion preferences."
 }

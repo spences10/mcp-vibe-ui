@@ -35,6 +35,51 @@
 		"--noise": "0"
 	},
 	"metadata": {
-		"description": "Soft, tactile surfaces with subtle inner/outer shadows."
-	}
+		"description": "Soft, tactile surfaces with subtle inner/outer shadows.",
+		"builtInThemeHint": "cupcake"
+	},
+	"extended": {
+		"typography": {
+			"heading": "normal",
+			"body": "normal",
+			"fontStacks": {
+				"display": "SF Pro Display, system-ui, sans-serif",
+				"body": "SF Pro Text, system-ui, sans-serif"
+			}
+		},
+		"effects": {
+			"shadows": {
+				"outer": "8px 8px 16px rgba(0,0,0,0.1), -8px -8px 16px rgba(255,255,255,0.8)",
+				"inner": "inset 4px 4px 8px rgba(0,0,0,0.1), inset -4px -4px 8px rgba(255,255,255,0.8)",
+				"pressed": "inset 2px 2px 4px rgba(0,0,0,0.2), inset -2px -2px 4px rgba(255,255,255,0.9)"
+			},
+			"highlights": {
+				"top": "rgba(255,255,255,0.9)",
+				"bottom": "rgba(0,0,0,0.1)"
+			}
+		},
+		"softColors": {
+			"backgrounds": ["#f0f0f3", "#e6e6ea", "#f5f5f7", "#ebebef"],
+			"raised": ["#f8f8fb", "#f2f2f5", "#fafafa"],
+			"pressed": ["#e8e8eb", "#dedee2", "#e0e0e4"]
+		},
+		"animations": {
+			"soft-press": "soft-press 0.15s ease-out",
+			"soft-release": "soft-release 0.15s ease-out",
+			"gentle-hover": "gentle-hover 0.3s ease-out"
+		},
+		"layout": {
+			"borderRadius": {
+				"soft": "12px",
+				"medium": "16px",
+				"large": "24px"
+			},
+			"spacing": {
+				"tight": "8px",
+				"normal": "16px",
+				"loose": "24px"
+			}
+		}
+	},
+	"notes": "Best on light backgrounds. Ensure sufficient contrast for accessibility."
 }

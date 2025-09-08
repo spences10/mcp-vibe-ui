@@ -2,7 +2,11 @@
 	"version": "1",
 	"id": "flat",
 	"name": "Flat",
-	"tags": ["minimal", "flat", "no-shadow"],
+	"tags": [
+		"minimal",
+		"flat",
+		"no-shadow"
+	],
 	"aliases": [],
 	"daisyThemeVars": {
 		"--color-base-100": "oklch(98% 0.02 240)",
@@ -35,6 +39,72 @@
 		"--noise": "0"
 	},
 	"metadata": {
-		"description": "Flat design with minimal depth and crisp color blocks."
-	}
+		"description": "Flat design with minimal depth and crisp color blocks.",
+		"builtInThemeHint": "light"
+	},
+	"extended": {
+		"typography": {
+			"heading": "strong-weight-contrast",
+			"body": "clean-modern",
+			"fontStacks": {
+				"display": "Open Sans, sans-serif",
+				"body": "Lato, sans-serif"
+			}
+		},
+		"flatDesign": {
+			"principles": {
+				"noTextures": true,
+				"noGradients": false,
+				"subtleShadows": "0 1px 3px rgba(0,0,0,0.1)",
+				"layering": "transform: translateY(-2px)"
+			},
+			"colorBlocks": {
+				"solid": "no gradients, flat fills only",
+				"hierarchy": "use color saturation and brightness"
+			}
+		},
+		"brightColors": {
+			"primary": "#3B82F6",
+			"secondary": "#EF4444",
+			"friendly": [
+				"#3B82F6",
+				"#EF4444",
+				"#10B981",
+				"#F59E0B",
+				"#8B5CF6",
+				"#06B6D4"
+			],
+			"backgrounds": [
+				"#F8FAFC",
+				"#F1F5F9",
+				"#E2E8F0"
+			]
+		},
+		"microAnimations": {
+			"colorShift": "background-color 0.15s ease",
+			"scalePress": "transform 0.1s ease",
+			"buttonHover": "background-color 0.2s ease, transform 0.1s ease"
+		},
+		"geometric": {
+			"icons": {
+				"style": "outlined, simple, geometric",
+				"strokeWidth": "1.5px",
+				"corners": "sharp or minimal radius"
+			},
+			"shapes": {
+				"rectangle": "border-radius: 0",
+				"pill": "border-radius: 50px",
+				"rounded": "border-radius: 8px"
+			}
+		},
+		"interactions": {
+			"buttons": {
+				"hover": "background-color: lighter/darker by 10%",
+				"active": "transform: scale(0.98)",
+				"focus": "outline: 2px solid accent"
+			},
+			"cards": "spacing drives structure, not decoration"
+		}
+	},
+	"notes": "Avoid heavy gradients and textures. Use bright, friendly colors. Rely on spacing and color for hierarchy."
 }

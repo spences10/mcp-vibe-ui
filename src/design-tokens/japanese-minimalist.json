@@ -2,8 +2,16 @@
 	"version": "1",
 	"id": "japanese-minimalist",
 	"name": "Japanese Minimalist",
-	"tags": ["minimal", "calm", "balanced", "light"],
-	"aliases": ["japanese", "zen"],
+	"tags": [
+		"minimal",
+		"calm",
+		"balanced",
+		"light"
+	],
+	"aliases": [
+		"japanese",
+		"zen"
+	],
 	"daisyThemeVars": {
 		"--color-base-100": "oklch(99% 0.01 240)",
 		"--color-base-200": "oklch(96% 0.01 240)",
@@ -35,6 +43,72 @@
 		"--noise": "0"
 	},
 	"metadata": {
-		"description": "Calm, minimal aesthetic with gentle accents."
-	}
+		"description": "Calm, minimal aesthetic with gentle accents.",
+		"builtInThemeHint": "lofi"
+	},
+	"extended": {
+		"typography": {
+			"heading": "light-elegant",
+			"body": "widely-spaced",
+			"fontStacks": {
+				"display": "Noto Sans JP, sans-serif",
+				"body": "Source Serif Pro, serif",
+				"refined": "Hiragino Sans, Yu Gothic, sans-serif"
+			}
+		},
+		"zen": {
+			"spacing": {
+				"generous": "2rem",
+				"breath": "3rem",
+				"meditation": "4rem"
+			},
+			"balance": {
+				"golden": "1.618",
+				"asymmetric": "purposeful imbalance for visual interest"
+			}
+		},
+		"naturalTones": {
+			"offWhite": "#FEFEFE",
+			"beige": "#F5F5DC",
+			"lightBrown": "#D2B48C",
+			"softGrey": "#F8F8FF",
+			"subtleGreen": "#F0FFF0",
+			"palette": [
+				"#FEFEFE",
+				"#F5F5DC",
+				"#D2B48C",
+				"#F8F8FF",
+				"#F0FFF0",
+				"#E6E6FA"
+			],
+			"earth": [
+				"#DEB887",
+				"#D2B48C",
+				"#BC9A6A",
+				"#A0956B"
+			]
+		},
+		"minimalism": {
+			"negativeSpace": "embrace emptiness as design element",
+			"subtlety": "avoid sharp contrasts",
+			"harmony": "colors blend seamlessly"
+		},
+		"interactions": {
+			"gentle": {
+				"hover": "opacity: 0.8",
+				"focus": "outline: 1px solid rgba(0,0,0,0.1)",
+				"active": "transform: translateY(1px)"
+			},
+			"buttons": {
+				"minimal": "border: 1px solid; background: transparent",
+				"underlined": "border-bottom: 1px solid"
+			}
+		},
+		"animations": {
+			"gentle-fade": "opacity 0.4s ease",
+			"natural-flow": "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+			"zen-breathe": "transform 4s ease-in-out infinite"
+		}
+	},
+	"notes": "Embrace negative space. Use natural tones. Avoid sharp contrasts. Focus on balance and harmony."
 }

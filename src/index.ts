@@ -38,7 +38,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 	return {
 		tools: [
 			{
-				name: 'tokens.list-designs',
+				name: 'tokens_list-designs',
 				description:
 					'Lists available design themes with their IDs, names, and tags',
 				inputSchema: {
@@ -48,7 +48,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 				},
 			},
 			{
-				name: 'tokens.by-name',
+				name: 'tokens_by-name',
 				description:
 					'Returns DaisyUI v5 tokens for a specific design by name',
 				inputSchema: {
@@ -64,7 +64,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 				},
 			},
 			{
-				name: 'tokens.by-intent',
+				name: 'tokens_by-intent',
 				description:
 					'Suggests and returns tokens for a design based on intent description',
 				inputSchema: {
@@ -81,7 +81,7 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 				},
 			},
 			{
-				name: 'tokens.help',
+				name: 'tokens_help',
 				description:
 					'Returns usage guide and examples for the token tools',
 				inputSchema: {
@@ -100,7 +100,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
 	try {
 		switch (name) {
-			case 'tokens.list-designs': {
+			case 'tokens_list-designs': {
 				const designs = await list_designs();
 				return {
 					content: [
@@ -112,7 +112,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 				};
 			}
 
-			case 'tokens.by-name': {
+			case 'tokens_by-name': {
 				const name_arg = args?.name;
 				if (!name_arg || typeof name_arg !== 'string') {
 					return {
@@ -177,7 +177,7 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 				};
 			}
 
-			case 'tokens.by-intent': {
+			case 'tokens_by-intent': {
 				const intent_arg = args?.intent;
 				if (!intent_arg || typeof intent_arg !== 'string') {
 					return {
@@ -243,22 +243,22 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 				};
 			}
 
-			case 'tokens.help': {
+			case 'tokens_help': {
 				const help = {
 					description: 'MCP Vibe UI - Design Token Server',
 					tools: {
-						'tokens.list-designs': {
+						'tokens_list-designs': {
 							description: 'Lists all available design themes',
 							input: {},
 							output: '{ designs: Array<{id, name, tags}> }',
 						},
-						'tokens.by-name': {
+						'tokens_by-name': {
 							description: 'Get design tokens by name/ID',
 							input: { name: 'string' },
 							output: '{ daisyThemeVars, css, design }',
 							example: { name: 'cyberpunk' },
 						},
-						'tokens.by-intent': {
+						'tokens_by-intent': {
 							description: 'Find design by intent description',
 							input: { intent: 'string' },
 							output: '{ daisyThemeVars, css, design, matchedBy }',

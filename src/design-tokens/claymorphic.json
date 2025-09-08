@@ -2,8 +2,15 @@
 	"version": "1",
 	"id": "claymorphic",
 	"name": "Claymorphic",
-	"tags": ["soft", "pastel", "rounded", "depth"],
-	"aliases": ["clay"],
+	"tags": [
+		"soft",
+		"pastel",
+		"rounded",
+		"depth"
+	],
+	"aliases": [
+		"clay"
+	],
 	"daisyThemeVars": {
 		"--color-base-100": "oklch(98% 0.02 210)",
 		"--color-base-200": "oklch(95% 0.03 210)",
@@ -35,6 +42,70 @@
 		"--noise": "0"
 	},
 	"metadata": {
-		"description": "Soft, rounded surfaces with subtle depth and pastel accents."
-	}
+		"description": "Soft, rounded surfaces with subtle depth and pastel accents.",
+		"builtInThemeHint": "pastel"
+	},
+	"extended": {
+		"typography": {
+			"heading": "rounded-friendly",
+			"body": "light-regular",
+			"fontStacks": {
+				"display": "Poppins, sans-serif",
+				"body": "Quicksand, sans-serif"
+			}
+		},
+		"effects": {
+			"clay3D": {
+				"extrude": "0 4px 8px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)",
+				"compress": "inset 0 2px 4px rgba(0,0,0,0.1)",
+				"soft": "0 6px 20px rgba(0,0,0,0.08)"
+			},
+			"tactile": {
+				"press": "transform: translateY(2px) scale(0.98)",
+				"lift": "transform: translateY(-2px) scale(1.02)"
+			}
+		},
+		"pastelColors": {
+			"lavender": "#E6E6FA",
+			"mintGreen": "#98FB98",
+			"lightOrange": "#FFE4B5",
+			"babyBlue": "#87CEFA",
+			"palette": [
+				"#E6E6FA",
+				"#98FB98",
+				"#FFE4B5",
+				"#87CEFA",
+				"#F0E68C",
+				"#FFB6C1"
+			],
+			"gradients": [
+				"linear-gradient(135deg, #E6E6FA, #98FB98, #FFE4B5)",
+				"radial-gradient(circle, #87CEFA, #E6E6FA, #98FB98)"
+			]
+		},
+		"animations": {
+			"puffy-hover": "puffy-hover 0.3s ease-out",
+			"clay-press": "clay-press 0.15s ease-out",
+			"gentle-bob": "gentle-bob 2s ease-in-out infinite"
+		},
+		"layout": {
+			"roundness": {
+				"small": "18px",
+				"medium": "22px",
+				"large": "28px",
+				"pill": "50px"
+			},
+			"depth": {
+				"shallow": "2px",
+				"medium": "4px",
+				"deep": "8px"
+			},
+			"tactileFeedback": {
+				"hover": "transform: translateY(-1px)",
+				"active": "transform: translateY(1px) scale(0.99)",
+				"focus": "box-shadow: 0 0 0 3px rgba(230, 230, 250, 0.5)"
+			}
+		}
+	},
+	"notes": "Use 18-22px border radius. Apply gentle 3D effects sparingly. Ensure pastel colors remain accessible."
 }

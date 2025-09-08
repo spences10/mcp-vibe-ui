@@ -2,8 +2,14 @@
 	"version": "1",
 	"id": "wireframe",
 	"name": "Wireframe",
-	"tags": ["skeletal", "blueprint", "low-depth"],
-	"aliases": ["blueprint"],
+	"tags": [
+		"skeletal",
+		"blueprint",
+		"low-depth"
+	],
+	"aliases": [
+		"blueprint"
+	],
 	"daisyThemeVars": {
 		"--color-base-100": "oklch(99% 0.01 240)",
 		"--color-base-200": "oklch(96% 0.01 240)",
@@ -35,6 +41,90 @@
 		"--noise": "0"
 	},
 	"metadata": {
-		"description": "Blueprint-like, low depth styling for prototyping."
-	}
+		"description": "Blueprint-like, low depth styling for prototyping.",
+		"builtInThemeHint": "wireframe"
+	},
+	"extended": {
+		"typography": {
+			"heading": "monospaced-geometric",
+			"body": "uniform-spacing",
+			"fontStacks": {
+				"display": "Fira Code, monospace",
+				"body": "IBM Plex Mono, monospace",
+				"labels": "SF Mono, 'Consolas', monospace"
+			}
+		},
+		"blueprint": {
+			"lines": {
+				"thin": "1px",
+				"medium": "2px",
+				"construction": "1px dashed",
+				"dimension": "1px solid #999"
+			},
+			"patterns": {
+				"grid": "background-image: linear-gradient(#ccc 1px, transparent 1px), linear-gradient(90deg, #ccc 1px, transparent 1px)",
+				"dots": "radial-gradient(circle, #999 1px, transparent 1px)",
+				"hash": "repeating-linear-gradient(45deg, transparent, transparent 10px, #eee 10px, #eee 11px)"
+			}
+		},
+		"skeletalColors": {
+			"outlines": [
+				"#333333",
+				"#666666",
+				"#999999",
+				"#CCCCCC"
+			],
+			"backgrounds": [
+				"transparent",
+				"rgba(0,0,0,0.02)",
+				"rgba(0,0,0,0.05)"
+			],
+			"annotations": [
+				"#0066CC",
+				"#CC6600",
+				"#009966"
+			]
+		},
+		"prototyping": {
+			"placeholders": {
+				"image": "background: repeating-conic-gradient(#ccc 0% 25%, transparent 0% 50%)",
+				"text": "background: linear-gradient(90deg, #eee 25%, transparent 50%)",
+				"video": "background: cross-hatch pattern"
+			},
+			"annotations": {
+				"labels": "font-size: 0.75rem; color: #666",
+				"dimensions": "border: 1px dashed #999; position: relative",
+				"notes": "background: rgba(255,255,0,0.1); border: 1px solid #ccc"
+			}
+		},
+		"interactions": {
+			"minimal": {
+				"hover": "border-color: #333",
+				"focus": "outline: 2px dashed #666",
+				"active": "background: rgba(0,0,0,0.05)"
+			},
+			"skeletal": {
+				"buttons": "border: 1px solid; background: transparent",
+				"inputs": "border: 1px solid #ccc; background: transparent",
+				"cards": "border: 1px solid #eee"
+			}
+		},
+		"animations": {
+			"blueprint-draw": "stroke-dasharray 1s ease-in-out",
+			"fade-in": "opacity 0.4s ease",
+			"outline-pulse": "outline-width 0.3s ease"
+		},
+		"layout": {
+			"structural": {
+				"transparent": "background: transparent",
+				"skeletal": "outline only, no fills",
+				"spacing": "clear visual separation"
+			},
+			"grid": {
+				"visible": "show underlying grid structure",
+				"modular": "consistent spacing units"
+			}
+		}
+	},
+	"notes": "Keep elements transparent and skeletal. Use outlines, not fills. Show structure, not style."
 }

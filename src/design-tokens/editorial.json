@@ -2,8 +2,15 @@
 	"version": "1",
 	"id": "editorial",
 	"name": "Editorial",
-	"tags": ["clean", "classic", "serif-friendly", "print"],
-	"aliases": ["magazine"],
+	"tags": [
+		"clean",
+		"classic",
+		"serif-friendly",
+		"print"
+	],
+	"aliases": [
+		"magazine"
+	],
 	"daisyThemeVars": {
 		"--color-base-100": "oklch(99% 0.01 240)",
 		"--color-base-200": "oklch(96% 0.02 240)",
@@ -35,6 +42,73 @@
 		"--noise": "0"
 	},
 	"metadata": {
-		"description": "Clean, content-first look inspired by editorial layouts."
-	}
+		"description": "Clean, content-first look inspired by editorial layouts.",
+		"builtInThemeHint": "corporate"
+	},
+	"extended": {
+		"typography": {
+			"heading": "large-commanding",
+			"body": "small-supporting",
+			"fontStacks": {
+				"display": "Playfair Display, Georgia, serif",
+				"body": "Source Sans Pro, Helvetica, sans-serif",
+				"mono": "IBM Plex Mono, monospace"
+			}
+		},
+		"editorial": {
+			"hierarchy": {
+				"headline": "3rem",
+				"subheadline": "1.5rem",
+				"body": "1rem",
+				"caption": "0.875rem",
+				"byline": "0.75rem"
+			},
+			"spacing": {
+				"columnGap": "2rem",
+				"paragraphSpacing": "1.5rem",
+				"sectionSpacing": "3rem"
+			}
+		},
+		"printColors": {
+			"black": "#000000",
+			"cream": "#F5F5DC",
+			"newsprint": "#F8F8FF",
+			"ink": "#2F2F2F",
+			"accents": [
+				"#8B0000",
+				"#000080",
+				"#006400",
+				"#8B008B"
+			],
+			"muted": [
+				"#696969",
+				"#708090",
+				"#A9A9A9",
+				"#D3D3D3"
+			]
+		},
+		"layouts": {
+			"asymmetric": {
+				"twoThirds": "2fr 1fr",
+				"golden": "1.618fr 1fr",
+				"magazine": "1fr 2fr 1fr"
+			},
+			"editorial": {
+				"column": "max-width: 65ch",
+				"pullQuote": "font-size: 1.25rem; border-left: 4px solid",
+				"dropcap": "font-size: 3.5rem; float: left; line-height: 1"
+			}
+		},
+		"animations": {
+			"page-turn": "page-turn 0.6s ease-out",
+			"text-reveal": "text-reveal 0.8s ease-out",
+			"underline-grow": "underline-grow 0.3s ease-out"
+		},
+		"interactions": {
+			"textLink": "text-decoration: underline; text-decoration-thickness: 1px",
+			"emphasis": "font-weight: 600; color: var(--color-accent)",
+			"minimal": "border: 1px solid; background: transparent"
+		}
+	},
+	"notes": "Focus on typography and hierarchy. Use asymmetric grids. Keep interactions minimal and text-focused."
 }

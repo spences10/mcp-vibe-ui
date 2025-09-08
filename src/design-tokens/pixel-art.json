@@ -2,8 +2,15 @@
 	"version": "1",
 	"id": "pixel-art",
 	"name": "Pixel Art",
-	"tags": ["retro", "blocky", "low-radius", "high-contrast"],
-	"aliases": ["pixel"],
+	"tags": [
+		"retro",
+		"blocky",
+		"low-radius",
+		"high-contrast"
+	],
+	"aliases": [
+		"pixel"
+	],
 	"daisyThemeVars": {
 		"--color-base-100": "oklch(98% 0.02 250)",
 		"--color-base-200": "oklch(94% 0.02 250)",
@@ -35,6 +42,84 @@
 		"--noise": "0"
 	},
 	"metadata": {
-		"description": "Blocky, retro palette with crisp corners and bold colors."
-	}
+		"description": "Blocky, retro palette with crisp corners and bold colors.",
+		"builtInThemeHint": "retro"
+	},
+	"extended": {
+		"typography": {
+			"heading": "bitmap-chunky",
+			"body": "pixel-perfect",
+			"fontStacks": {
+				"display": "PressStart2P, 'Courier New', monospace",
+				"body": "PixelOperator, 'MS Gothic', monospace",
+				"bitmap": "Silkscreen, 'Terminal', monospace"
+			}
+		},
+		"pixelArt": {
+			"alignment": {
+				"pixelPerfect": "align to pixel grid",
+				"noAntialiasing": "image-rendering: pixelated",
+				"sharpEdges": "never blur or smooth"
+			},
+			"chunkyBorders": {
+				"thin": "2px",
+				"medium": "3px",
+				"thick": "4px",
+				"mega": "6px"
+			}
+		},
+		"retroColors": {
+			"palette": [
+				"#FF6B35",
+				"#F9CA24",
+				"#6C5CE7",
+				"#A29BFE",
+				"#FD79A8",
+				"#FDCB6E",
+				"#00B894",
+				"#E84393"
+			],
+			"gameboy": [
+				"#0F380F",
+				"#306230",
+				"#8BAC0F",
+				"#9BBD0F"
+			],
+			"nes": [
+				"#7C7C7C",
+				"#0000FC",
+				"#0000BC",
+				"#4428BC",
+				"#940084",
+				"#A80020",
+				"#A81000",
+				"#881400"
+			]
+		},
+		"gameUI": {
+			"hud": {
+				"healthBar": "chunky rectangular bars",
+				"buttons": "thick borders, flat fills",
+				"panels": "pixel-aligned rectangles"
+			},
+			"interactions": {
+				"hover": "hard color swap, no gradients",
+				"active": "immediate visual feedback",
+				"focus": "thick pixelated outline"
+			}
+		},
+		"animations": {
+			"pixel-bounce": "steps(4, end) 0.6s",
+			"8bit-flash": "steps(2, end) 0.3s infinite",
+			"retro-scale": "steps(3, end) 0.2s"
+		},
+		"effects": {
+			"pixelatedGlow": {
+				"soft": "box-shadow: 0 0 8px currentColor",
+				"bright": "text-shadow: 2px 2px 0 currentColor"
+			},
+			"scanlines": "repeating-linear-gradient(0deg, transparent 0px, rgba(0,0,0,0.1) 1px, rgba(0,0,0,0.1) 2px, transparent 3px)"
+		}
+	},
+	"notes": "Maintain pixel-perfect alignment. Use bitmap fonts. Avoid anti-aliasing and smooth gradients."
 }

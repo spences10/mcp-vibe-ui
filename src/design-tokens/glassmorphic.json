@@ -35,6 +35,62 @@
 		"--noise": "0"
 	},
 	"metadata": {
-		"description": "Frosted glass aesthetic with airy color accents."
-	}
+		"description": "Frosted glass aesthetic with airy color accents.",
+		"builtInThemeHint": "winter"
+	},
+	"extended": {
+		"typography": {
+			"heading": "light-expanded",
+			"body": "normal",
+			"fontStacks": {
+				"display": "Inter, sans-serif",
+				"body": "System UI, sans-serif"
+			}
+		},
+		"effects": {
+			"blur": {
+				"light": "blur(8px)",
+				"medium": "blur(16px)",
+				"heavy": "blur(24px)"
+			},
+			"backdrop": {
+				"glass": "blur(16px) saturate(180%)",
+				"frost": "blur(20px) brightness(1.1)"
+			}
+		},
+		"glassColors": {
+			"backgrounds": [
+				"rgba(255,255,255,0.1)",
+				"rgba(255,255,255,0.15)",
+				"rgba(255,255,255,0.08)",
+				"rgba(240,248,255,0.12)"
+			],
+			"overlays": [
+				"rgba(255,255,255,0.25)",
+				"rgba(240,248,255,0.2)",
+				"rgba(248,250,252,0.3)"
+			],
+			"gradients": [
+				"linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))",
+				"linear-gradient(45deg, rgba(240,248,255,0.15), rgba(255,255,255,0.1))"
+			]
+		},
+		"animations": {
+			"float": "float 6s ease-in-out infinite",
+			"shimmer": "shimmer 3s ease-in-out infinite",
+			"glass-morph": "glass-morph 0.3s ease-out"
+		},
+		"layout": {
+			"borders": {
+				"glass": "1px solid rgba(255,255,255,0.2)",
+				"frosted": "1px solid rgba(255,255,255,0.1)"
+			},
+			"shadows": {
+				"soft": "0 8px 32px rgba(31,38,135,0.15)",
+				"lifted": "0 15px 35px rgba(31,38,135,0.2)",
+				"floating": "0 25px 45px rgba(31,38,135,0.25)"
+			}
+		}
+	},
+	"notes": "Ensure backdrop-filter support. Use glass effects with appropriate opacity for readability."
 }

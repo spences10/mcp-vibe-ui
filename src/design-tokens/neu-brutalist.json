@@ -2,16 +2,8 @@
 	"version": "1",
 	"id": "neu-brutalist",
 	"name": "Neu-Brutalist",
-	"tags": [
-		"bold",
-		"high-contrast",
-		"flat",
-		"blocky"
-	],
-	"aliases": [
-		"neubrutalism",
-		"brutalist"
-	],
+	"tags": ["bold", "high-contrast", "flat", "blocky"],
+	"aliases": ["neubrutalism", "brutalist"],
 	"daisyThemeVars": {
 		"--color-base-100": "oklch(97% 0.02 250)",
 		"--color-base-200": "oklch(93% 0.03 250)",
@@ -49,10 +41,75 @@
 	"extended": {
 		"typography": {
 			"heading": "bold-tight",
-			"body": "normal"
+			"body": "normal",
+			"fontStacks": {
+				"display": "Arial Black, sans-serif",
+				"body": "Space Grotesk, monospace"
+			}
 		},
 		"spacing": {
 			"density": "standard"
+		},
+		"chaos": {
+			"rotations": [
+				"rotate(1deg)",
+				"rotate(-1deg)",
+				"rotate(2deg)",
+				"rotate(-0.5deg)"
+			],
+			"skews": ["skew(-2deg)", "skew(2deg)", "skew(-1deg)"],
+			"shadows": [
+				"8px 8px 0 0 #000",
+				"12px 12px 0 0 #000",
+				"4px 4px 0 0 #000",
+				"16px 16px 0 0 #333"
+			],
+			"transforms": {
+				"hover": "hover:-translate-x-1 hover:-translate-y-1",
+				"active": "active:translate-x-1 active:translate-y-1",
+				"focus": "focus:scale-105"
+			}
+		},
+		"loudColors": {
+			"backgrounds": [
+				"#84cc16",
+				"#ec4899",
+				"#fb923c",
+				"#06b6d4",
+				"#f59e0b"
+			],
+			"accents": [
+				"#ff6b6b",
+				"#4ecdc4",
+				"#45b7d1",
+				"#96ceb4",
+				"#ffd93d",
+				"#ff9ff3"
+			],
+			"gradients": [
+				"linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4, #ffd93d, #ff9ff3)",
+				"linear-gradient(135deg, #84cc16 0%, #ec4899 50%, #fb923c 100%)"
+			]
+		},
+		"animations": {
+			"glitch": "glitch 1s infinite",
+			"brutal-bounce": "brutal-bounce 0.3s ease-out",
+			"asymmetric-hover": "asymmetric-hover 0.2s ease-out"
+		},
+		"layout": {
+			"containerRotations": [
+				"rotate(1deg)",
+				"rotate(-1deg)",
+				"rotate(0.5deg)"
+			],
+			"clipPaths": [
+				"polygon(0 0, 95% 5%, 100% 100%, 5% 95%)",
+				"polygon(5% 0, 100% 0, 95% 100%, 0 100%)"
+			],
+			"asymmetricSpacing": {
+				"paddingVariants": ["p-4 pl-8", "p-6 pr-12", "p-5 pb-10"],
+				"marginVariants": ["m-4 ml-8", "m-3 mr-6", "m-5 mb-8"]
+			}
 		}
 	},
 	"notes": "Tune warning/primary hues per content palette."
