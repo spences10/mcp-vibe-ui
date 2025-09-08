@@ -50,9 +50,96 @@
 			"heading": "large-commanding",
 			"body": "small-supporting",
 			"fontStacks": {
-				"display": "Playfair Display, Georgia, serif",
-				"body": "Source Sans Pro, Helvetica, sans-serif",
-				"mono": "IBM Plex Mono, monospace"
+				"display": {
+					"fontsource": {
+						"package": "@fontsource/playfair-display",
+						"family": "Playfair Display",
+						"weights": [
+							400,
+							500,
+							600,
+							700,
+							800,
+							900
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"Georgia",
+						"Times New Roman",
+						"Times",
+						"serif"
+					],
+					"css": "'Playfair Display', Georgia, 'Times New Roman', Times, serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": true,
+						"priority": "high"
+					}
+				},
+				"body": {
+					"fontsource": {
+						"package": "@fontsource/source-sans-pro",
+						"family": "Source Sans Pro",
+						"weights": [
+							300,
+							400,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"Helvetica Neue",
+						"Helvetica",
+						"Arial",
+						"sans-serif"
+					],
+					"css": "'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "medium"
+					}
+				},
+				"mono": {
+					"fontsource": {
+						"package": "@fontsource/ibm-plex-mono",
+						"family": "IBM Plex Mono",
+						"weights": [
+							300,
+							400,
+							500,
+							600,
+							700
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": false
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'IBM Plex Mono', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "low"
+					}
+				}
 			}
 		},
 		"editorial": {

@@ -49,9 +49,102 @@
 			"heading": "size-weight-hierarchy",
 			"body": "spacing-based-structure",
 			"fontStacks": {
-				"display": "Helvetica Neue, sans-serif",
-				"body": "Inter, sans-serif",
-				"precise": "SF Mono, 'Monaco', monospace"
+				"display": {
+					"fontsource": {
+						"package": "@fontsource/inter",
+						"family": "Inter",
+						"weights": [
+							100,
+							200,
+							300,
+							400,
+							500,
+							600,
+							700,
+							800,
+							900
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"Helvetica Neue",
+						"Helvetica",
+						"Arial",
+						"sans-serif"
+					],
+					"css": "Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": true,
+						"priority": "high"
+					}
+				},
+				"body": {
+					"fontsource": {
+						"package": "@fontsource/inter",
+						"family": "Inter",
+						"weights": [
+							300,
+							400,
+							500,
+							600
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"Helvetica Neue",
+						"Helvetica",
+						"Arial",
+						"sans-serif"
+					],
+					"css": "Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "medium"
+					}
+				},
+				"precise": {
+					"fontsource": {
+						"package": "@fontsource/jetbrains-mono",
+						"family": "JetBrains Mono",
+						"weights": [
+							100,
+							200,
+							300,
+							400,
+							500,
+							600,
+							700,
+							800
+						],
+						"styles": [
+							"normal",
+							"italic"
+						],
+						"variable": true
+					},
+					"fallbacks": [
+						"SF Mono",
+						"Monaco",
+						"Consolas",
+						"monospace"
+					],
+					"css": "'JetBrains Mono', 'SF Mono', Monaco, Consolas, monospace",
+					"performance": {
+						"fontDisplay": "swap",
+						"preload": false,
+						"priority": "low"
+					}
+				}
 			}
 		},
 		"gridSystem": {
