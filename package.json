@@ -16,8 +16,8 @@
 		"format": "prettier --write .",
 		"format:check": "prettier --check .",
 		"changeset": "changeset",
-		"version-packages": "changeset version",
-		"release": "changeset publish"
+		"version": "changeset version",
+		"release": "pnpm run build && changeset publish"
 	},
 	"dependencies": {
 		"@modelcontextprotocol/sdk": "^1.17.5"
