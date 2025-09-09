@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 import { ValibotJsonSchemaAdapter } from '@tmcp/adapter-valibot';
 import { StdioTransport } from '@tmcp/transport-stdio';
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { McpServer } from 'tmcp';
 import * as v from 'valibot';
 import {
@@ -9,6 +12,14 @@ import {
 	list_designs,
 } from './lib/token_store.js';
 
+// Get version from package.json
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+const package_json = JSON.parse(
+	readFileSync(join(__dirname, '../package.json'), 'utf-8'),
+);
+const { version } = package_json;
+
 // Create valibot adapter
 const adapter = new ValibotJsonSchemaAdapter();
 
@@ -16,7 +27,7 @@ const adapter = new ValibotJsonSchemaAdapter();
 const server = new McpServer(
 	{
 		name: 'mcp-vibe-ui',
-		version: '0.0.3',
+		version,
 		description: 'Design token server providing DaisyUI v5 themes',
 	},
 	{
