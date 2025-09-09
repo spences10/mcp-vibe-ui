@@ -1,26 +1,28 @@
 #!/usr/bin/env node
-import { Server } from '@modelcontextprotocol/sdk/server/index.js';
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import {
-	CallToolRequestSchema,
-	ListToolsRequestSchema,
-} from '@modelcontextprotocol/sdk/types.js';
+import { ValibotJsonSchemaAdapter } from '@tmcp/adapter-valibot';
+import { StdioTransport } from '@tmcp/transport-stdio';
+import { McpServer } from 'tmcp';
+import * as v from 'valibot';
 import {
 	get_design_by_intent,
 	get_design_by_name,
 	list_designs,
 } from './lib/token_store.js';
 
-// Create a proper MCP server that actually works
-const server = new Server(
+// Create valibot adapter
+const adapter = new ValibotJsonSchemaAdapter();
+
+// Create tmcp server
+const server = new McpServer(
 	{
 		name: 'mcp-vibe-ui',
-		version: '0.1.0',
+		version: '0.0.3',
+		description: 'Design token server providing DaisyUI v5 themes',
 	},
 	{
+		adapter,
 		capabilities: {
-			tools: {},
-			resources: {},
+			tools: { listChanged: true },
 		},
 	},
 );
@@ -34,301 +36,195 @@ function build_theme_css(
 	return `/* DaisyUI v5 theme variables for ${id} */\n[data-theme="${id}"] {\n${lines.join('\n')}\n}`;
 }
 
-// List available tools
-server.setRequestHandler(ListToolsRequestSchema, async () => {
-	return {
-		tools: [
-			{
-				name: 'tokens_list-designs',
-				description:
-					'Lists available design themes with their IDs, names, and tags',
-				inputSchema: {
-					type: 'object',
-					properties: {},
-					additionalProperties: false,
-				},
-			},
-			{
-				name: 'tokens_by-name',
-				description:
-					'Returns DaisyUI v5 tokens for a specific design by name',
-				inputSchema: {
-					type: 'object',
-					properties: {
-						name: {
-							type: 'string',
-							description: 'The name or ID of the design theme',
-						},
-					},
-					required: ['name'],
-					additionalProperties: false,
-				},
-			},
-			{
-				name: 'tokens_by-intent',
-				description:
-					'Suggests and returns tokens for a design based on intent description',
-				inputSchema: {
-					type: 'object',
-					properties: {
-						intent: {
-							type: 'string',
-							description:
-								'Description of the desired design style (e.g., "dark futuristic neon")',
-						},
-					},
-					required: ['intent'],
-					additionalProperties: false,
-				},
-			},
-			{
-				name: 'tokens_help',
-				description:
-					'Returns usage guide and examples for the token tools',
-				inputSchema: {
-					type: 'object',
-					properties: {},
-					additionalProperties: false,
-				},
-			},
-		],
-	};
-});
-
-// Handle tool calls
-server.setRequestHandler(CallToolRequestSchema, async (request) => {
-	const { name, arguments: args } = request.params;
-
-	try {
-		switch (name) {
-			case 'tokens_list-designs': {
-				const designs = await list_designs();
-				return {
-					content: [
-						{
-							type: 'text',
-							text: JSON.stringify({ designs }, null, 2),
-						},
-					],
-				};
-			}
-
-			case 'tokens_by-name': {
-				const name_arg = args?.name;
-				if (!name_arg || typeof name_arg !== 'string') {
-					return {
-						content: [
-							{
-								type: 'text',
-								text: JSON.stringify(
-									{
-										error: 'invalid_arguments',
-										message:
-											'Missing required parameter: name (string)',
-										example: { name: 'cyberpunk' },
-									},
-									null,
-									2,
-								),
-							},
-						],
-						isError: true,
-					};
-				}
-
-				const design = await get_design_by_name(name_arg);
-				if (!design) {
-					return {
-						content: [
-							{
-								type: 'text',
-								text: JSON.stringify(
-									{
-										error: 'not_found',
-										message: `Design "${name_arg}" not found`,
-										name: name_arg,
-									},
-									null,
-									2,
-								),
-							},
-						],
-						isError: true,
-					};
-				}
-
-				const { daisyThemeVars, ...rest } = design;
-				const css = build_theme_css(rest.id, daisyThemeVars);
-
-				return {
-					content: [
-						{
-							type: 'text',
-							text: JSON.stringify(
-								{
-									daisyThemeVars,
-									design: rest,
-									css,
-								},
-								null,
-								2,
-							),
-						},
-					],
-				};
-			}
-
-			case 'tokens_by-intent': {
-				const intent_arg = args?.intent;
-				if (!intent_arg || typeof intent_arg !== 'string') {
-					return {
-						content: [
-							{
-								type: 'text',
-								text: JSON.stringify(
-									{
-										error: 'invalid_arguments',
-										message:
-											'Missing required parameter: intent (string)',
-										example: { intent: 'dark futuristic neon' },
-									},
-									null,
-									2,
-								),
-							},
-						],
-						isError: true,
-					};
-				}
-
-				const design = await get_design_by_intent(intent_arg);
-				if (!design) {
-					return {
-						content: [
-							{
-								type: 'text',
-								text: JSON.stringify(
-									{
-										error: 'no_match',
-										message: `No design found matching intent: "${intent_arg}"`,
-										intent: intent_arg,
-									},
-									null,
-									2,
-								),
-							},
-						],
-						isError: true,
-					};
-				}
-
-				const { daisyThemeVars, ...rest } = design;
-				const css = build_theme_css(rest.id, daisyThemeVars);
-
-				return {
-					content: [
-						{
-							type: 'text',
-							text: JSON.stringify(
-								{
-									daisyThemeVars,
-									design: rest,
-									css,
-									matchedBy: 'intent',
-								},
-								null,
-								2,
-							),
-						},
-					],
-				};
-			}
-
-			case 'tokens_help': {
-				const help = {
-					description: 'MCP Vibe UI - Design Token Server',
-					tools: {
-						'tokens_list-designs': {
-							description: 'Lists all available design themes',
-							input: {},
-							output: '{ designs: Array<{id, name, tags}> }',
-						},
-						'tokens_by-name': {
-							description: 'Get design tokens by name/ID',
-							input: { name: 'string' },
-							output: '{ daisyThemeVars, css, design }',
-							example: { name: 'cyberpunk' },
-						},
-						'tokens_by-intent': {
-							description: 'Find design by intent description',
-							input: { intent: 'string' },
-							output: '{ daisyThemeVars, css, design, matchedBy }',
-							example: { intent: 'dark futuristic neon' },
-						},
-					},
-					responseFields: {
-						daisyThemeVars:
-							'Record of DaisyUI v5 CSS variables and values',
-						css: 'Ready-to-paste CSS theme block',
-						design: 'Design metadata (id, name, tags, etc.)',
-					},
-				};
-
-				return {
-					content: [
-						{
-							type: 'text',
-							text: JSON.stringify(help, null, 2),
-						},
-					],
-				};
-			}
-
-			default:
-				return {
-					content: [
-						{
-							type: 'text',
-							text: JSON.stringify(
-								{
-									error: 'unknown_tool',
-									message: `Unknown tool: ${name}`,
-								},
-								null,
-								2,
-							),
-						},
-					],
-					isError: true,
-				};
-		}
-	} catch (error) {
+// Tool: List available designs
+server.tool(
+	{
+		name: 'tokens_list-designs',
+		description:
+			'Lists available design themes with their IDs, names, and tags',
+	},
+	async () => {
+		const designs = await list_designs();
 		return {
 			content: [
 				{
-					type: 'text',
+					type: 'text' as const,
+					text: JSON.stringify({ designs }, null, 2),
+				},
+			],
+		};
+	},
+);
+
+// Tool: Get tokens by name
+server.tool(
+	{
+		name: 'tokens_by-name',
+		description:
+			'Returns DaisyUI v5 tokens for a specific design by name',
+		schema: v.object({
+			name: v.pipe(
+				v.string(),
+				v.description('The name or ID of the design theme'),
+			),
+		}),
+	},
+	async ({ name }) => {
+		const design = await get_design_by_name(name);
+		if (!design) {
+			return {
+				content: [
+					{
+						type: 'text' as const,
+						text: JSON.stringify(
+							{
+								error: 'not_found',
+								message: `Design "${name}" not found`,
+								name,
+							},
+							null,
+							2,
+						),
+					},
+				],
+				isError: true,
+			};
+		}
+
+		const { daisyThemeVars, ...rest } = design;
+		const css = build_theme_css(rest.id, daisyThemeVars);
+
+		return {
+			content: [
+				{
+					type: 'text' as const,
 					text: JSON.stringify(
 						{
-							error: 'internal_error',
-							message:
-								error instanceof Error
-									? error.message
-									: 'Unknown error',
+							daisyThemeVars,
+							design: rest,
+							css,
 						},
 						null,
 						2,
 					),
 				},
 			],
-			isError: true,
 		};
-	}
-});
+	},
+);
+
+// Tool: Get tokens by intent
+server.tool(
+	{
+		name: 'tokens_by-intent',
+		description:
+			'Suggests and returns tokens for a design based on intent description',
+		schema: v.object({
+			intent: v.pipe(
+				v.string(),
+				v.description(
+					'Description of the desired design style (e.g., "dark futuristic neon")',
+				),
+			),
+		}),
+	},
+	async ({ intent }) => {
+		const design = await get_design_by_intent(intent);
+		if (!design) {
+			return {
+				content: [
+					{
+						type: 'text' as const,
+						text: JSON.stringify(
+							{
+								error: 'no_match',
+								message: `No design found matching intent: "${intent}"`,
+								intent,
+							},
+							null,
+							2,
+						),
+					},
+				],
+				isError: true,
+			};
+		}
+
+		const { daisyThemeVars, ...rest } = design;
+		const css = build_theme_css(rest.id, daisyThemeVars);
+
+		return {
+			content: [
+				{
+					type: 'text' as const,
+					text: JSON.stringify(
+						{
+							daisyThemeVars,
+							design: rest,
+							css,
+							matchedBy: 'intent',
+						},
+						null,
+						2,
+					),
+				},
+			],
+		};
+	},
+);
+
+// Tool: Get help information
+server.tool(
+	{
+		name: 'tokens_help',
+		description:
+			'Returns usage guide and examples for the token tools',
+	},
+	async () => {
+		const help = {
+			description: 'MCP Vibe UI - Design Token Server',
+			tools: {
+				'tokens_list-designs': {
+					description: 'Lists all available design themes',
+					input: {},
+					output: '{ designs: Array<{id, name, tags}> }',
+				},
+				'tokens_by-name': {
+					description: 'Get design tokens by name/ID',
+					input: { name: 'string' },
+					output: '{ daisyThemeVars, css, design }',
+					example: { name: 'cyberpunk' },
+				},
+				'tokens_by-intent': {
+					description: 'Find design by intent description',
+					input: { intent: 'string' },
+					output: '{ daisyThemeVars, css, design, matchedBy }',
+					example: { intent: 'dark futuristic neon' },
+				},
+			},
+			responseFields: {
+				daisyThemeVars:
+					'Record of DaisyUI v5 CSS variables and values',
+				css: 'Ready-to-paste CSS theme block',
+				design: 'Design metadata (id, name, tags, etc.)',
+			},
+		};
+
+		return {
+			content: [
+				{
+					type: 'text' as const,
+					text: JSON.stringify(help, null, 2),
+				},
+			],
+		};
+	},
+);
 
 // Start the server
 async function main() {
-	const transport = new StdioServerTransport();
-	await server.connect(transport);
+	const transport = new StdioTransport(server);
+	transport.listen();
 	console.error('MCP Vibe UI server started successfully');
 }
 
