@@ -1,5 +1,12 @@
 # mcp-vibe-ui
 
+## 0.0.4
+
+### Patch Changes
+
+- 63070f4: get version from pkg.json
+- 375e029: swap @modelcontextprotocol/sdk with tmcp
+
 ## 0.0.3
 
 ### Patch Changes
