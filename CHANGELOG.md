@@ -1,5 +1,11 @@
 # mcp-vibe-ui
 
+## 0.0.5
+
+### Patch Changes
+
+- f5b8650: update descriptions
+
 ## 0.0.4
 
 ### Patch Changes
