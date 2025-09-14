@@ -52,10 +52,32 @@ server.tool(
 	{
 		name: 'tokens_list-designs',
 		description:
-			'Lists available design themes with their IDs, names, and tags',
+			'Lists available design themes with their IDs, names, and tags. Returns metadata for approximately 15 design themes including cyberpunk, neumorphic, glassmorphic, and minimalist styles. Each theme provides DaisyUI v5 compatible CSS variables for complete UI theming. Use tokens_by-name to retrieve full theme data including CSS variables and extended properties.',
+		schema: v.object({
+			format: v.optional(
+				v.union([v.literal('summary'), v.literal('detailed')]),
+				'summary',
+			),
+		}),
 	},
-	async () => {
+	async ({ format = 'summary' }) => {
 		const designs = await list_designs();
+
+		if (format === 'summary') {
+			const summary = {
+				count: designs.length,
+				themes: designs.map((d) => d.id),
+			};
+			return {
+				content: [
+					{
+						type: 'text' as const,
+						text: JSON.stringify(summary, null, 2),
+					},
+				],
+			};
+		}
+
 		return {
 			content: [
 				{
@@ -72,15 +94,19 @@ server.tool(
 	{
 		name: 'tokens_by-name',
 		description:
-			'Returns DaisyUI v5 tokens for a specific design by name',
+			'Returns DaisyUI v5 tokens for a specific design by name or ID. Searches through available themes including cyberpunk, neumorphic, glassmorphic, and minimalist styles. Returns CSS variables, ready-to-use CSS blocks, and theme metadata. Use format="summary" for just CSS variables, "detailed" for complete theme data including typography and extended properties.',
 		schema: v.object({
 			name: v.pipe(
 				v.string(),
 				v.description('The name or ID of the design theme'),
 			),
+			format: v.optional(
+				v.union([v.literal('summary'), v.literal('detailed')]),
+				'detailed',
+			),
 		}),
 	},
-	async ({ name }) => {
+	async ({ name, format = 'detailed' }) => {
 		const design = await get_design_by_name(name);
 		if (!design) {
 			return {
@@ -104,6 +130,26 @@ server.tool(
 
 		const { daisyThemeVars, ...rest } = design;
 		const css = build_theme_css(rest.id, daisyThemeVars);
+
+		if (format === 'summary') {
+			return {
+				content: [
+					{
+						type: 'text' as const,
+						text: JSON.stringify(
+							{
+								id: rest.id,
+								name: rest.name,
+								daisyThemeVars,
+								css,
+							},
+							null,
+							2,
+						),
+					},
+				],
+			};
+		}
 
 		return {
 			content: [
@@ -129,7 +175,7 @@ server.tool(
 	{
 		name: 'tokens_by-intent',
 		description:
-			'Suggests and returns tokens for a design based on intent description',
+			'Suggests and returns tokens for a design based on intent description. Uses semantic matching to find the best theme from available styles including cyberpunk, neumorphic, glassmorphic themes. Matches keywords in descriptions like "dark", "minimalist", "neon", "glass", "retro" against theme tags and metadata. Returns the closest matching design with confidence scoring.',
 		schema: v.object({
 			intent: v.pipe(
 				v.string(),
@@ -137,9 +183,13 @@ server.tool(
 					'Description of the desired design style (e.g., "dark futuristic neon")',
 				),
 			),
+			format: v.optional(
+				v.union([v.literal('summary'), v.literal('detailed')]),
+				'detailed',
+			),
 		}),
 	},
-	async ({ intent }) => {
+	async ({ intent, format = 'detailed' }) => {
 		const design = await get_design_by_intent(intent);
 		if (!design) {
 			return {
@@ -163,6 +213,27 @@ server.tool(
 
 		const { daisyThemeVars, ...rest } = design;
 		const css = build_theme_css(rest.id, daisyThemeVars);
+
+		if (format === 'summary') {
+			return {
+				content: [
+					{
+						type: 'text' as const,
+						text: JSON.stringify(
+							{
+								id: rest.id,
+								name: rest.name,
+								daisyThemeVars,
+								css,
+								matchedBy: 'intent',
+							},
+							null,
+							2,
+						),
+					},
+				],
+			};
+		}
 
 		return {
 			content: [
@@ -189,7 +260,7 @@ server.tool(
 	{
 		name: 'tokens_help',
 		description:
-			'Returns usage guide and examples for the token tools',
+			'Returns comprehensive usage guide and examples for all token tools. Provides documentation on available tools, input parameters, output formats, and practical usage examples. Includes information about the ~15 available design themes, format options (summary vs detailed), and best practices for integrating themes into applications.',
 	},
 	async () => {
 		const help = {
