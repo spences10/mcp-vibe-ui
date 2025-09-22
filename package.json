@@ -27,7 +27,7 @@
 	},
 	"dependencies": {
 		"@tmcp/adapter-valibot": "^0.1.4",
-		"@tmcp/transport-stdio": "^0.1.3",
+		"@tmcp/transport-stdio": "^0.2.0",
 		"tmcp": "^1.12.2",
 		"valibot": "^1.1.0"
 	},
