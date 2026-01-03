@@ -2,153 +2,69 @@
 	"version": "1",
 	"id": "pixel-art",
 	"name": "Pixel Art",
-	"tags": [
-		"retro",
-		"blocky",
-		"low-radius",
-		"high-contrast"
-	],
-	"aliases": [
-		"pixel"
-	],
-	"daisyThemeVars": {
-		"--color-base-100": "oklch(98% 0.02 250)",
-		"--color-base-200": "oklch(94% 0.02 250)",
-		"--color-base-300": "oklch(90% 0.02 250)",
-		"--color-base-content": "oklch(18% 0.02 250)",
-		"--color-primary": "oklch(68% 0.28 30)",
-		"--color-primary-content": "oklch(98% 0.01 30)",
-		"--color-secondary": "oklch(68% 0.28 220)",
-		"--color-secondary-content": "oklch(98% 0.01 220)",
-		"--color-accent": "oklch(72% 0.28 140)",
-		"--color-accent-content": "oklch(12% 0.02 140)",
-		"--color-neutral": "oklch(30% 0.02 250)",
-		"--color-neutral-content": "oklch(96% 0.01 250)",
-		"--color-info": "oklch(70% 0.2 230)",
-		"--color-info-content": "oklch(98% 0.01 230)",
-		"--color-success": "oklch(66% 0.22 150)",
-		"--color-success-content": "oklch(98% 0.01 150)",
-		"--color-warning": "oklch(84% 0.25 90)",
-		"--color-warning-content": "oklch(22% 0.04 90)",
-		"--color-error": "oklch(60% 0.30 25)",
-		"--color-error-content": "oklch(98% 0.01 25)",
-		"--radius-selector": "0rem",
-		"--radius-field": "0rem",
-		"--radius-box": "0rem",
-		"--size-selector": "0.25rem",
-		"--size-field": "0.25rem",
-		"--border": "2px",
-		"--depth": "0",
-		"--noise": "0"
+	"tags": ["retro", "blocky", "low-radius", "high-contrast"],
+	"aliases": ["pixel"],
+	"tailwind": {
+		"colors": {
+			"base-100": "oklch(98% 0.02 250)",
+			"base-200": "oklch(94% 0.02 250)",
+			"base-300": "oklch(90% 0.02 250)",
+			"base-content": "oklch(18% 0.02 250)",
+			"primary": "oklch(68% 0.28 30)",
+			"primary-content": "oklch(98% 0.01 30)",
+			"secondary": "oklch(68% 0.28 220)",
+			"secondary-content": "oklch(98% 0.01 220)",
+			"accent": "oklch(72% 0.28 140)",
+			"accent-content": "oklch(12% 0.02 140)",
+			"neutral": "oklch(30% 0.02 250)",
+			"neutral-content": "oklch(96% 0.01 250)",
+			"info": "oklch(70% 0.2 230)",
+			"info-content": "oklch(98% 0.01 230)",
+			"success": "oklch(66% 0.22 150)",
+			"success-content": "oklch(98% 0.01 150)",
+			"warning": "oklch(84% 0.25 90)",
+			"warning-content": "oklch(22% 0.04 90)",
+			"error": "oklch(60% 0.30 25)",
+			"error-content": "oklch(98% 0.01 25)"
+		},
+		"borderRadius": {
+			"selector": "0rem",
+			"field": "0rem",
+			"box": "0rem"
+		},
+		"fontFamily": {
+			"display": [
+				"Press Start 2P",
+				"Courier New",
+				"Monaco",
+				"monospace"
+			],
+			"body": ["VT323", "MS Gothic", "Terminal", "monospace"],
+			"mono": ["VT323", "Terminal", "Monaco", "monospace"]
+		}
 	},
+	"fonts": [
+		{
+			"package": "@fontsource/press-start-2p",
+			"weights": [400],
+			"variable": false
+		},
+		{
+			"package": "@fontsource/vt323",
+			"weights": [400],
+			"variable": false
+		},
+		{
+			"package": "@fontsource/silkscreen",
+			"weights": [400, 700],
+			"variable": false
+		}
+	],
 	"metadata": {
 		"description": "Blocky, retro palette with crisp corners and bold colors.",
 		"builtInThemeHint": "retro"
 	},
 	"extended": {
-		"typography": {
-			"heading": "bitmap-chunky",
-			"body": "pixel-perfect",
-			"fontStacks": {
-				"display": {
-					"fontsource": {
-						"package": "@fontsource/press-start-2p",
-						"family": "Press Start 2P",
-						"weights": [
-							400
-						],
-						"styles": [
-							"normal"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"Courier New",
-						"Monaco",
-						"monospace"
-					],
-					"css": "'Press Start 2P', 'Courier New', Monaco, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": true,
-						"priority": "high"
-					}
-				},
-				"body": {
-					"fontsource": {
-						"package": "@fontsource/vt323",
-						"family": "VT323",
-						"weights": [
-							400
-						],
-						"styles": [
-							"normal"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"MS Gothic",
-						"Terminal",
-						"monospace"
-					],
-					"css": "'VT323', 'MS Gothic', Terminal, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "medium"
-					}
-				},
-				"mono": {
-					"fontsource": {
-						"package": "@fontsource/vt323",
-						"family": "VT323",
-						"weights": [
-							400
-						],
-						"styles": [
-							"normal"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"Terminal",
-						"Monaco",
-						"monospace"
-					],
-					"css": "'VT323', Terminal, Monaco, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "low"
-					}
-				},
-				"bitmap": {
-					"fontsource": {
-						"package": "@fontsource/silkscreen",
-						"family": "Silkscreen",
-						"weights": [
-							400,
-							700
-						],
-						"styles": [
-							"normal"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"Terminal",
-						"Monaco",
-						"monospace"
-					],
-					"css": "'Silkscreen', Terminal, Monaco, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "low"
-					}
-				}
-			}
-		},
 		"pixelArt": {
 			"alignment": {
 				"pixelPerfect": "align to pixel grid",
@@ -173,12 +89,7 @@
 				"#00B894",
 				"#E84393"
 			],
-			"gameboy": [
-				"#0F380F",
-				"#306230",
-				"#8BAC0F",
-				"#9BBD0F"
-			],
+			"gameboy": ["#0F380F", "#306230", "#8BAC0F", "#9BBD0F"],
 			"nes": [
 				"#7C7C7C",
 				"#0000FC",

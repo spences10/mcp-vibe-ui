@@ -2,145 +2,82 @@
 	"version": "1",
 	"id": "claymorphic",
 	"name": "Claymorphic",
-	"tags": [
-		"soft",
-		"pastel",
-		"rounded",
-		"depth"
-	],
-	"aliases": [
-		"clay"
-	],
-	"daisyThemeVars": {
-		"--color-base-100": "oklch(98% 0.02 210)",
-		"--color-base-200": "oklch(95% 0.03 210)",
-		"--color-base-300": "oklch(92% 0.03 210)",
-		"--color-base-content": "oklch(22% 0.03 210)",
-		"--color-primary": "oklch(78% 0.09 250)",
-		"--color-primary-content": "oklch(18% 0.02 250)",
-		"--color-secondary": "oklch(85% 0.10 145)",
-		"--color-secondary-content": "oklch(20% 0.02 145)",
-		"--color-accent": "oklch(88% 0.10 70)",
-		"--color-accent-content": "oklch(22% 0.03 70)",
-		"--color-neutral": "oklch(40% 0.02 210)",
-		"--color-neutral-content": "oklch(96% 0.01 210)",
-		"--color-info": "oklch(72% 0.12 230)",
-		"--color-info-content": "oklch(10% 0.02 230)",
-		"--color-success": "oklch(78% 0.12 140)",
-		"--color-success-content": "oklch(12% 0.02 140)",
-		"--color-warning": "oklch(86% 0.15 80)",
-		"--color-warning-content": "oklch(20% 0.04 80)",
-		"--color-error": "oklch(70% 0.18 25)",
-		"--color-error-content": "oklch(98% 0.01 25)",
-		"--radius-selector": "1rem",
-		"--radius-field": "1rem",
-		"--radius-box": "1.5rem",
-		"--size-selector": "0.25rem",
-		"--size-field": "0.28125rem",
-		"--border": "1px",
-		"--depth": "1",
-		"--noise": "0"
+	"tags": ["soft", "pastel", "rounded", "depth"],
+	"aliases": ["clay"],
+	"tailwind": {
+		"colors": {
+			"base-100": "oklch(98% 0.02 210)",
+			"base-200": "oklch(95% 0.03 210)",
+			"base-300": "oklch(92% 0.03 210)",
+			"base-content": "oklch(22% 0.03 210)",
+			"primary": "oklch(78% 0.09 250)",
+			"primary-content": "oklch(18% 0.02 250)",
+			"secondary": "oklch(85% 0.10 145)",
+			"secondary-content": "oklch(20% 0.02 145)",
+			"accent": "oklch(88% 0.10 70)",
+			"accent-content": "oklch(22% 0.03 70)",
+			"neutral": "oklch(40% 0.02 210)",
+			"neutral-content": "oklch(96% 0.01 210)",
+			"info": "oklch(72% 0.12 230)",
+			"info-content": "oklch(10% 0.02 230)",
+			"success": "oklch(78% 0.12 140)",
+			"success-content": "oklch(12% 0.02 140)",
+			"warning": "oklch(86% 0.15 80)",
+			"warning-content": "oklch(20% 0.04 80)",
+			"error": "oklch(70% 0.18 25)",
+			"error-content": "oklch(98% 0.01 25)"
+		},
+		"borderRadius": {
+			"selector": "1rem",
+			"field": "1rem",
+			"box": "1.5rem"
+		},
+		"fontFamily": {
+			"display": [
+				"Poppins",
+				"Helvetica Neue",
+				"Helvetica",
+				"Arial",
+				"sans-serif"
+			],
+			"body": [
+				"Quicksand",
+				"Helvetica Neue",
+				"Helvetica",
+				"Arial",
+				"sans-serif"
+			],
+			"mono": [
+				"JetBrains Mono",
+				"SF Mono",
+				"Monaco",
+				"Consolas",
+				"monospace"
+			]
+		}
 	},
+	"fonts": [
+		{
+			"package": "@fontsource/poppins",
+			"weights": [300, 400, 500, 600, 700],
+			"variable": true
+		},
+		{
+			"package": "@fontsource/quicksand",
+			"weights": [300, 400, 500, 600, 700],
+			"variable": true
+		},
+		{
+			"package": "@fontsource/jetbrains-mono",
+			"weights": [300, 400, 500, 600, 700],
+			"variable": true
+		}
+	],
 	"metadata": {
 		"description": "Soft, rounded surfaces with subtle depth and pastel accents.",
 		"builtInThemeHint": "pastel"
 	},
 	"extended": {
-		"typography": {
-			"heading": "rounded-friendly",
-			"body": "light-regular",
-			"fontStacks": {
-				"display": {
-					"fontsource": {
-						"package": "@fontsource/poppins",
-						"family": "Poppins",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"Helvetica Neue",
-						"Helvetica",
-						"Arial",
-						"sans-serif"
-					],
-					"css": "'Poppins', 'Helvetica Neue', Helvetica, Arial, sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": true,
-						"priority": "high"
-					}
-				},
-				"body": {
-					"fontsource": {
-						"package": "@fontsource/quicksand",
-						"family": "Quicksand",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"Helvetica Neue",
-						"Helvetica",
-						"Arial",
-						"sans-serif"
-					],
-					"css": "'Quicksand', 'Helvetica Neue', Helvetica, Arial, sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "medium"
-					}
-				},
-				"mono": {
-					"fontsource": {
-						"package": "@fontsource/jetbrains-mono",
-						"family": "JetBrains Mono",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"SF Mono",
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'JetBrains Mono', 'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "low"
-					}
-				}
-			}
-		},
 		"effects": {
 			"clay3D": {
 				"extrude": "0 4px 8px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)",

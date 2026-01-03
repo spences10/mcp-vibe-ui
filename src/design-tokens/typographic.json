@@ -2,151 +2,77 @@
 	"version": "1",
 	"id": "typographic",
 	"name": "Typographic",
-	"tags": [
-		"content-first",
-		"readable",
-		"neutral"
-	],
-	"aliases": [
-		"type"
-	],
-	"daisyThemeVars": {
-		"--color-base-100": "oklch(99% 0.01 240)",
-		"--color-base-200": "oklch(96% 0.01 240)",
-		"--color-base-300": "oklch(92% 0.01 240)",
-		"--color-base-content": "oklch(17% 0.02 240)",
-		"--color-primary": "oklch(48% 0.06 260)",
-		"--color-primary-content": "oklch(96% 0.01 260)",
-		"--color-secondary": "oklch(58% 0.08 25)",
-		"--color-secondary-content": "oklch(98% 0.01 25)",
-		"--color-accent": "oklch(66% 0.10 150)",
-		"--color-accent-content": "oklch(14% 0.02 150)",
-		"--color-neutral": "oklch(30% 0.02 240)",
-		"--color-neutral-content": "oklch(96% 0.01 240)",
-		"--color-info": "oklch(70% 0.10 230)",
-		"--color-info-content": "oklch(14% 0.02 230)",
-		"--color-success": "oklch(64% 0.12 150)",
-		"--color-success-content": "oklch(98% 0.01 150)",
-		"--color-warning": "oklch(82% 0.14 85)",
-		"--color-warning-content": "oklch(22% 0.04 85)",
-		"--color-error": "oklch(58% 0.20 25)",
-		"--color-error-content": "oklch(98% 0.01 25)",
-		"--radius-selector": "0.25rem",
-		"--radius-field": "0.25rem",
-		"--radius-box": "0.5rem",
-		"--size-selector": "0.25rem",
-		"--size-field": "0.25rem",
-		"--border": "1px",
-		"--depth": "0",
-		"--noise": "0"
+	"tags": ["content-first", "readable", "neutral"],
+	"aliases": ["type"],
+	"tailwind": {
+		"colors": {
+			"base-100": "oklch(99% 0.01 240)",
+			"base-200": "oklch(96% 0.01 240)",
+			"base-300": "oklch(92% 0.01 240)",
+			"base-content": "oklch(17% 0.02 240)",
+			"primary": "oklch(48% 0.06 260)",
+			"primary-content": "oklch(96% 0.01 260)",
+			"secondary": "oklch(58% 0.08 25)",
+			"secondary-content": "oklch(98% 0.01 25)",
+			"accent": "oklch(66% 0.10 150)",
+			"accent-content": "oklch(14% 0.02 150)",
+			"neutral": "oklch(30% 0.02 240)",
+			"neutral-content": "oklch(96% 0.01 240)",
+			"info": "oklch(70% 0.10 230)",
+			"info-content": "oklch(14% 0.02 230)",
+			"success": "oklch(64% 0.12 150)",
+			"success-content": "oklch(98% 0.01 150)",
+			"warning": "oklch(82% 0.14 85)",
+			"warning-content": "oklch(22% 0.04 85)",
+			"error": "oklch(58% 0.20 25)",
+			"error-content": "oklch(98% 0.01 25)"
+		},
+		"borderRadius": {
+			"selector": "0.25rem",
+			"field": "0.25rem",
+			"box": "0.5rem"
+		},
+		"fontFamily": {
+			"display": [
+				"Inter",
+				"Helvetica Neue",
+				"Helvetica",
+				"Arial",
+				"sans-serif"
+			],
+			"body": [
+				"Inter",
+				"Helvetica Neue",
+				"Helvetica",
+				"Arial",
+				"sans-serif"
+			],
+			"mono": [
+				"JetBrains Mono",
+				"SF Mono",
+				"Monaco",
+				"Consolas",
+				"monospace"
+			]
+		}
 	},
+	"fonts": [
+		{
+			"package": "@fontsource/inter",
+			"weights": [100, 200, 300, 400, 500, 600, 700, 800, 900],
+			"variable": true
+		},
+		{
+			"package": "@fontsource/jetbrains-mono",
+			"weights": [100, 200, 300, 400, 500, 600, 700, 800],
+			"variable": true
+		}
+	],
 	"metadata": {
 		"description": "Readable, content-focused palette with subtle accents.",
 		"builtInThemeHint": "wireframe"
 	},
 	"extended": {
-		"typography": {
-			"heading": "size-weight-hierarchy",
-			"body": "spacing-based-structure",
-			"fontStacks": {
-				"display": {
-					"fontsource": {
-						"package": "@fontsource/inter",
-						"family": "Inter",
-						"weights": [
-							100,
-							200,
-							300,
-							400,
-							500,
-							600,
-							700,
-							800,
-							900
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"Helvetica Neue",
-						"Helvetica",
-						"Arial",
-						"sans-serif"
-					],
-					"css": "Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": true,
-						"priority": "high"
-					}
-				},
-				"body": {
-					"fontsource": {
-						"package": "@fontsource/inter",
-						"family": "Inter",
-						"weights": [
-							300,
-							400,
-							500,
-							600
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"Helvetica Neue",
-						"Helvetica",
-						"Arial",
-						"sans-serif"
-					],
-					"css": "Inter, 'Helvetica Neue', Helvetica, Arial, sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "medium"
-					}
-				},
-				"precise": {
-					"fontsource": {
-						"package": "@fontsource/jetbrains-mono",
-						"family": "JetBrains Mono",
-						"weights": [
-							100,
-							200,
-							300,
-							400,
-							500,
-							600,
-							700,
-							800
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"SF Mono",
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'JetBrains Mono', 'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "low"
-					}
-				}
-			}
-		},
 		"gridSystem": {
 			"baseline": "1.5rem",
 			"modularScale": "1.25",
@@ -162,12 +88,7 @@
 			"darkGrey": "#333333",
 			"mediumGrey": "#666666",
 			"lightGrey": "#999999",
-			"accents": [
-				"#DC2626",
-				"#2563EB",
-				"#059669",
-				"#7C2D12"
-			]
+			"accents": ["#DC2626", "#2563EB", "#059669", "#7C2D12"]
 		},
 		"hierarchy": {
 			"sizes": {

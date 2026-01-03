@@ -2,171 +2,82 @@
 	"version": "1",
 	"id": "japanese-minimalist",
 	"name": "Japanese Minimalist",
-	"tags": [
-		"minimal",
-		"calm",
-		"balanced",
-		"light"
-	],
-	"aliases": [
-		"japanese",
-		"zen"
-	],
-	"daisyThemeVars": {
-		"--color-base-100": "oklch(99% 0.01 240)",
-		"--color-base-200": "oklch(96% 0.01 240)",
-		"--color-base-300": "oklch(92% 0.01 240)",
-		"--color-base-content": "oklch(18% 0.02 240)",
-		"--color-primary": "oklch(55% 0.06 20)",
-		"--color-primary-content": "oklch(98% 0.01 20)",
-		"--color-secondary": "oklch(60% 0.06 170)",
-		"--color-secondary-content": "oklch(98% 0.01 170)",
-		"--color-accent": "oklch(70% 0.08 80)",
-		"--color-accent-content": "oklch(18% 0.02 80)",
-		"--color-neutral": "oklch(35% 0.02 240)",
-		"--color-neutral-content": "oklch(96% 0.01 240)",
-		"--color-info": "oklch(68% 0.10 230)",
-		"--color-info-content": "oklch(14% 0.02 230)",
-		"--color-success": "oklch(64% 0.12 150)",
-		"--color-success-content": "oklch(98% 0.01 150)",
-		"--color-warning": "oklch(80% 0.14 85)",
-		"--color-warning-content": "oklch(22% 0.04 85)",
-		"--color-error": "oklch(58% 0.20 25)",
-		"--color-error-content": "oklch(98% 0.01 25)",
-		"--radius-selector": "0.25rem",
-		"--radius-field": "0.25rem",
-		"--radius-box": "0.5rem",
-		"--size-selector": "0.25rem",
-		"--size-field": "0.25rem",
-		"--border": "1px",
-		"--depth": "0",
-		"--noise": "0"
+	"tags": ["minimal", "calm", "balanced", "light"],
+	"aliases": ["japanese", "zen"],
+	"tailwind": {
+		"colors": {
+			"base-100": "oklch(99% 0.01 240)",
+			"base-200": "oklch(96% 0.01 240)",
+			"base-300": "oklch(92% 0.01 240)",
+			"base-content": "oklch(18% 0.02 240)",
+			"primary": "oklch(55% 0.06 20)",
+			"primary-content": "oklch(98% 0.01 20)",
+			"secondary": "oklch(60% 0.06 170)",
+			"secondary-content": "oklch(98% 0.01 170)",
+			"accent": "oklch(70% 0.08 80)",
+			"accent-content": "oklch(18% 0.02 80)",
+			"neutral": "oklch(35% 0.02 240)",
+			"neutral-content": "oklch(96% 0.01 240)",
+			"info": "oklch(68% 0.10 230)",
+			"info-content": "oklch(14% 0.02 230)",
+			"success": "oklch(64% 0.12 150)",
+			"success-content": "oklch(98% 0.01 150)",
+			"warning": "oklch(80% 0.14 85)",
+			"warning-content": "oklch(22% 0.04 85)",
+			"error": "oklch(58% 0.20 25)",
+			"error-content": "oklch(98% 0.01 25)"
+		},
+		"borderRadius": {
+			"selector": "0.25rem",
+			"field": "0.25rem",
+			"box": "0.5rem"
+		},
+		"fontFamily": {
+			"display": [
+				"Noto Sans JP",
+				"Hiragino Sans",
+				"Yu Gothic",
+				"Meiryo",
+				"sans-serif"
+			],
+			"body": [
+				"Source Serif Pro",
+				"Georgia",
+				"Times New Roman",
+				"Times",
+				"serif"
+			],
+			"mono": [
+				"Noto Sans Mono",
+				"SF Mono",
+				"Monaco",
+				"Consolas",
+				"monospace"
+			]
+		}
 	},
+	"fonts": [
+		{
+			"package": "@fontsource/noto-sans-jp",
+			"weights": [300, 400, 500, 700, 900],
+			"variable": true
+		},
+		{
+			"package": "@fontsource/source-serif-pro",
+			"weights": [300, 400, 600, 700],
+			"variable": true
+		},
+		{
+			"package": "@fontsource/noto-sans-mono",
+			"weights": [300, 400, 500, 600, 700],
+			"variable": true
+		}
+	],
 	"metadata": {
 		"description": "Calm, minimal aesthetic with gentle accents.",
 		"builtInThemeHint": "lofi"
 	},
 	"extended": {
-		"typography": {
-			"heading": "light-elegant",
-			"body": "widely-spaced",
-			"fontStacks": {
-				"display": {
-					"fontsource": {
-						"package": "@fontsource/noto-sans-jp",
-						"family": "Noto Sans JP",
-						"weights": [
-							300,
-							400,
-							500,
-							700,
-							900
-						],
-						"styles": [
-							"normal"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"Hiragino Sans",
-						"Yu Gothic",
-						"Meiryo",
-						"sans-serif"
-					],
-					"css": "'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', Meiryo, sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": true,
-						"priority": "high"
-					}
-				},
-				"body": {
-					"fontsource": {
-						"package": "@fontsource/source-serif-pro",
-						"family": "Source Serif Pro",
-						"weights": [
-							300,
-							400,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"Georgia",
-						"Times New Roman",
-						"Times",
-						"serif"
-					],
-					"css": "'Source Serif Pro', Georgia, 'Times New Roman', Times, serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "medium"
-					}
-				},
-				"mono": {
-					"fontsource": {
-						"package": "@fontsource/noto-sans-mono",
-						"family": "Noto Sans Mono",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"SF Mono",
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'Noto Sans Mono', 'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "low"
-					}
-				},
-				"refined": {
-					"fontsource": {
-						"package": "@fontsource/noto-sans-jp",
-						"family": "Noto Sans JP",
-						"weights": [
-							300,
-							400,
-							500
-						],
-						"styles": [
-							"normal"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"Hiragino Sans",
-						"Yu Gothic",
-						"Meiryo",
-						"sans-serif"
-					],
-					"css": "'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', Meiryo, sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "medium"
-					}
-				}
-			}
-		},
 		"zen": {
 			"spacing": {
 				"generous": "2rem",
@@ -192,12 +103,7 @@
 				"#F0FFF0",
 				"#E6E6FA"
 			],
-			"earth": [
-				"#DEB887",
-				"#D2B48C",
-				"#BC9A6A",
-				"#A0956B"
-			]
+			"earth": ["#DEB887", "#D2B48C", "#BC9A6A", "#A0956B"]
 		},
 		"minimalism": {
 			"negativeSpace": "embrace emptiness as design element",

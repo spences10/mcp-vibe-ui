@@ -2,169 +2,89 @@
 	"version": "1",
 	"id": "industrial",
 	"name": "Industrial",
-	"tags": [
-		"utility",
-		"gritty",
-		"bold",
-		"high-contrast"
-	],
-	"aliases": [
-		"factory"
-	],
-	"daisyThemeVars": {
-		"--color-base-100": "oklch(96% 0.01 240)",
-		"--color-base-200": "oklch(90% 0.01 240)",
-		"--color-base-300": "oklch(84% 0.01 240)",
-		"--color-base-content": "oklch(18% 0.02 240)",
-		"--color-primary": "oklch(78% 0.20 85)",
-		"--color-primary-content": "oklch(16% 0.02 85)",
-		"--color-secondary": "oklch(45% 0.03 240)",
-		"--color-secondary-content": "oklch(96% 0.01 240)",
-		"--color-accent": "oklch(68% 0.20 25)",
-		"--color-accent-content": "oklch(98% 0.01 25)",
-		"--color-neutral": "oklch(30% 0.02 240)",
-		"--color-neutral-content": "oklch(96% 0.01 240)",
-		"--color-info": "oklch(66% 0.12 230)",
-		"--color-info-content": "oklch(14% 0.02 230)",
-		"--color-success": "oklch(62% 0.16 150)",
-		"--color-success-content": "oklch(98% 0.01 150)",
-		"--color-warning": "oklch(82% 0.20 85)",
-		"--color-warning-content": "oklch(22% 0.04 85)",
-		"--color-error": "oklch(58% 0.24 25)",
-		"--color-error-content": "oklch(98% 0.01 25)",
-		"--radius-selector": "0.25rem",
-		"--radius-field": "0.25rem",
-		"--radius-box": "0.25rem",
-		"--size-selector": "0.25rem",
-		"--size-field": "0.25rem",
-		"--border": "2px",
-		"--depth": "1",
-		"--noise": "1"
+	"tags": ["utility", "gritty", "bold", "high-contrast"],
+	"aliases": ["factory"],
+	"tailwind": {
+		"colors": {
+			"base-100": "oklch(96% 0.01 240)",
+			"base-200": "oklch(90% 0.01 240)",
+			"base-300": "oklch(84% 0.01 240)",
+			"base-content": "oklch(18% 0.02 240)",
+			"primary": "oklch(78% 0.20 85)",
+			"primary-content": "oklch(16% 0.02 85)",
+			"secondary": "oklch(45% 0.03 240)",
+			"secondary-content": "oklch(96% 0.01 240)",
+			"accent": "oklch(68% 0.20 25)",
+			"accent-content": "oklch(98% 0.01 25)",
+			"neutral": "oklch(30% 0.02 240)",
+			"neutral-content": "oklch(96% 0.01 240)",
+			"info": "oklch(66% 0.12 230)",
+			"info-content": "oklch(14% 0.02 230)",
+			"success": "oklch(62% 0.16 150)",
+			"success-content": "oklch(98% 0.01 150)",
+			"warning": "oklch(82% 0.20 85)",
+			"warning-content": "oklch(22% 0.04 85)",
+			"error": "oklch(58% 0.24 25)",
+			"error-content": "oklch(98% 0.01 25)"
+		},
+		"borderRadius": {
+			"selector": "0.25rem",
+			"field": "0.25rem",
+			"box": "0.25rem"
+		},
+		"fontFamily": {
+			"display": [
+				"Bebas Neue",
+				"Impact",
+				"Arial Black",
+				"sans-serif"
+			],
+			"body": [
+				"JetBrains Mono",
+				"SF Mono",
+				"Monaco",
+				"Consolas",
+				"monospace"
+			],
+			"mono": [
+				"JetBrains Mono",
+				"SF Mono",
+				"Monaco",
+				"Consolas",
+				"monospace"
+			]
+		}
 	},
+	"fonts": [
+		{
+			"package": "@fontsource/bebas-neue",
+			"weights": [400],
+			"variable": false
+		},
+		{
+			"package": "@fontsource/jetbrains-mono",
+			"weights": [300, 400, 500, 600, 700],
+			"variable": true
+		}
+	],
 	"metadata": {
 		"description": "Utility look with warning accents and rugged surfaces.",
 		"builtInThemeHint": "business"
 	},
 	"extended": {
-		"typography": {
-			"heading": "bold-condensed",
-			"body": "mono-spaced",
-			"fontStacks": {
-				"display": {
-					"fontsource": {
-						"package": "@fontsource/bebas-neue",
-						"family": "Bebas Neue",
-						"weights": [
-							400
-						],
-						"styles": [
-							"normal"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"Impact",
-						"Arial Black",
-						"sans-serif"
-					],
-					"css": "'Bebas Neue', Impact, 'Arial Black', sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": true,
-						"priority": "high"
-					}
-				},
-				"body": {
-					"fontsource": {
-						"package": "@fontsource/jetbrains-mono",
-						"family": "JetBrains Mono",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"SF Mono",
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'JetBrains Mono', 'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "medium"
-					}
-				},
-				"mono": {
-					"fontsource": {
-						"package": "@fontsource/jetbrains-mono",
-						"family": "JetBrains Mono",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"SF Mono",
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'JetBrains Mono', 'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "low"
-					}
-				}
-			}
-		},
 		"effects": {
 			"metal": {
 				"brushed": "linear-gradient(135deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 50%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.1) 75%, transparent 75%)",
 				"worn": "repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px)"
 			},
 			"textures": {
-				"grit": "radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px)",
-				"rust": "background-image: url('data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 100 100\"><circle cx=\"20\" cy=\"20\" r=\"2\" fill=\"%23B45309\" opacity=\"0.3\"/><circle cx=\"80\" cy=\"40\" r=\"1\" fill=\"%23DC2626\" opacity=\"0.2\"/></svg>')"
+				"grit": "radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px)"
 			}
 		},
 		"utilityColors": {
-			"warning": [
-				"#f59e0b",
-				"#d97706",
-				"#b45309",
-				"#92400e"
-			],
-			"danger": [
-				"#dc2626",
-				"#b91c1c",
-				"#991b1b",
-				"#7f1d1d"
-			],
-			"metal": [
-				"#71717a",
-				"#52525b",
-				"#3f3f46",
-				"#27272a"
-			],
+			"warning": ["#f59e0b", "#d97706", "#b45309", "#92400e"],
+			"danger": ["#dc2626", "#b91c1c", "#991b1b", "#7f1d1d"],
+			"metal": ["#71717a", "#52525b", "#3f3f46", "#27272a"],
 			"gradients": [
 				"linear-gradient(135deg, #71717a, #3f3f46, #27272a)",
 				"linear-gradient(45deg, #f59e0b, #dc2626, #71717a)"

@@ -2,167 +2,71 @@
 	"version": "1",
 	"id": "wireframe",
 	"name": "Wireframe",
-	"tags": [
-		"skeletal",
-		"blueprint",
-		"low-depth"
-	],
-	"aliases": [
-		"blueprint"
-	],
-	"daisyThemeVars": {
-		"--color-base-100": "oklch(99% 0.01 240)",
-		"--color-base-200": "oklch(96% 0.01 240)",
-		"--color-base-300": "oklch(92% 0.01 240)",
-		"--color-base-content": "oklch(20% 0.02 240)",
-		"--color-primary": "oklch(55% 0.14 260)",
-		"--color-primary-content": "oklch(98% 0.01 260)",
-		"--color-secondary": "oklch(65% 0.14 210)",
-		"--color-secondary-content": "oklch(98% 0.01 210)",
-		"--color-accent": "oklch(70% 0.14 180)",
-		"--color-accent-content": "oklch(14% 0.02 180)",
-		"--color-neutral": "oklch(35% 0.02 240)",
-		"--color-neutral-content": "oklch(96% 0.01 240)",
-		"--color-info": "oklch(72% 0.12 230)",
-		"--color-info-content": "oklch(14% 0.02 230)",
-		"--color-success": "oklch(66% 0.14 150)",
-		"--color-success-content": "oklch(98% 0.01 150)",
-		"--color-warning": "oklch(84% 0.16 85)",
-		"--color-warning-content": "oklch(22% 0.04 85)",
-		"--color-error": "oklch(60% 0.20 25)",
-		"--color-error-content": "oklch(98% 0.01 25)",
-		"--radius-selector": "0.25rem",
-		"--radius-field": "0.25rem",
-		"--radius-box": "0.25rem",
-		"--size-selector": "0.25rem",
-		"--size-field": "0.25rem",
-		"--border": "1px",
-		"--depth": "0",
-		"--noise": "0"
+	"tags": ["skeletal", "blueprint", "low-depth"],
+	"aliases": ["blueprint"],
+	"tailwind": {
+		"colors": {
+			"base-100": "oklch(99% 0.01 240)",
+			"base-200": "oklch(96% 0.01 240)",
+			"base-300": "oklch(92% 0.01 240)",
+			"base-content": "oklch(20% 0.02 240)",
+			"primary": "oklch(55% 0.14 260)",
+			"primary-content": "oklch(98% 0.01 260)",
+			"secondary": "oklch(65% 0.14 210)",
+			"secondary-content": "oklch(98% 0.01 210)",
+			"accent": "oklch(70% 0.14 180)",
+			"accent-content": "oklch(14% 0.02 180)",
+			"neutral": "oklch(35% 0.02 240)",
+			"neutral-content": "oklch(96% 0.01 240)",
+			"info": "oklch(72% 0.12 230)",
+			"info-content": "oklch(14% 0.02 230)",
+			"success": "oklch(66% 0.14 150)",
+			"success-content": "oklch(98% 0.01 150)",
+			"warning": "oklch(84% 0.16 85)",
+			"warning-content": "oklch(22% 0.04 85)",
+			"error": "oklch(60% 0.20 25)",
+			"error-content": "oklch(98% 0.01 25)"
+		},
+		"borderRadius": {
+			"selector": "0.25rem",
+			"field": "0.25rem",
+			"box": "0.25rem"
+		},
+		"fontFamily": {
+			"display": [
+				"Fira Code",
+				"SF Mono",
+				"Monaco",
+				"Consolas",
+				"monospace"
+			],
+			"body": [
+				"IBM Plex Mono",
+				"SF Mono",
+				"Monaco",
+				"Consolas",
+				"monospace"
+			],
+			"mono": ["SF Mono", "Monaco", "Consolas", "monospace"]
+		}
 	},
+	"fonts": [
+		{
+			"package": "@fontsource/fira-code",
+			"weights": [300, 400, 500, 600, 700],
+			"variable": true
+		},
+		{
+			"package": "@fontsource/ibm-plex-mono",
+			"weights": [300, 400, 500, 600, 700],
+			"variable": false
+		}
+	],
 	"metadata": {
 		"description": "Blueprint-like, low depth styling for prototyping.",
 		"builtInThemeHint": "wireframe"
 	},
 	"extended": {
-		"typography": {
-			"heading": "monospaced-geometric",
-			"body": "uniform-spacing",
-			"fontStacks": {
-				"display": {
-					"fontsource": {
-						"package": "@fontsource/fira-code",
-						"family": "Fira Code",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"SF Mono",
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'Fira Code', 'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": true,
-						"priority": "high"
-					}
-				},
-				"body": {
-					"fontsource": {
-						"package": "@fontsource/ibm-plex-mono",
-						"family": "IBM Plex Mono",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"SF Mono",
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'IBM Plex Mono', 'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "medium"
-					}
-				},
-				"mono": {
-					"fontsource": {
-						"package": "@fontsource/sf-mono",
-						"family": "SF Mono",
-						"weights": [
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "low"
-					}
-				},
-				"labels": {
-					"fontsource": {
-						"package": "@fontsource/sf-mono",
-						"family": "SF Mono",
-						"weights": [
-							400,
-							500
-						],
-						"styles": [
-							"normal"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"Consolas",
-						"Monaco",
-						"monospace"
-					],
-					"css": "'SF Mono', Consolas, Monaco, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "medium"
-					}
-				}
-			}
-		},
 		"blueprint": {
 			"lines": {
 				"thin": "1px",
@@ -177,22 +81,13 @@
 			}
 		},
 		"skeletalColors": {
-			"outlines": [
-				"#333333",
-				"#666666",
-				"#999999",
-				"#CCCCCC"
-			],
+			"outlines": ["#333333", "#666666", "#999999", "#CCCCCC"],
 			"backgrounds": [
 				"transparent",
 				"rgba(0,0,0,0.02)",
 				"rgba(0,0,0,0.05)"
 			],
-			"annotations": [
-				"#0066CC",
-				"#CC6600",
-				"#009966"
-			]
+			"annotations": ["#0066CC", "#CC6600", "#009966"]
 		},
 		"prototyping": {
 			"placeholders": {

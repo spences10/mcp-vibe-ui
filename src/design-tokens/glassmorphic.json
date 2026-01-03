@@ -2,149 +2,81 @@
 	"version": "1",
 	"id": "glassmorphic",
 	"name": "Glassmorphic",
-	"tags": [
-		"frosted",
-		"translucent",
-		"modern"
-	],
-	"aliases": [
-		"glass"
-	],
-	"daisyThemeVars": {
-		"--color-base-100": "oklch(98% 0.02 240)",
-		"--color-base-200": "oklch(96% 0.02 240)",
-		"--color-base-300": "oklch(92% 0.02 240)",
-		"--color-base-content": "oklch(22% 0.03 240)",
-		"--color-primary": "oklch(72% 0.14 250)",
-		"--color-primary-content": "oklch(12% 0.02 250)",
-		"--color-secondary": "oklch(76% 0.12 180)",
-		"--color-secondary-content": "oklch(12% 0.02 180)",
-		"--color-accent": "oklch(84% 0.12 90)",
-		"--color-accent-content": "oklch(20% 0.03 90)",
-		"--color-neutral": "oklch(45% 0.03 240)",
-		"--color-neutral-content": "oklch(96% 0.01 240)",
-		"--color-info": "oklch(70% 0.12 230)",
-		"--color-info-content": "oklch(14% 0.02 230)",
-		"--color-success": "oklch(66% 0.14 150)",
-		"--color-success-content": "oklch(98% 0.01 150)",
-		"--color-warning": "oklch(84% 0.16 85)",
-		"--color-warning-content": "oklch(22% 0.04 85)",
-		"--color-error": "oklch(62% 0.22 25)",
-		"--color-error-content": "oklch(98% 0.01 25)",
-		"--radius-selector": "1rem",
-		"--radius-field": "0.75rem",
-		"--radius-box": "1rem",
-		"--size-selector": "0.25rem",
-		"--size-field": "0.25rem",
-		"--border": "1px",
-		"--depth": "1",
-		"--noise": "0"
+	"tags": ["frosted", "translucent", "modern"],
+	"aliases": ["glass"],
+	"tailwind": {
+		"colors": {
+			"base-100": "oklch(98% 0.02 240)",
+			"base-200": "oklch(96% 0.02 240)",
+			"base-300": "oklch(92% 0.02 240)",
+			"base-content": "oklch(22% 0.03 240)",
+			"primary": "oklch(72% 0.14 250)",
+			"primary-content": "oklch(12% 0.02 250)",
+			"secondary": "oklch(76% 0.12 180)",
+			"secondary-content": "oklch(12% 0.02 180)",
+			"accent": "oklch(84% 0.12 90)",
+			"accent-content": "oklch(20% 0.03 90)",
+			"neutral": "oklch(45% 0.03 240)",
+			"neutral-content": "oklch(96% 0.01 240)",
+			"info": "oklch(70% 0.12 230)",
+			"info-content": "oklch(14% 0.02 230)",
+			"success": "oklch(66% 0.14 150)",
+			"success-content": "oklch(98% 0.01 150)",
+			"warning": "oklch(84% 0.16 85)",
+			"warning-content": "oklch(22% 0.04 85)",
+			"error": "oklch(62% 0.22 25)",
+			"error-content": "oklch(98% 0.01 25)"
+		},
+		"borderRadius": {
+			"selector": "1rem",
+			"field": "0.75rem",
+			"box": "1rem"
+		},
+		"fontFamily": {
+			"display": [
+				"Inter",
+				"system-ui",
+				"-apple-system",
+				"BlinkMacSystemFont",
+				"Segoe UI",
+				"Roboto",
+				"sans-serif"
+			],
+			"body": [
+				"system-ui",
+				"-apple-system",
+				"BlinkMacSystemFont",
+				"Segoe UI",
+				"Roboto",
+				"Arial",
+				"sans-serif"
+			],
+			"mono": [
+				"Fira Code",
+				"SF Mono",
+				"Monaco",
+				"Consolas",
+				"monospace"
+			]
+		}
 	},
+	"fonts": [
+		{
+			"package": "@fontsource/inter",
+			"weights": [300, 400, 500, 600, 700, 800, 900],
+			"variable": true
+		},
+		{
+			"package": "@fontsource/fira-code",
+			"weights": [300, 400, 500, 600, 700],
+			"variable": true
+		}
+	],
 	"metadata": {
 		"description": "Frosted glass aesthetic with airy color accents.",
 		"builtInThemeHint": "winter"
 	},
 	"extended": {
-		"typography": {
-			"heading": "light-expanded",
-			"body": "normal",
-			"fontStacks": {
-				"display": {
-					"fontsource": {
-						"package": "@fontsource/inter",
-						"family": "Inter",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700,
-							800,
-							900
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"system-ui",
-						"-apple-system",
-						"BlinkMacSystemFont",
-						"Segoe UI",
-						"Roboto",
-						"sans-serif"
-					],
-					"css": "'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": true,
-						"priority": "high"
-					}
-				},
-				"body": {
-					"fontsource": {
-						"package": "@fontsource/system-ui",
-						"family": "system-ui",
-						"weights": [
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"-apple-system",
-						"BlinkMacSystemFont",
-						"Segoe UI",
-						"Roboto",
-						"Arial",
-						"sans-serif"
-					],
-					"css": "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "medium"
-					}
-				},
-				"mono": {
-					"fontsource": {
-						"package": "@fontsource/fira-code",
-						"family": "Fira Code",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"SF Mono",
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'Fira Code', 'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "low"
-					}
-				}
-			}
-		},
 		"effects": {
 			"blur": {
 				"light": "blur(8px)",

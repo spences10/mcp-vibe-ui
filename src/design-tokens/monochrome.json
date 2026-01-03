@@ -2,145 +2,77 @@
 	"version": "1",
 	"id": "monochrome",
 	"name": "Monochrome",
-	"tags": [
-		"grayscale",
-		"neutral",
-		"clean"
-	],
-	"aliases": [
-		"mono"
-	],
-	"daisyThemeVars": {
-		"--color-base-100": "oklch(98% 0.00 240)",
-		"--color-base-200": "oklch(94% 0.00 240)",
-		"--color-base-300": "oklch(90% 0.00 240)",
-		"--color-base-content": "oklch(18% 0.00 240)",
-		"--color-primary": "oklch(40% 0.00 240)",
-		"--color-primary-content": "oklch(98% 0.00 240)",
-		"--color-secondary": "oklch(60% 0.00 240)",
-		"--color-secondary-content": "oklch(10% 0.00 240)",
-		"--color-accent": "oklch(70% 0.00 240)",
-		"--color-accent-content": "oklch(14% 0.00 240)",
-		"--color-neutral": "oklch(30% 0.00 240)",
-		"--color-neutral-content": "oklch(96% 0.00 240)",
-		"--color-info": "oklch(75% 0.00 240)",
-		"--color-info-content": "oklch(12% 0.00 240)",
-		"--color-success": "oklch(65% 0.00 240)",
-		"--color-success-content": "oklch(98% 0.00 240)",
-		"--color-warning": "oklch(80% 0.00 240)",
-		"--color-warning-content": "oklch(22% 0.00 240)",
-		"--color-error": "oklch(55% 0.00 240)",
-		"--color-error-content": "oklch(98% 0.00 240)",
-		"--radius-selector": "0.25rem",
-		"--radius-field": "0.25rem",
-		"--radius-box": "0.25rem",
-		"--size-selector": "0.25rem",
-		"--size-field": "0.25rem",
-		"--border": "1px",
-		"--depth": "0",
-		"--noise": "0"
+	"tags": ["grayscale", "neutral", "clean"],
+	"aliases": ["mono"],
+	"tailwind": {
+		"colors": {
+			"base-100": "oklch(98% 0.00 240)",
+			"base-200": "oklch(94% 0.00 240)",
+			"base-300": "oklch(90% 0.00 240)",
+			"base-content": "oklch(18% 0.00 240)",
+			"primary": "oklch(40% 0.00 240)",
+			"primary-content": "oklch(98% 0.00 240)",
+			"secondary": "oklch(60% 0.00 240)",
+			"secondary-content": "oklch(10% 0.00 240)",
+			"accent": "oklch(70% 0.00 240)",
+			"accent-content": "oklch(14% 0.00 240)",
+			"neutral": "oklch(30% 0.00 240)",
+			"neutral-content": "oklch(96% 0.00 240)",
+			"info": "oklch(75% 0.00 240)",
+			"info-content": "oklch(12% 0.00 240)",
+			"success": "oklch(65% 0.00 240)",
+			"success-content": "oklch(98% 0.00 240)",
+			"warning": "oklch(80% 0.00 240)",
+			"warning-content": "oklch(22% 0.00 240)",
+			"error": "oklch(55% 0.00 240)",
+			"error-content": "oklch(98% 0.00 240)"
+		},
+		"borderRadius": {
+			"selector": "0.25rem",
+			"field": "0.25rem",
+			"box": "0.25rem"
+		},
+		"fontFamily": {
+			"display": [
+				"Helvetica Neue",
+				"Helvetica",
+				"Arial",
+				"sans-serif"
+			],
+			"body": [
+				"Inter",
+				"system-ui",
+				"-apple-system",
+				"BlinkMacSystemFont",
+				"Segoe UI",
+				"sans-serif"
+			],
+			"mono": [
+				"IBM Plex Mono",
+				"SF Mono",
+				"Monaco",
+				"Consolas",
+				"monospace"
+			]
+		}
 	},
+	"fonts": [
+		{
+			"package": "@fontsource/inter",
+			"weights": [300, 400, 500, 600, 700],
+			"variable": true
+		},
+		{
+			"package": "@fontsource/ibm-plex-mono",
+			"weights": [300, 400, 500, 600, 700],
+			"variable": false
+		}
+	],
 	"metadata": {
 		"description": "Strict grayscale palette with clean edges.",
 		"builtInThemeHint": "black"
 	},
 	"extended": {
-		"typography": {
-			"heading": "strong-contrast",
-			"body": "clean-hierarchy",
-			"fontStacks": {
-				"display": {
-					"fontsource": {
-						"package": "@fontsource/helvetica-neue",
-						"family": "Helvetica Neue",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"Helvetica",
-						"Arial",
-						"sans-serif"
-					],
-					"css": "'Helvetica Neue', Helvetica, Arial, sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": true,
-						"priority": "high"
-					}
-				},
-				"body": {
-					"fontsource": {
-						"package": "@fontsource/inter",
-						"family": "Inter",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"system-ui",
-						"-apple-system",
-						"BlinkMacSystemFont",
-						"Segoe UI",
-						"sans-serif"
-					],
-					"css": "'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "medium"
-					}
-				},
-				"mono": {
-					"fontsource": {
-						"package": "@fontsource/ibm-plex-mono",
-						"family": "IBM Plex Mono",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"SF Mono",
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'IBM Plex Mono', 'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "low"
-					}
-				}
-			}
-		},
 		"strictPalette": {
 			"black": "#000000",
 			"white": "#FFFFFF",

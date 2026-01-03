@@ -2,143 +2,82 @@
 	"version": "1",
 	"id": "flat",
 	"name": "Flat",
-	"tags": [
-		"minimal",
-		"flat",
-		"no-shadow"
-	],
+	"tags": ["minimal", "flat", "no-shadow"],
 	"aliases": [],
-	"daisyThemeVars": {
-		"--color-base-100": "oklch(98% 0.02 240)",
-		"--color-base-200": "oklch(94% 0.02 240)",
-		"--color-base-300": "oklch(90% 0.02 240)",
-		"--color-base-content": "oklch(20% 0.03 240)",
-		"--color-primary": "oklch(62% 0.18 260)",
-		"--color-primary-content": "oklch(98% 0.01 260)",
-		"--color-secondary": "oklch(58% 0.16 25)",
-		"--color-secondary-content": "oklch(98% 0.01 25)",
-		"--color-accent": "oklch(64% 0.16 150)",
-		"--color-accent-content": "oklch(14% 0.02 150)",
-		"--color-neutral": "oklch(40% 0.02 240)",
-		"--color-neutral-content": "oklch(96% 0.01 240)",
-		"--color-info": "oklch(68% 0.12 230)",
-		"--color-info-content": "oklch(12% 0.02 230)",
-		"--color-success": "oklch(64% 0.16 150)",
-		"--color-success-content": "oklch(98% 0.01 150)",
-		"--color-warning": "oklch(80% 0.18 85)",
-		"--color-warning-content": "oklch(22% 0.04 85)",
-		"--color-error": "oklch(60% 0.20 25)",
-		"--color-error-content": "oklch(98% 0.01 25)",
-		"--radius-selector": "0.25rem",
-		"--radius-field": "0.25rem",
-		"--radius-box": "0.25rem",
-		"--size-selector": "0.25rem",
-		"--size-field": "0.25rem",
-		"--border": "1px",
-		"--depth": "0",
-		"--noise": "0"
+	"tailwind": {
+		"colors": {
+			"base-100": "oklch(98% 0.02 240)",
+			"base-200": "oklch(94% 0.02 240)",
+			"base-300": "oklch(90% 0.02 240)",
+			"base-content": "oklch(20% 0.03 240)",
+			"primary": "oklch(62% 0.18 260)",
+			"primary-content": "oklch(98% 0.01 260)",
+			"secondary": "oklch(58% 0.16 25)",
+			"secondary-content": "oklch(98% 0.01 25)",
+			"accent": "oklch(64% 0.16 150)",
+			"accent-content": "oklch(14% 0.02 150)",
+			"neutral": "oklch(40% 0.02 240)",
+			"neutral-content": "oklch(96% 0.01 240)",
+			"info": "oklch(68% 0.12 230)",
+			"info-content": "oklch(12% 0.02 230)",
+			"success": "oklch(64% 0.16 150)",
+			"success-content": "oklch(98% 0.01 150)",
+			"warning": "oklch(80% 0.18 85)",
+			"warning-content": "oklch(22% 0.04 85)",
+			"error": "oklch(60% 0.20 25)",
+			"error-content": "oklch(98% 0.01 25)"
+		},
+		"borderRadius": {
+			"selector": "0.25rem",
+			"field": "0.25rem",
+			"box": "0.25rem"
+		},
+		"fontFamily": {
+			"display": [
+				"Open Sans",
+				"Helvetica Neue",
+				"Helvetica",
+				"Arial",
+				"sans-serif"
+			],
+			"body": [
+				"Lato",
+				"Helvetica Neue",
+				"Helvetica",
+				"Arial",
+				"sans-serif"
+			],
+			"mono": [
+				"Roboto Mono",
+				"SF Mono",
+				"Monaco",
+				"Consolas",
+				"monospace"
+			]
+		}
 	},
+	"fonts": [
+		{
+			"package": "@fontsource/open-sans",
+			"weights": [300, 400, 500, 600, 700, 800],
+			"variable": true
+		},
+		{
+			"package": "@fontsource/lato",
+			"weights": [300, 400, 700, 900],
+			"variable": false
+		},
+		{
+			"package": "@fontsource/roboto-mono",
+			"weights": [300, 400, 500, 600, 700],
+			"variable": true
+		}
+	],
 	"metadata": {
 		"description": "Flat design with minimal depth and crisp color blocks.",
 		"builtInThemeHint": "light"
 	},
 	"extended": {
-		"typography": {
-			"heading": "strong-weight-contrast",
-			"body": "clean-modern",
-			"fontStacks": {
-				"display": {
-					"fontsource": {
-						"package": "@fontsource/open-sans",
-						"family": "Open Sans",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700,
-							800
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"Helvetica Neue",
-						"Helvetica",
-						"Arial",
-						"sans-serif"
-					],
-					"css": "'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": true,
-						"priority": "high"
-					}
-				},
-				"body": {
-					"fontsource": {
-						"package": "@fontsource/lato",
-						"family": "Lato",
-						"weights": [
-							300,
-							400,
-							700,
-							900
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"Helvetica Neue",
-						"Helvetica",
-						"Arial",
-						"sans-serif"
-					],
-					"css": "'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "medium"
-					}
-				},
-				"mono": {
-					"fontsource": {
-						"package": "@fontsource/roboto-mono",
-						"family": "Roboto Mono",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"SF Mono",
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'Roboto Mono', 'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "low"
-					}
-				}
-			}
-		},
 		"flatDesign": {
 			"principles": {
 				"noTextures": true,
@@ -162,11 +101,7 @@
 				"#8B5CF6",
 				"#06B6D4"
 			],
-			"backgrounds": [
-				"#F8FAFC",
-				"#F1F5F9",
-				"#E2E8F0"
-			]
+			"backgrounds": ["#F8FAFC", "#F1F5F9", "#E2E8F0"]
 		},
 		"microAnimations": {
 			"colorShift": "background-color 0.15s ease",

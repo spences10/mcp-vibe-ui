@@ -2,146 +2,82 @@
 	"version": "1",
 	"id": "editorial",
 	"name": "Editorial",
-	"tags": [
-		"clean",
-		"classic",
-		"serif-friendly",
-		"print"
-	],
-	"aliases": [
-		"magazine"
-	],
-	"daisyThemeVars": {
-		"--color-base-100": "oklch(99% 0.01 240)",
-		"--color-base-200": "oklch(96% 0.02 240)",
-		"--color-base-300": "oklch(93% 0.02 240)",
-		"--color-base-content": "oklch(20% 0.03 240)",
-		"--color-primary": "oklch(45% 0.05 250)",
-		"--color-primary-content": "oklch(96% 0.01 250)",
-		"--color-secondary": "oklch(55% 0.07 30)",
-		"--color-secondary-content": "oklch(98% 0.01 30)",
-		"--color-accent": "oklch(68% 0.09 120)",
-		"--color-accent-content": "oklch(14% 0.02 120)",
-		"--color-neutral": "oklch(32% 0.02 240)",
-		"--color-neutral-content": "oklch(98% 0.01 240)",
-		"--color-info": "oklch(70% 0.10 230)",
-		"--color-info-content": "oklch(14% 0.02 230)",
-		"--color-success": "oklch(65% 0.12 150)",
-		"--color-success-content": "oklch(98% 0.01 150)",
-		"--color-warning": "oklch(82% 0.14 85)",
-		"--color-warning-content": "oklch(22% 0.04 85)",
-		"--color-error": "oklch(60% 0.20 25)",
-		"--color-error-content": "oklch(98% 0.01 25)",
-		"--radius-selector": "0.25rem",
-		"--radius-field": "0.25rem",
-		"--radius-box": "0.5rem",
-		"--size-selector": "0.25rem",
-		"--size-field": "0.25rem",
-		"--border": "1px",
-		"--depth": "0",
-		"--noise": "0"
+	"tags": ["clean", "classic", "serif-friendly", "print"],
+	"aliases": ["magazine"],
+	"tailwind": {
+		"colors": {
+			"base-100": "oklch(99% 0.01 240)",
+			"base-200": "oklch(96% 0.02 240)",
+			"base-300": "oklch(93% 0.02 240)",
+			"base-content": "oklch(20% 0.03 240)",
+			"primary": "oklch(45% 0.05 250)",
+			"primary-content": "oklch(96% 0.01 250)",
+			"secondary": "oklch(55% 0.07 30)",
+			"secondary-content": "oklch(98% 0.01 30)",
+			"accent": "oklch(68% 0.09 120)",
+			"accent-content": "oklch(14% 0.02 120)",
+			"neutral": "oklch(32% 0.02 240)",
+			"neutral-content": "oklch(98% 0.01 240)",
+			"info": "oklch(70% 0.10 230)",
+			"info-content": "oklch(14% 0.02 230)",
+			"success": "oklch(65% 0.12 150)",
+			"success-content": "oklch(98% 0.01 150)",
+			"warning": "oklch(82% 0.14 85)",
+			"warning-content": "oklch(22% 0.04 85)",
+			"error": "oklch(60% 0.20 25)",
+			"error-content": "oklch(98% 0.01 25)"
+		},
+		"borderRadius": {
+			"selector": "0.25rem",
+			"field": "0.25rem",
+			"box": "0.5rem"
+		},
+		"fontFamily": {
+			"display": [
+				"Playfair Display",
+				"Georgia",
+				"Times New Roman",
+				"Times",
+				"serif"
+			],
+			"body": [
+				"Source Sans Pro",
+				"Helvetica Neue",
+				"Helvetica",
+				"Arial",
+				"sans-serif"
+			],
+			"mono": [
+				"IBM Plex Mono",
+				"SF Mono",
+				"Monaco",
+				"Consolas",
+				"monospace"
+			]
+		}
 	},
+	"fonts": [
+		{
+			"package": "@fontsource/playfair-display",
+			"weights": [400, 500, 600, 700, 800, 900],
+			"variable": true
+		},
+		{
+			"package": "@fontsource/source-sans-pro",
+			"weights": [300, 400, 600, 700],
+			"variable": false
+		},
+		{
+			"package": "@fontsource/ibm-plex-mono",
+			"weights": [300, 400, 500, 600, 700],
+			"variable": false
+		}
+	],
 	"metadata": {
 		"description": "Clean, content-first look inspired by editorial layouts.",
 		"builtInThemeHint": "corporate"
 	},
 	"extended": {
-		"typography": {
-			"heading": "large-commanding",
-			"body": "small-supporting",
-			"fontStacks": {
-				"display": {
-					"fontsource": {
-						"package": "@fontsource/playfair-display",
-						"family": "Playfair Display",
-						"weights": [
-							400,
-							500,
-							600,
-							700,
-							800,
-							900
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"Georgia",
-						"Times New Roman",
-						"Times",
-						"serif"
-					],
-					"css": "'Playfair Display', Georgia, 'Times New Roman', Times, serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": true,
-						"priority": "high"
-					}
-				},
-				"body": {
-					"fontsource": {
-						"package": "@fontsource/source-sans-pro",
-						"family": "Source Sans Pro",
-						"weights": [
-							300,
-							400,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"Helvetica Neue",
-						"Helvetica",
-						"Arial",
-						"sans-serif"
-					],
-					"css": "'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "medium"
-					}
-				},
-				"mono": {
-					"fontsource": {
-						"package": "@fontsource/ibm-plex-mono",
-						"family": "IBM Plex Mono",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"SF Mono",
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'IBM Plex Mono', 'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "low"
-					}
-				}
-			}
-		},
 		"editorial": {
 			"hierarchy": {
 				"headline": "3rem",
@@ -161,18 +97,8 @@
 			"cream": "#F5F5DC",
 			"newsprint": "#F8F8FF",
 			"ink": "#2F2F2F",
-			"accents": [
-				"#8B0000",
-				"#000080",
-				"#006400",
-				"#8B008B"
-			],
-			"muted": [
-				"#696969",
-				"#708090",
-				"#A9A9A9",
-				"#D3D3D3"
-			]
+			"accents": ["#8B0000", "#000080", "#006400", "#8B008B"],
+			"muted": ["#696969", "#708090", "#A9A9A9", "#D3D3D3"]
 		},
 		"layouts": {
 			"asymmetric": {

@@ -2,144 +2,82 @@
 	"version": "1",
 	"id": "organic-flow",
 	"name": "Organic Flow",
-	"tags": [
-		"natural",
-		"rounded",
-		"green",
-		"fluid"
-	],
-	"aliases": [
-		"organic"
-	],
-	"daisyThemeVars": {
-		"--color-base-100": "oklch(98% 0.02 150)",
-		"--color-base-200": "oklch(95% 0.02 150)",
-		"--color-base-300": "oklch(90% 0.02 150)",
-		"--color-base-content": "oklch(22% 0.02 150)",
-		"--color-primary": "oklch(68% 0.16 150)",
-		"--color-primary-content": "oklch(12% 0.02 150)",
-		"--color-secondary": "oklch(72% 0.14 200)",
-		"--color-secondary-content": "oklch(12% 0.02 200)",
-		"--color-accent": "oklch(78% 0.14 100)",
-		"--color-accent-content": "oklch(20% 0.03 100)",
-		"--color-neutral": "oklch(38% 0.02 150)",
-		"--color-neutral-content": "oklch(96% 0.01 150)",
-		"--color-info": "oklch(70% 0.10 230)",
-		"--color-info-content": "oklch(14% 0.02 230)",
-		"--color-success": "oklch(66% 0.16 150)",
-		"--color-success-content": "oklch(98% 0.01 150)",
-		"--color-warning": "oklch(84% 0.16 85)",
-		"--color-warning-content": "oklch(22% 0.04 85)",
-		"--color-error": "oklch(62% 0.20 25)",
-		"--color-error-content": "oklch(98% 0.01 25)",
-		"--radius-selector": "1rem",
-		"--radius-field": "1rem",
-		"--radius-box": "1.5rem",
-		"--size-selector": "0.25rem",
-		"--size-field": "0.25rem",
-		"--border": "1px",
-		"--depth": "0",
-		"--noise": "0"
+	"tags": ["natural", "rounded", "green", "fluid"],
+	"aliases": ["organic"],
+	"tailwind": {
+		"colors": {
+			"base-100": "oklch(98% 0.02 150)",
+			"base-200": "oklch(95% 0.02 150)",
+			"base-300": "oklch(90% 0.02 150)",
+			"base-content": "oklch(22% 0.02 150)",
+			"primary": "oklch(68% 0.16 150)",
+			"primary-content": "oklch(12% 0.02 150)",
+			"secondary": "oklch(72% 0.14 200)",
+			"secondary-content": "oklch(12% 0.02 200)",
+			"accent": "oklch(78% 0.14 100)",
+			"accent-content": "oklch(20% 0.03 100)",
+			"neutral": "oklch(38% 0.02 150)",
+			"neutral-content": "oklch(96% 0.01 150)",
+			"info": "oklch(70% 0.10 230)",
+			"info-content": "oklch(14% 0.02 230)",
+			"success": "oklch(66% 0.16 150)",
+			"success-content": "oklch(98% 0.01 150)",
+			"warning": "oklch(84% 0.16 85)",
+			"warning-content": "oklch(22% 0.04 85)",
+			"error": "oklch(62% 0.20 25)",
+			"error-content": "oklch(98% 0.01 25)"
+		},
+		"borderRadius": {
+			"selector": "1rem",
+			"field": "1rem",
+			"box": "1.5rem"
+		},
+		"fontFamily": {
+			"display": [
+				"Comfortaa",
+				"Quicksand",
+				"Helvetica Neue",
+				"Arial",
+				"sans-serif"
+			],
+			"body": [
+				"Source Sans Pro",
+				"Helvetica Neue",
+				"Helvetica",
+				"Arial",
+				"sans-serif"
+			],
+			"mono": [
+				"Source Code Pro",
+				"SF Mono",
+				"Monaco",
+				"Consolas",
+				"monospace"
+			]
+		}
 	},
+	"fonts": [
+		{
+			"package": "@fontsource/comfortaa",
+			"weights": [300, 400, 500, 600, 700],
+			"variable": true
+		},
+		{
+			"package": "@fontsource/source-sans-pro",
+			"weights": [300, 400, 600, 700],
+			"variable": false
+		},
+		{
+			"package": "@fontsource/source-code-pro",
+			"weights": [300, 400, 500, 600, 700],
+			"variable": true
+		}
+	],
 	"metadata": {
 		"description": "Organic rounded shapes with nature-inspired palette.",
 		"builtInThemeHint": "emerald"
 	},
 	"extended": {
-		"typography": {
-			"heading": "normal-flowing",
-			"body": "relaxed",
-			"fontStacks": {
-				"display": {
-					"fontsource": {
-						"package": "@fontsource/comfortaa",
-						"family": "Comfortaa",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"Quicksand",
-						"Helvetica Neue",
-						"Arial",
-						"sans-serif"
-					],
-					"css": "'Comfortaa', Quicksand, 'Helvetica Neue', Arial, sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": true,
-						"priority": "high"
-					}
-				},
-				"body": {
-					"fontsource": {
-						"package": "@fontsource/source-sans-pro",
-						"family": "Source Sans Pro",
-						"weights": [
-							300,
-							400,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"Helvetica Neue",
-						"Helvetica",
-						"Arial",
-						"sans-serif"
-					],
-					"css": "'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "medium"
-					}
-				},
-				"mono": {
-					"fontsource": {
-						"package": "@fontsource/source-code-pro",
-						"family": "Source Code Pro",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"SF Mono",
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'Source Code Pro', 'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "low"
-					}
-				}
-			}
-		},
 		"effects": {
 			"organic": {
 				"flow": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
@@ -152,24 +90,9 @@
 			}
 		},
 		"naturalColors": {
-			"earth": [
-				"#8B7355",
-				"#A0956B",
-				"#C4B5A0",
-				"#D4C4AA"
-			],
-			"growth": [
-				"#22c55e",
-				"#16a34a",
-				"#15803d",
-				"#166534"
-			],
-			"sky": [
-				"#87CEEB",
-				"#B0E0E6",
-				"#E0F6FF",
-				"#F0F8FF"
-			],
+			"earth": ["#8B7355", "#A0956B", "#C4B5A0", "#D4C4AA"],
+			"growth": ["#22c55e", "#16a34a", "#15803d", "#166534"],
+			"sky": ["#87CEEB", "#B0E0E6", "#E0F6FF", "#F0F8FF"],
 			"gradients": [
 				"linear-gradient(135deg, #22c55e, #16a34a, #15803d)",
 				"radial-gradient(circle, #87CEEB, #22c55e, #8B7355)"
@@ -187,13 +110,7 @@
 				"blob3": "border-radius: 40% 60% 60% 40% / 60% 30% 60% 40%"
 			},
 			"flowingSpacing": {
-				"rhythm": [
-					"8px",
-					"13px",
-					"21px",
-					"34px",
-					"55px"
-				],
+				"rhythm": ["8px", "13px", "21px", "34px", "55px"],
 				"golden": "1.618"
 			}
 		}

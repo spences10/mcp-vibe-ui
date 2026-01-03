@@ -2,142 +2,82 @@
 	"version": "1",
 	"id": "retro-futurism",
 	"name": "Retro Futurism",
-	"tags": [
-		"neon",
-		"vaporwave",
-		"dark",
-		"futuristic"
-	],
-	"aliases": [
-		"retrowave",
-		"vaporwave"
-	],
-	"daisyThemeVars": {
-		"--color-base-100": "oklch(14% 0.04 300)",
-		"--color-base-200": "oklch(18% 0.04 300)",
-		"--color-base-300": "oklch(24% 0.04 300)",
-		"--color-base-content": "oklch(95% 0.02 300)",
-		"--color-primary": "oklch(65% 0.30 320)",
-		"--color-primary-content": "oklch(98% 0.01 320)",
-		"--color-secondary": "oklch(70% 0.28 260)",
-		"--color-secondary-content": "oklch(98% 0.01 260)",
-		"--color-accent": "oklch(72% 0.28 190)",
-		"--color-accent-content": "oklch(10% 0.02 190)",
-		"--color-neutral": "oklch(28% 0.03 300)",
-		"--color-neutral-content": "oklch(96% 0.01 300)",
-		"--color-info": "oklch(72% 0.20 230)",
-		"--color-info-content": "oklch(98% 0.01 230)",
-		"--color-success": "oklch(66% 0.24 145)",
-		"--color-success-content": "oklch(98% 0.01 145)",
-		"--color-warning": "oklch(80% 0.26 85)",
-		"--color-warning-content": "oklch(20% 0.05 85)",
-		"--color-error": "oklch(62% 0.32 25)",
-		"--color-error-content": "oklch(98% 0.01 25)",
-		"--radius-selector": "0.25rem",
-		"--radius-field": "0.25rem",
-		"--radius-box": "0.5rem",
-		"--size-selector": "0.25rem",
-		"--size-field": "0.25rem",
-		"--border": "1px",
-		"--depth": "1",
-		"--noise": "0"
+	"tags": ["neon", "vaporwave", "dark", "futuristic"],
+	"aliases": ["retrowave", "vaporwave"],
+	"tailwind": {
+		"colors": {
+			"base-100": "oklch(14% 0.04 300)",
+			"base-200": "oklch(18% 0.04 300)",
+			"base-300": "oklch(24% 0.04 300)",
+			"base-content": "oklch(95% 0.02 300)",
+			"primary": "oklch(65% 0.30 320)",
+			"primary-content": "oklch(98% 0.01 320)",
+			"secondary": "oklch(70% 0.28 260)",
+			"secondary-content": "oklch(98% 0.01 260)",
+			"accent": "oklch(72% 0.28 190)",
+			"accent-content": "oklch(10% 0.02 190)",
+			"neutral": "oklch(28% 0.03 300)",
+			"neutral-content": "oklch(96% 0.01 300)",
+			"info": "oklch(72% 0.20 230)",
+			"info-content": "oklch(98% 0.01 230)",
+			"success": "oklch(66% 0.24 145)",
+			"success-content": "oklch(98% 0.01 145)",
+			"warning": "oklch(80% 0.26 85)",
+			"warning-content": "oklch(20% 0.05 85)",
+			"error": "oklch(62% 0.32 25)",
+			"error-content": "oklch(98% 0.01 25)"
+		},
+		"borderRadius": {
+			"selector": "0.25rem",
+			"field": "0.25rem",
+			"box": "0.5rem"
+		},
+		"fontFamily": {
+			"display": [
+				"Orbitron",
+				"SF Mono",
+				"Monaco",
+				"Consolas",
+				"monospace"
+			],
+			"body": [
+				"Share Tech Mono",
+				"SF Mono",
+				"Monaco",
+				"Consolas",
+				"monospace"
+			],
+			"mono": [
+				"Source Code Pro",
+				"SF Mono",
+				"Monaco",
+				"Consolas",
+				"monospace"
+			]
+		}
 	},
+	"fonts": [
+		{
+			"package": "@fontsource/orbitron",
+			"weights": [400, 500, 600, 700, 800, 900],
+			"variable": true
+		},
+		{
+			"package": "@fontsource/share-tech-mono",
+			"weights": [400],
+			"variable": false
+		},
+		{
+			"package": "@fontsource/source-code-pro",
+			"weights": [300, 400, 500, 600, 700],
+			"variable": true
+		}
+	],
 	"metadata": {
 		"description": "Dark neon palette with retro futuristic vibes.",
 		"builtInThemeHint": "synthwave"
 	},
 	"extended": {
-		"typography": {
-			"heading": "bold-condensed",
-			"body": "normal",
-			"fontStacks": {
-				"display": {
-					"fontsource": {
-						"package": "@fontsource/orbitron",
-						"family": "Orbitron",
-						"weights": [
-							400,
-							500,
-							600,
-							700,
-							800,
-							900
-						],
-						"styles": [
-							"normal"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"SF Mono",
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'Orbitron', 'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": true,
-						"priority": "high"
-					}
-				},
-				"body": {
-					"fontsource": {
-						"package": "@fontsource/share-tech-mono",
-						"family": "Share Tech Mono",
-						"weights": [
-							400
-						],
-						"styles": [
-							"normal"
-						],
-						"variable": false
-					},
-					"fallbacks": [
-						"SF Mono",
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'Share Tech Mono', 'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "medium"
-					}
-				},
-				"mono": {
-					"fontsource": {
-						"package": "@fontsource/source-code-pro",
-						"family": "Source Code Pro",
-						"weights": [
-							300,
-							400,
-							500,
-							600,
-							700
-						],
-						"styles": [
-							"normal",
-							"italic"
-						],
-						"variable": true
-					},
-					"fallbacks": [
-						"SF Mono",
-						"Monaco",
-						"Consolas",
-						"monospace"
-					],
-					"css": "'Source Code Pro', 'SF Mono', Monaco, Consolas, monospace",
-					"performance": {
-						"fontDisplay": "swap",
-						"preload": false,
-						"priority": "low"
-					}
-				}
-			}
-		},
 		"effects": {
 			"synthGlow": {
 				"pink": "0 0 30px #ff0080",
@@ -150,12 +90,7 @@
 			}
 		},
 		"synthColors": {
-			"backgrounds": [
-				"#1a0033",
-				"#330066",
-				"#0d001a",
-				"#1a0d33"
-			],
+			"backgrounds": ["#1a0033", "#330066", "#0d001a", "#1a0d33"],
 			"neons": [
 				"#ff0080",
 				"#00ffff",
