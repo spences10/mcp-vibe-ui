@@ -1,6 +1,6 @@
 {
 	"name": "mcp-vibe-ui",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "Minimal MCP server in TypeScript for mcp-vibe-ui",
 	"type": "module",
 	"main": "dist/index.js",

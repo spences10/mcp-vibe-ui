@@ -1,5 +1,12 @@
 # mcp-vibe-ui
 
+## 0.0.6
+
+### Patch Changes
+
+- 1813805: Migrate to Tailwind v4 CSS themes with MCP resources and
+  patterns
+
 ## 0.0.5
 
 ### Patch Changes
