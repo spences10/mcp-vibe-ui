@@ -1,36 +1,32 @@
 {
-	"version": "1",
+	"version": "2",
 	"id": "glassmorphic",
 	"name": "Glassmorphic",
 	"tags": ["frosted", "translucent", "modern"],
 	"aliases": ["glass"],
 	"tailwind": {
 		"colors": {
-			"base-100": "oklch(98% 0.02 240)",
-			"base-200": "oklch(96% 0.02 240)",
-			"base-300": "oklch(92% 0.02 240)",
-			"base-content": "oklch(22% 0.03 240)",
+			"background": "oklch(98% 0.02 240)",
+			"foreground": "oklch(22% 0.03 240)",
+			"muted": "oklch(96% 0.02 240)",
+			"muted-foreground": "oklch(45% 0.03 240)",
+			"border": "oklch(92% 0.02 240)",
 			"primary": "oklch(72% 0.14 250)",
-			"primary-content": "oklch(12% 0.02 250)",
+			"primary-foreground": "oklch(12% 0.02 250)",
 			"secondary": "oklch(76% 0.12 180)",
-			"secondary-content": "oklch(12% 0.02 180)",
+			"secondary-foreground": "oklch(12% 0.02 180)",
 			"accent": "oklch(84% 0.12 90)",
-			"accent-content": "oklch(20% 0.03 90)",
-			"neutral": "oklch(45% 0.03 240)",
-			"neutral-content": "oklch(96% 0.01 240)",
+			"accent-foreground": "oklch(20% 0.03 90)",
+			"destructive": "oklch(62% 0.22 25)",
+			"destructive-foreground": "oklch(98% 0.01 25)",
 			"info": "oklch(70% 0.12 230)",
-			"info-content": "oklch(14% 0.02 230)",
 			"success": "oklch(66% 0.14 150)",
-			"success-content": "oklch(98% 0.01 150)",
-			"warning": "oklch(84% 0.16 85)",
-			"warning-content": "oklch(22% 0.04 85)",
-			"error": "oklch(62% 0.22 25)",
-			"error-content": "oklch(98% 0.01 25)"
+			"warning": "oklch(84% 0.16 85)"
 		},
 		"borderRadius": {
-			"selector": "1rem",
-			"field": "0.75rem",
-			"box": "1rem"
+			"sm": "0.75rem",
+			"md": "1rem",
+			"lg": "1rem"
 		},
 		"fontFamily": {
 			"display": [
@@ -60,6 +56,15 @@
 			]
 		}
 	},
+	"patterns": {
+		"surface": "bg-background text-foreground",
+		"card": "bg-white/10 backdrop-blur-md rounded-lg border border-white/20",
+		"elevated": "shadow-[0_8px_32px_rgba(31,38,135,0.15)]",
+		"interactive": "hover:bg-white/20 transition-all",
+		"glass": "backdrop-blur-md bg-white/10 border border-white/20",
+		"frosted": "backdrop-blur-xl bg-white/5 border border-white/10",
+		"glass-dark": "backdrop-blur-md bg-black/10 border border-black/20"
+	},
 	"fonts": [
 		{
 			"package": "@fontsource/inter",
@@ -73,52 +78,48 @@
 		}
 	],
 	"metadata": {
-		"description": "Frosted glass aesthetic with airy color accents.",
-		"builtInThemeHint": "winter"
+		"description": "Frosted glass aesthetic with airy color accents."
 	},
 	"extended": {
 		"effects": {
-			"blur": {
-				"light": "blur(8px)",
-				"medium": "blur(16px)",
-				"heavy": "blur(24px)"
+			"shadow": "0 8px 32px rgba(31,38,135,0.15)",
+			"glow": null,
+			"blur": "blur(16px)"
+		},
+		"animations": {
+			"enter": "float 6s ease-in-out infinite",
+			"hover": "glass-morph 0.3s ease-out",
+			"press": null
+		},
+		"keyframes": {
+			"float": "0%, 100% { transform: translateY(0); }\n50% { transform: translateY(-10px); }",
+			"shimmer": "0% { background-position: -200% 0; }\n100% { background-position: 200% 0; }",
+			"glass-morph": "0% { backdrop-filter: blur(8px); }\n100% { backdrop-filter: blur(16px); }"
+		},
+		"surfaces": {
+			"raised": "bg-white/15 backdrop-blur-lg shadow-lg",
+			"sunken": "bg-black/5 backdrop-blur-sm",
+			"overlay": "bg-white/20 backdrop-blur-xl"
+		},
+		"themeSpecific": {
+			"glassColors": {
+				"backgrounds": [
+					"rgba(255,255,255,0.1)",
+					"rgba(255,255,255,0.15)",
+					"rgba(255,255,255,0.08)"
+				],
+				"overlays": [
+					"rgba(255,255,255,0.25)",
+					"rgba(240,248,255,0.2)"
+				],
+				"gradients": [
+					"linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))",
+					"linear-gradient(45deg, rgba(240,248,255,0.15), rgba(255,255,255,0.1))"
+				]
 			},
 			"backdrop": {
 				"glass": "blur(16px) saturate(180%)",
 				"frost": "blur(20px) brightness(1.1)"
-			}
-		},
-		"glassColors": {
-			"backgrounds": [
-				"rgba(255,255,255,0.1)",
-				"rgba(255,255,255,0.15)",
-				"rgba(255,255,255,0.08)",
-				"rgba(240,248,255,0.12)"
-			],
-			"overlays": [
-				"rgba(255,255,255,0.25)",
-				"rgba(240,248,255,0.2)",
-				"rgba(248,250,252,0.3)"
-			],
-			"gradients": [
-				"linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))",
-				"linear-gradient(45deg, rgba(240,248,255,0.15), rgba(255,255,255,0.1))"
-			]
-		},
-		"animations": {
-			"float": "float 6s ease-in-out infinite",
-			"shimmer": "shimmer 3s ease-in-out infinite",
-			"glass-morph": "glass-morph 0.3s ease-out"
-		},
-		"layout": {
-			"borders": {
-				"glass": "1px solid rgba(255,255,255,0.2)",
-				"frosted": "1px solid rgba(255,255,255,0.1)"
-			},
-			"shadows": {
-				"soft": "0 8px 32px rgba(31,38,135,0.15)",
-				"lifted": "0 15px 35px rgba(31,38,135,0.2)",
-				"floating": "0 25px 45px rgba(31,38,135,0.25)"
 			}
 		}
 	},

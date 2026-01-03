@@ -1,36 +1,32 @@
 {
-	"version": "1",
+	"version": "2",
 	"id": "flat",
 	"name": "Flat",
 	"tags": ["minimal", "flat", "no-shadow"],
 	"aliases": [],
 	"tailwind": {
 		"colors": {
-			"base-100": "oklch(98% 0.02 240)",
-			"base-200": "oklch(94% 0.02 240)",
-			"base-300": "oklch(90% 0.02 240)",
-			"base-content": "oklch(20% 0.03 240)",
+			"background": "oklch(98% 0.02 240)",
+			"foreground": "oklch(20% 0.03 240)",
+			"muted": "oklch(94% 0.02 240)",
+			"muted-foreground": "oklch(40% 0.02 240)",
+			"border": "oklch(90% 0.02 240)",
 			"primary": "oklch(62% 0.18 260)",
-			"primary-content": "oklch(98% 0.01 260)",
+			"primary-foreground": "oklch(98% 0.01 260)",
 			"secondary": "oklch(58% 0.16 25)",
-			"secondary-content": "oklch(98% 0.01 25)",
+			"secondary-foreground": "oklch(98% 0.01 25)",
 			"accent": "oklch(64% 0.16 150)",
-			"accent-content": "oklch(14% 0.02 150)",
-			"neutral": "oklch(40% 0.02 240)",
-			"neutral-content": "oklch(96% 0.01 240)",
+			"accent-foreground": "oklch(14% 0.02 150)",
+			"destructive": "oklch(60% 0.20 25)",
+			"destructive-foreground": "oklch(98% 0.01 25)",
 			"info": "oklch(68% 0.12 230)",
-			"info-content": "oklch(12% 0.02 230)",
 			"success": "oklch(64% 0.16 150)",
-			"success-content": "oklch(98% 0.01 150)",
-			"warning": "oklch(80% 0.18 85)",
-			"warning-content": "oklch(22% 0.04 85)",
-			"error": "oklch(60% 0.20 25)",
-			"error-content": "oklch(98% 0.01 25)"
+			"warning": "oklch(80% 0.18 85)"
 		},
 		"borderRadius": {
-			"selector": "0.25rem",
-			"field": "0.25rem",
-			"box": "0.25rem"
+			"sm": "0.25rem",
+			"md": "0.25rem",
+			"lg": "0.25rem"
 		},
 		"fontFamily": {
 			"display": [
@@ -56,6 +52,14 @@
 			]
 		}
 	},
+	"patterns": {
+		"surface": "bg-background text-foreground",
+		"card": "bg-muted rounded p-4",
+		"elevated": "shadow-sm",
+		"interactive": "hover:bg-primary/10 active:scale-[0.98] transition-all",
+		"button-primary": "bg-primary text-primary-foreground rounded px-4 py-2 hover:brightness-110",
+		"button-secondary": "bg-secondary text-secondary-foreground rounded px-4 py-2 hover:brightness-110"
+	},
 	"fonts": [
 		{
 			"package": "@fontsource/open-sans",
@@ -74,59 +78,44 @@
 		}
 	],
 	"metadata": {
-		"description": "Flat design with minimal depth and crisp color blocks.",
-		"builtInThemeHint": "light"
+		"description": "Flat design with minimal depth and crisp color blocks."
 	},
 	"extended": {
-		"flatDesign": {
+		"effects": {
+			"shadow": "0 1px 3px rgba(0,0,0,0.1)",
+			"glow": null,
+			"blur": null
+		},
+		"animations": {
+			"enter": null,
+			"hover": "background-color 0.15s ease",
+			"press": "transform 0.1s ease"
+		},
+		"keyframes": {},
+		"surfaces": {
+			"raised": "bg-muted",
+			"sunken": "bg-border",
+			"overlay": "bg-background/95"
+		},
+		"themeSpecific": {
+			"brightColors": {
+				"primary": "#3B82F6",
+				"secondary": "#EF4444",
+				"palette": [
+					"#3B82F6",
+					"#EF4444",
+					"#10B981",
+					"#F59E0B",
+					"#8B5CF6",
+					"#06B6D4"
+				],
+				"backgrounds": ["#F8FAFC", "#F1F5F9", "#E2E8F0"]
+			},
 			"principles": {
 				"noTextures": true,
 				"noGradients": false,
-				"subtleShadows": "0 1px 3px rgba(0,0,0,0.1)",
-				"layering": "transform: translateY(-2px)"
-			},
-			"colorBlocks": {
-				"solid": "no gradients, flat fills only",
-				"hierarchy": "use color saturation and brightness"
+				"subtleShadows": true
 			}
-		},
-		"brightColors": {
-			"primary": "#3B82F6",
-			"secondary": "#EF4444",
-			"friendly": [
-				"#3B82F6",
-				"#EF4444",
-				"#10B981",
-				"#F59E0B",
-				"#8B5CF6",
-				"#06B6D4"
-			],
-			"backgrounds": ["#F8FAFC", "#F1F5F9", "#E2E8F0"]
-		},
-		"microAnimations": {
-			"colorShift": "background-color 0.15s ease",
-			"scalePress": "transform 0.1s ease",
-			"buttonHover": "background-color 0.2s ease, transform 0.1s ease"
-		},
-		"geometric": {
-			"icons": {
-				"style": "outlined, simple, geometric",
-				"strokeWidth": "1.5px",
-				"corners": "sharp or minimal radius"
-			},
-			"shapes": {
-				"rectangle": "border-radius: 0",
-				"pill": "border-radius: 50px",
-				"rounded": "border-radius: 8px"
-			}
-		},
-		"interactions": {
-			"buttons": {
-				"hover": "background-color: lighter/darker by 10%",
-				"active": "transform: scale(0.98)",
-				"focus": "outline: 2px solid accent"
-			},
-			"cards": "spacing drives structure, not decoration"
 		}
 	},
 	"notes": "Avoid heavy gradients and textures. Use bright, friendly colors. Rely on spacing and color for hierarchy."

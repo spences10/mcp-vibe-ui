@@ -1,36 +1,32 @@
 {
-	"version": "1",
+	"version": "2",
 	"id": "japanese-minimalist",
 	"name": "Japanese Minimalist",
 	"tags": ["minimal", "calm", "balanced", "light"],
 	"aliases": ["japanese", "zen"],
 	"tailwind": {
 		"colors": {
-			"base-100": "oklch(99% 0.01 240)",
-			"base-200": "oklch(96% 0.01 240)",
-			"base-300": "oklch(92% 0.01 240)",
-			"base-content": "oklch(18% 0.02 240)",
+			"background": "oklch(99% 0.01 240)",
+			"foreground": "oklch(18% 0.02 240)",
+			"muted": "oklch(96% 0.01 240)",
+			"muted-foreground": "oklch(35% 0.02 240)",
+			"border": "oklch(92% 0.01 240)",
 			"primary": "oklch(55% 0.06 20)",
-			"primary-content": "oklch(98% 0.01 20)",
+			"primary-foreground": "oklch(98% 0.01 20)",
 			"secondary": "oklch(60% 0.06 170)",
-			"secondary-content": "oklch(98% 0.01 170)",
+			"secondary-foreground": "oklch(98% 0.01 170)",
 			"accent": "oklch(70% 0.08 80)",
-			"accent-content": "oklch(18% 0.02 80)",
-			"neutral": "oklch(35% 0.02 240)",
-			"neutral-content": "oklch(96% 0.01 240)",
+			"accent-foreground": "oklch(18% 0.02 80)",
+			"destructive": "oklch(58% 0.20 25)",
+			"destructive-foreground": "oklch(98% 0.01 25)",
 			"info": "oklch(68% 0.10 230)",
-			"info-content": "oklch(14% 0.02 230)",
 			"success": "oklch(64% 0.12 150)",
-			"success-content": "oklch(98% 0.01 150)",
-			"warning": "oklch(80% 0.14 85)",
-			"warning-content": "oklch(22% 0.04 85)",
-			"error": "oklch(58% 0.20 25)",
-			"error-content": "oklch(98% 0.01 25)"
+			"warning": "oklch(80% 0.14 85)"
 		},
 		"borderRadius": {
-			"selector": "0.25rem",
-			"field": "0.25rem",
-			"box": "0.5rem"
+			"sm": "0.25rem",
+			"md": "0.25rem",
+			"lg": "0.5rem"
 		},
 		"fontFamily": {
 			"display": [
@@ -56,6 +52,14 @@
 			]
 		}
 	},
+	"patterns": {
+		"surface": "bg-background text-foreground",
+		"card": "bg-muted rounded p-6",
+		"elevated": "shadow-sm",
+		"interactive": "hover:opacity-80 active:translate-y-px transition-all",
+		"minimal-button": "border border-foreground/20 bg-transparent px-4 py-2 hover:bg-foreground/5",
+		"underlined": "border-b border-foreground/20 hover:border-foreground/40"
+	},
 	"fonts": [
 		{
 			"package": "@fontsource/noto-sans-jp",
@@ -74,57 +78,54 @@
 		}
 	],
 	"metadata": {
-		"description": "Calm, minimal aesthetic with gentle accents.",
-		"builtInThemeHint": "lofi"
+		"description": "Calm, minimal aesthetic with gentle accents."
 	},
 	"extended": {
-		"zen": {
-			"spacing": {
-				"generous": "2rem",
-				"breath": "3rem",
-				"meditation": "4rem"
-			},
-			"balance": {
-				"golden": "1.618",
-				"asymmetric": "purposeful imbalance for visual interest"
-			}
-		},
-		"naturalTones": {
-			"offWhite": "#FEFEFE",
-			"beige": "#F5F5DC",
-			"lightBrown": "#D2B48C",
-			"softGrey": "#F8F8FF",
-			"subtleGreen": "#F0FFF0",
-			"palette": [
-				"#FEFEFE",
-				"#F5F5DC",
-				"#D2B48C",
-				"#F8F8FF",
-				"#F0FFF0",
-				"#E6E6FA"
-			],
-			"earth": ["#DEB887", "#D2B48C", "#BC9A6A", "#A0956B"]
-		},
-		"minimalism": {
-			"negativeSpace": "embrace emptiness as design element",
-			"subtlety": "avoid sharp contrasts",
-			"harmony": "colors blend seamlessly"
-		},
-		"interactions": {
-			"gentle": {
-				"hover": "opacity: 0.8",
-				"focus": "outline: 1px solid rgba(0,0,0,0.1)",
-				"active": "transform: translateY(1px)"
-			},
-			"buttons": {
-				"minimal": "border: 1px solid; background: transparent",
-				"underlined": "border-bottom: 1px solid"
-			}
+		"effects": {
+			"shadow": "0 1px 2px rgba(0,0,0,0.05)",
+			"glow": null,
+			"blur": null
 		},
 		"animations": {
-			"gentle-fade": "opacity 0.4s ease",
-			"natural-flow": "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-			"zen-breathe": "transform 4s ease-in-out infinite"
+			"enter": "gentle-fade 0.4s ease",
+			"hover": "natural-flow 0.6s ease",
+			"press": null
+		},
+		"keyframes": {
+			"gentle-fade": "0% { opacity: 0; }\n100% { opacity: 1; }",
+			"zen-breathe": "0%, 100% { transform: scale(1); }\n50% { transform: scale(1.02); }",
+			"natural-flow": "0% { transform: translateY(0); }\n100% { transform: translateY(-1px); }"
+		},
+		"surfaces": {
+			"raised": "bg-muted shadow-sm",
+			"sunken": "bg-border",
+			"overlay": "bg-background/95"
+		},
+		"themeSpecific": {
+			"naturalTones": {
+				"offWhite": "#FEFEFE",
+				"beige": "#F5F5DC",
+				"lightBrown": "#D2B48C",
+				"softGrey": "#F8F8FF",
+				"subtleGreen": "#F0FFF0",
+				"palette": [
+					"#FEFEFE",
+					"#F5F5DC",
+					"#D2B48C",
+					"#F8F8FF",
+					"#F0FFF0",
+					"#E6E6FA"
+				],
+				"earth": ["#DEB887", "#D2B48C", "#BC9A6A", "#A0956B"]
+			},
+			"zen": {
+				"spacing": {
+					"generous": "2rem",
+					"breath": "3rem",
+					"meditation": "4rem"
+				},
+				"balance": "1.618"
+			}
 		}
 	},
 	"notes": "Embrace negative space. Use natural tones. Avoid sharp contrasts. Focus on balance and harmony."

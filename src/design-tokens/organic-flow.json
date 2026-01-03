@@ -1,36 +1,32 @@
 {
-	"version": "1",
+	"version": "2",
 	"id": "organic-flow",
 	"name": "Organic Flow",
 	"tags": ["natural", "rounded", "green", "fluid"],
 	"aliases": ["organic"],
 	"tailwind": {
 		"colors": {
-			"base-100": "oklch(98% 0.02 150)",
-			"base-200": "oklch(95% 0.02 150)",
-			"base-300": "oklch(90% 0.02 150)",
-			"base-content": "oklch(22% 0.02 150)",
+			"background": "oklch(98% 0.02 150)",
+			"foreground": "oklch(22% 0.02 150)",
+			"muted": "oklch(95% 0.02 150)",
+			"muted-foreground": "oklch(38% 0.02 150)",
+			"border": "oklch(90% 0.02 150)",
 			"primary": "oklch(68% 0.16 150)",
-			"primary-content": "oklch(12% 0.02 150)",
+			"primary-foreground": "oklch(12% 0.02 150)",
 			"secondary": "oklch(72% 0.14 200)",
-			"secondary-content": "oklch(12% 0.02 200)",
+			"secondary-foreground": "oklch(12% 0.02 200)",
 			"accent": "oklch(78% 0.14 100)",
-			"accent-content": "oklch(20% 0.03 100)",
-			"neutral": "oklch(38% 0.02 150)",
-			"neutral-content": "oklch(96% 0.01 150)",
+			"accent-foreground": "oklch(20% 0.03 100)",
+			"destructive": "oklch(62% 0.20 25)",
+			"destructive-foreground": "oklch(98% 0.01 25)",
 			"info": "oklch(70% 0.10 230)",
-			"info-content": "oklch(14% 0.02 230)",
 			"success": "oklch(66% 0.16 150)",
-			"success-content": "oklch(98% 0.01 150)",
-			"warning": "oklch(84% 0.16 85)",
-			"warning-content": "oklch(22% 0.04 85)",
-			"error": "oklch(62% 0.20 25)",
-			"error-content": "oklch(98% 0.01 25)"
+			"warning": "oklch(84% 0.16 85)"
 		},
 		"borderRadius": {
-			"selector": "1rem",
-			"field": "1rem",
-			"box": "1.5rem"
+			"sm": "1rem",
+			"md": "1rem",
+			"lg": "1.5rem"
 		},
 		"fontFamily": {
 			"display": [
@@ -56,6 +52,14 @@
 			]
 		}
 	},
+	"patterns": {
+		"surface": "bg-background text-foreground",
+		"card": "bg-muted rounded-2xl p-4 shadow-[0_4px_20px_rgba(34,197,94,0.2)]",
+		"elevated": "shadow-[0_8px_30px_rgba(34,197,94,0.3)]",
+		"interactive": "hover:scale-[1.02] active:scale-[0.98] transition-transform",
+		"blob": "rounded-[60%_40%_30%_70%/60%_30%_70%_40%]",
+		"organic-button": "rounded-full px-6 py-3 bg-primary text-primary-foreground hover:shadow-[0_8px_30px_rgba(34,197,94,0.3)]"
+	},
 	"fonts": [
 		{
 			"package": "@fontsource/comfortaa",
@@ -74,40 +78,43 @@
 		}
 	],
 	"metadata": {
-		"description": "Organic rounded shapes with nature-inspired palette.",
-		"builtInThemeHint": "emerald"
+		"description": "Organic rounded shapes with nature-inspired palette."
 	},
 	"extended": {
 		"effects": {
-			"organic": {
-				"flow": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-				"wave": "cubic-bezier(0.68, -0.55, 0.265, 1.55)"
-			},
-			"naturalShadows": {
-				"soft": "0 4px 20px rgba(34, 197, 94, 0.2)",
-				"medium": "0 8px 30px rgba(34, 197, 94, 0.3)",
-				"large": "0 15px 40px rgba(34, 197, 94, 0.4)"
-			}
-		},
-		"naturalColors": {
-			"earth": ["#8B7355", "#A0956B", "#C4B5A0", "#D4C4AA"],
-			"growth": ["#22c55e", "#16a34a", "#15803d", "#166534"],
-			"sky": ["#87CEEB", "#B0E0E6", "#E0F6FF", "#F0F8FF"],
-			"gradients": [
-				"linear-gradient(135deg, #22c55e, #16a34a, #15803d)",
-				"radial-gradient(circle, #87CEEB, #22c55e, #8B7355)"
-			]
+			"shadow": "0 4px 20px rgba(34, 197, 94, 0.2)",
+			"glow": "0 0 30px rgba(34, 197, 94, 0.3)",
+			"blur": null
 		},
 		"animations": {
-			"grow": "grow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-			"sway": "sway 4s ease-in-out infinite",
-			"bloom": "bloom 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)"
+			"enter": "grow 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+			"hover": "bloom 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+			"press": null
 		},
-		"layout": {
+		"keyframes": {
+			"grow": "0% { transform: scale(0.9); opacity: 0; }\n100% { transform: scale(1); opacity: 1; }",
+			"sway": "0%, 100% { transform: rotate(-1deg); }\n50% { transform: rotate(1deg); }",
+			"bloom": "0% { transform: scale(1); }\n50% { transform: scale(1.05); }\n100% { transform: scale(1); }"
+		},
+		"surfaces": {
+			"raised": "shadow-[0_8px_30px_rgba(34,197,94,0.3)] rounded-2xl",
+			"sunken": "shadow-inner bg-border/50",
+			"overlay": "bg-background/90 backdrop-blur-sm rounded-3xl"
+		},
+		"themeSpecific": {
+			"naturalColors": {
+				"earth": ["#8B7355", "#A0956B", "#C4B5A0", "#D4C4AA"],
+				"growth": ["#22c55e", "#16a34a", "#15803d", "#166534"],
+				"sky": ["#87CEEB", "#B0E0E6", "#E0F6FF", "#F0F8FF"],
+				"gradients": [
+					"linear-gradient(135deg, #22c55e, #16a34a, #15803d)",
+					"radial-gradient(circle, #87CEEB, #22c55e, #8B7355)"
+				]
+			},
 			"organicShapes": {
-				"blob1": "border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%",
-				"blob2": "border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%",
-				"blob3": "border-radius: 40% 60% 60% 40% / 60% 30% 60% 40%"
+				"blob1": "60% 40% 30% 70% / 60% 30% 70% 40%",
+				"blob2": "30% 60% 70% 40% / 50% 60% 30% 60%",
+				"blob3": "40% 60% 60% 40% / 60% 30% 60% 40%"
 			},
 			"flowingSpacing": {
 				"rhythm": ["8px", "13px", "21px", "34px", "55px"],

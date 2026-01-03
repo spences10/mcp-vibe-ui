@@ -1,36 +1,32 @@
 {
-	"version": "1",
+	"version": "2",
 	"id": "typographic",
 	"name": "Typographic",
 	"tags": ["content-first", "readable", "neutral"],
 	"aliases": ["type"],
 	"tailwind": {
 		"colors": {
-			"base-100": "oklch(99% 0.01 240)",
-			"base-200": "oklch(96% 0.01 240)",
-			"base-300": "oklch(92% 0.01 240)",
-			"base-content": "oklch(17% 0.02 240)",
+			"background": "oklch(99% 0.01 240)",
+			"foreground": "oklch(17% 0.02 240)",
+			"muted": "oklch(96% 0.01 240)",
+			"muted-foreground": "oklch(30% 0.02 240)",
+			"border": "oklch(92% 0.01 240)",
 			"primary": "oklch(48% 0.06 260)",
-			"primary-content": "oklch(96% 0.01 260)",
+			"primary-foreground": "oklch(96% 0.01 260)",
 			"secondary": "oklch(58% 0.08 25)",
-			"secondary-content": "oklch(98% 0.01 25)",
+			"secondary-foreground": "oklch(98% 0.01 25)",
 			"accent": "oklch(66% 0.10 150)",
-			"accent-content": "oklch(14% 0.02 150)",
-			"neutral": "oklch(30% 0.02 240)",
-			"neutral-content": "oklch(96% 0.01 240)",
+			"accent-foreground": "oklch(14% 0.02 150)",
+			"destructive": "oklch(58% 0.20 25)",
+			"destructive-foreground": "oklch(98% 0.01 25)",
 			"info": "oklch(70% 0.10 230)",
-			"info-content": "oklch(14% 0.02 230)",
 			"success": "oklch(64% 0.12 150)",
-			"success-content": "oklch(98% 0.01 150)",
-			"warning": "oklch(82% 0.14 85)",
-			"warning-content": "oklch(22% 0.04 85)",
-			"error": "oklch(58% 0.20 25)",
-			"error-content": "oklch(98% 0.01 25)"
+			"warning": "oklch(82% 0.14 85)"
 		},
 		"borderRadius": {
-			"selector": "0.25rem",
-			"field": "0.25rem",
-			"box": "0.5rem"
+			"sm": "0.25rem",
+			"md": "0.25rem",
+			"lg": "0.5rem"
 		},
 		"fontFamily": {
 			"display": [
@@ -56,6 +52,16 @@
 			]
 		}
 	},
+	"patterns": {
+		"surface": "bg-background text-foreground",
+		"card": "bg-muted rounded p-6",
+		"elevated": "shadow-sm",
+		"interactive": "hover:underline underline-offset-4 transition-all",
+		"heading-h1": "text-5xl font-bold tracking-tight",
+		"heading-h2": "text-3xl font-semibold tracking-tight",
+		"body-text": "text-base leading-relaxed max-w-prose",
+		"link": "underline underline-offset-2 font-medium hover:text-primary"
+	},
 	"fonts": [
 		{
 			"package": "@fontsource/inter",
@@ -69,74 +75,59 @@
 		}
 	],
 	"metadata": {
-		"description": "Readable, content-focused palette with subtle accents.",
-		"builtInThemeHint": "wireframe"
+		"description": "Readable, content-focused palette with subtle accents."
 	},
 	"extended": {
-		"gridSystem": {
-			"baseline": "1.5rem",
-			"modularScale": "1.25",
-			"alignment": {
-				"strict": "all elements align to baseline grid",
-				"gutters": "consistent spacing units",
-				"margins": "mathematical relationships"
-			}
-		},
-		"textColors": {
-			"black": "#000000",
-			"white": "#FFFFFF",
-			"darkGrey": "#333333",
-			"mediumGrey": "#666666",
-			"lightGrey": "#999999",
-			"accents": ["#DC2626", "#2563EB", "#059669", "#7C2D12"]
-		},
-		"hierarchy": {
-			"sizes": {
-				"h1": "3rem",
-				"h2": "2.25rem",
-				"h3": "1.875rem",
-				"h4": "1.5rem",
-				"h5": "1.25rem",
-				"body": "1rem",
-				"small": "0.875rem"
-			},
-			"weights": {
-				"light": "300",
-				"normal": "400",
-				"medium": "500",
-				"semibold": "600",
-				"bold": "700"
-			}
-		},
-		"textInteractions": {
-			"underlines": {
-				"default": "text-decoration: underline",
-				"thick": "text-decoration-thickness: 2px",
-				"offset": "text-underline-offset: 0.2em"
-			},
-			"emphasis": {
-				"bold": "font-weight: 600",
-				"italic": "font-style: italic",
-				"color": "color: var(--color-accent)"
-			},
-			"links": "text-decoration: underline; font-weight: 500"
-		},
-		"layout": {
-			"precise": {
-				"columns": "max-width: 65ch per column",
-				"spacing": "consistent vertical rhythm",
-				"alignment": "left-aligned for readability"
-			},
-			"grid": {
-				"static": "avoid dynamic layouts",
-				"ordered": "mathematical spacing",
-				"clean": "generous whitespace"
-			}
+		"effects": {
+			"shadow": null,
+			"glow": null,
+			"blur": null
 		},
 		"animations": {
-			"minimal": "opacity 0.2s ease",
-			"text-appear": "opacity 0.3s ease-in",
-			"focus-ring": "outline 0.15s ease"
+			"enter": "text-appear 0.3s ease-in",
+			"hover": null,
+			"press": null
+		},
+		"keyframes": {
+			"text-appear": "0% { opacity: 0; transform: translateY(4px); }\n100% { opacity: 1; transform: translateY(0); }",
+			"focus-ring": "0% { outline-width: 0; }\n100% { outline-width: 2px; }"
+		},
+		"surfaces": {
+			"raised": "bg-muted",
+			"sunken": "bg-border",
+			"overlay": "bg-background/95"
+		},
+		"themeSpecific": {
+			"hierarchy": {
+				"sizes": {
+					"h1": "3rem",
+					"h2": "2.25rem",
+					"h3": "1.875rem",
+					"h4": "1.5rem",
+					"h5": "1.25rem",
+					"body": "1rem",
+					"small": "0.875rem"
+				},
+				"weights": {
+					"light": "300",
+					"normal": "400",
+					"medium": "500",
+					"semibold": "600",
+					"bold": "700"
+				}
+			},
+			"gridSystem": {
+				"baseline": "1.5rem",
+				"modularScale": "1.25",
+				"maxWidth": "65ch"
+			},
+			"textColors": {
+				"black": "#000000",
+				"darkGrey": "#333333",
+				"mediumGrey": "#666666",
+				"lightGrey": "#999999",
+				"accents": ["#DC2626", "#2563EB", "#059669"]
+			}
 		}
 	},
 	"notes": "Focus on readability and hierarchy. Use mathematical spacing. Avoid decorative elements."

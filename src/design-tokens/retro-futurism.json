@@ -1,36 +1,32 @@
 {
-	"version": "1",
+	"version": "2",
 	"id": "retro-futurism",
 	"name": "Retro Futurism",
 	"tags": ["neon", "vaporwave", "dark", "futuristic"],
 	"aliases": ["retrowave", "vaporwave"],
 	"tailwind": {
 		"colors": {
-			"base-100": "oklch(14% 0.04 300)",
-			"base-200": "oklch(18% 0.04 300)",
-			"base-300": "oklch(24% 0.04 300)",
-			"base-content": "oklch(95% 0.02 300)",
+			"background": "oklch(14% 0.04 300)",
+			"foreground": "oklch(95% 0.02 300)",
+			"muted": "oklch(18% 0.04 300)",
+			"muted-foreground": "oklch(70% 0.02 300)",
+			"border": "oklch(24% 0.04 300)",
 			"primary": "oklch(65% 0.30 320)",
-			"primary-content": "oklch(98% 0.01 320)",
+			"primary-foreground": "oklch(98% 0.01 320)",
 			"secondary": "oklch(70% 0.28 260)",
-			"secondary-content": "oklch(98% 0.01 260)",
+			"secondary-foreground": "oklch(98% 0.01 260)",
 			"accent": "oklch(72% 0.28 190)",
-			"accent-content": "oklch(10% 0.02 190)",
-			"neutral": "oklch(28% 0.03 300)",
-			"neutral-content": "oklch(96% 0.01 300)",
+			"accent-foreground": "oklch(10% 0.02 190)",
+			"destructive": "oklch(62% 0.32 25)",
+			"destructive-foreground": "oklch(98% 0.01 25)",
 			"info": "oklch(72% 0.20 230)",
-			"info-content": "oklch(98% 0.01 230)",
 			"success": "oklch(66% 0.24 145)",
-			"success-content": "oklch(98% 0.01 145)",
-			"warning": "oklch(80% 0.26 85)",
-			"warning-content": "oklch(20% 0.05 85)",
-			"error": "oklch(62% 0.32 25)",
-			"error-content": "oklch(98% 0.01 25)"
+			"warning": "oklch(80% 0.26 85)"
 		},
 		"borderRadius": {
-			"selector": "0.25rem",
-			"field": "0.25rem",
-			"box": "0.5rem"
+			"sm": "0.25rem",
+			"md": "0.25rem",
+			"lg": "0.5rem"
 		},
 		"fontFamily": {
 			"display": [
@@ -56,6 +52,15 @@
 			]
 		}
 	},
+	"patterns": {
+		"surface": "bg-background text-foreground",
+		"card": "bg-muted rounded border border-primary/30 p-4",
+		"elevated": "shadow-[0_0_30px_rgba(255,0,128,0.3)]",
+		"interactive": "hover:shadow-[0_0_20px_var(--color-primary)] transition-shadow",
+		"neon-glow": "shadow-[0_0_30px_var(--color-primary)] text-primary",
+		"scanlines": "bg-[repeating-linear-gradient(0deg,transparent_0px,rgba(255,0,128,0.05)_1px,rgba(255,0,128,0.05)_2px,transparent_3px)]",
+		"grid-perspective": "[transform:perspective(500px)_rotateX(60deg)]"
+	},
 	"fonts": [
 		{
 			"package": "@fontsource/orbitron",
@@ -74,47 +79,49 @@
 		}
 	],
 	"metadata": {
-		"description": "Dark neon palette with retro futuristic vibes.",
-		"builtInThemeHint": "synthwave"
+		"description": "Dark neon palette with retro futuristic vibes."
 	},
 	"extended": {
 		"effects": {
-			"synthGlow": {
-				"pink": "0 0 30px #ff0080",
-				"cyan": "0 0 25px #00ffff",
-				"purple": "0 0 35px #8b00ff"
+			"shadow": "0 0 30px rgba(255, 0, 128, 0.3)",
+			"glow": "0 0 30px #ff0080",
+			"blur": null
+		},
+		"animations": {
+			"enter": "neon-flicker 1.5s ease-in-out infinite alternate",
+			"hover": "retro-scan 3s linear infinite",
+			"press": null
+		},
+		"keyframes": {
+			"retro-scan": "0% { background-position: 0 0; }\n100% { background-position: 0 100%; }",
+			"vhs-glitch": "0%, 100% { transform: translate(0); filter: none; }\n20% { transform: translate(-2px, 1px); filter: hue-rotate(90deg); }\n40% { transform: translate(2px, -1px); }\n60% { transform: translate(-1px, 2px); filter: hue-rotate(-90deg); }",
+			"neon-flicker": "0%, 100% { opacity: 1; }\n50% { opacity: 0.8; }\n52% { opacity: 1; }\n54% { opacity: 0.9; }"
+		},
+		"surfaces": {
+			"raised": "bg-muted shadow-[0_0_30px_rgba(255,0,128,0.2)] border border-primary/20",
+			"sunken": "bg-background shadow-inner",
+			"overlay": "bg-background/90 backdrop-blur-sm border border-primary/30"
+		},
+		"themeSpecific": {
+			"synthColors": {
+				"backgrounds": ["#1a0033", "#330066", "#0d001a", "#1a0d33"],
+				"neons": [
+					"#ff0080",
+					"#00ffff",
+					"#ff6600",
+					"#8b00ff",
+					"#00ff41",
+					"#ffff00"
+				],
+				"gradients": [
+					"linear-gradient(45deg, #ff0080, #8b00ff, #00ffff)",
+					"linear-gradient(135deg, #1a0033 0%, #330066 50%, #ff0080 100%)"
+				]
 			},
 			"gridLines": {
 				"horizontal": "repeating-linear-gradient(90deg, transparent, transparent 79px, #ff008050 79px, #ff008050 81px)",
 				"vertical": "repeating-linear-gradient(0deg, transparent, transparent 19px, #00ffff30 19px, #00ffff30 21px)"
-			}
-		},
-		"synthColors": {
-			"backgrounds": ["#1a0033", "#330066", "#0d001a", "#1a0d33"],
-			"neons": [
-				"#ff0080",
-				"#00ffff",
-				"#ff6600",
-				"#8b00ff",
-				"#00ff41",
-				"#ffff00"
-			],
-			"gradients": [
-				"linear-gradient(45deg, #ff0080, #8b00ff, #00ffff)",
-				"linear-gradient(135deg, #1a0033 0%, #330066 50%, #ff0080 100%)"
-			]
-		},
-		"animations": {
-			"retro-scan": "retro-scan 3s linear infinite",
-			"vhs-glitch": "vhs-glitch 0.5s steps(10, end) infinite",
-			"neon-flicker": "neon-flicker 1.5s ease-in-out infinite alternate"
-		},
-		"layout": {
-			"perspective": {
-				"grid": "perspective(500px) rotateX(60deg)",
-				"vanishing": "perspective(800px) rotateX(45deg)"
 			},
-			"scanlines": "repeating-linear-gradient(0deg, transparent 0px, rgba(255,0,128,0.05) 1px, rgba(255,0,128,0.05) 2px, transparent 3px)",
 			"chromatic": {
 				"aberration": "drop-shadow(2px 0 0 #ff0080) drop-shadow(-2px 0 0 #00ffff)"
 			}

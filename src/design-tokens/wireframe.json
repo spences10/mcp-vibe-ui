@@ -1,36 +1,32 @@
 {
-	"version": "1",
+	"version": "2",
 	"id": "wireframe",
 	"name": "Wireframe",
 	"tags": ["skeletal", "blueprint", "low-depth"],
 	"aliases": ["blueprint"],
 	"tailwind": {
 		"colors": {
-			"base-100": "oklch(99% 0.01 240)",
-			"base-200": "oklch(96% 0.01 240)",
-			"base-300": "oklch(92% 0.01 240)",
-			"base-content": "oklch(20% 0.02 240)",
+			"background": "oklch(99% 0.01 240)",
+			"foreground": "oklch(20% 0.02 240)",
+			"muted": "oklch(96% 0.01 240)",
+			"muted-foreground": "oklch(35% 0.02 240)",
+			"border": "oklch(92% 0.01 240)",
 			"primary": "oklch(55% 0.14 260)",
-			"primary-content": "oklch(98% 0.01 260)",
+			"primary-foreground": "oklch(98% 0.01 260)",
 			"secondary": "oklch(65% 0.14 210)",
-			"secondary-content": "oklch(98% 0.01 210)",
+			"secondary-foreground": "oklch(98% 0.01 210)",
 			"accent": "oklch(70% 0.14 180)",
-			"accent-content": "oklch(14% 0.02 180)",
-			"neutral": "oklch(35% 0.02 240)",
-			"neutral-content": "oklch(96% 0.01 240)",
+			"accent-foreground": "oklch(14% 0.02 180)",
+			"destructive": "oklch(60% 0.20 25)",
+			"destructive-foreground": "oklch(98% 0.01 25)",
 			"info": "oklch(72% 0.12 230)",
-			"info-content": "oklch(14% 0.02 230)",
 			"success": "oklch(66% 0.14 150)",
-			"success-content": "oklch(98% 0.01 150)",
-			"warning": "oklch(84% 0.16 85)",
-			"warning-content": "oklch(22% 0.04 85)",
-			"error": "oklch(60% 0.20 25)",
-			"error-content": "oklch(98% 0.01 25)"
+			"warning": "oklch(84% 0.16 85)"
 		},
 		"borderRadius": {
-			"selector": "0.25rem",
-			"field": "0.25rem",
-			"box": "0.25rem"
+			"sm": "0.25rem",
+			"md": "0.25rem",
+			"lg": "0.25rem"
 		},
 		"fontFamily": {
 			"display": [
@@ -50,6 +46,15 @@
 			"mono": ["SF Mono", "Monaco", "Consolas", "monospace"]
 		}
 	},
+	"patterns": {
+		"surface": "bg-background text-foreground",
+		"card": "bg-transparent border border-border rounded p-4",
+		"elevated": "border border-foreground/20",
+		"interactive": "hover:border-foreground focus:outline-dashed focus:outline-2 transition-colors",
+		"skeletal-button": "border border-foreground bg-transparent px-4 py-2 hover:bg-foreground/5",
+		"placeholder-image": "bg-[repeating-conic-gradient(#ccc_0%_25%,transparent_0%_50%)] bg-[length:20px_20px]",
+		"grid-background": "bg-[linear-gradient(#ccc_1px,transparent_1px),linear-gradient(90deg,#ccc_1px,transparent_1px)] bg-[size:20px_20px]"
+	},
 	"fonts": [
 		{
 			"package": "@fontsource/fira-code",
@@ -63,70 +68,51 @@
 		}
 	],
 	"metadata": {
-		"description": "Blueprint-like, low depth styling for prototyping.",
-		"builtInThemeHint": "wireframe"
+		"description": "Blueprint-like, low depth styling for prototyping."
 	},
 	"extended": {
-		"blueprint": {
-			"lines": {
-				"thin": "1px",
-				"medium": "2px",
-				"construction": "1px dashed",
-				"dimension": "1px solid #999"
-			},
-			"patterns": {
-				"grid": "background-image: linear-gradient(#ccc 1px, transparent 1px), linear-gradient(90deg, #ccc 1px, transparent 1px)",
-				"dots": "radial-gradient(circle, #999 1px, transparent 1px)",
-				"hash": "repeating-linear-gradient(45deg, transparent, transparent 10px, #eee 10px, #eee 11px)"
-			}
-		},
-		"skeletalColors": {
-			"outlines": ["#333333", "#666666", "#999999", "#CCCCCC"],
-			"backgrounds": [
-				"transparent",
-				"rgba(0,0,0,0.02)",
-				"rgba(0,0,0,0.05)"
-			],
-			"annotations": ["#0066CC", "#CC6600", "#009966"]
-		},
-		"prototyping": {
-			"placeholders": {
-				"image": "background: repeating-conic-gradient(#ccc 0% 25%, transparent 0% 50%)",
-				"text": "background: linear-gradient(90deg, #eee 25%, transparent 50%)",
-				"video": "background: cross-hatch pattern"
-			},
-			"annotations": {
-				"labels": "font-size: 0.75rem; color: #666",
-				"dimensions": "border: 1px dashed #999; position: relative",
-				"notes": "background: rgba(255,255,0,0.1); border: 1px solid #ccc"
-			}
-		},
-		"interactions": {
-			"minimal": {
-				"hover": "border-color: #333",
-				"focus": "outline: 2px dashed #666",
-				"active": "background: rgba(0,0,0,0.05)"
-			},
-			"skeletal": {
-				"buttons": "border: 1px solid; background: transparent",
-				"inputs": "border: 1px solid #ccc; background: transparent",
-				"cards": "border: 1px solid #eee"
-			}
+		"effects": {
+			"shadow": null,
+			"glow": null,
+			"blur": null
 		},
 		"animations": {
-			"blueprint-draw": "stroke-dasharray 1s ease-in-out",
-			"fade-in": "opacity 0.4s ease",
-			"outline-pulse": "outline-width 0.3s ease"
+			"enter": "fade-in 0.4s ease",
+			"hover": null,
+			"press": null
 		},
-		"layout": {
-			"structural": {
-				"transparent": "background: transparent",
-				"skeletal": "outline only, no fills",
-				"spacing": "clear visual separation"
+		"keyframes": {
+			"blueprint-draw": "0% { stroke-dashoffset: 1000; }\n100% { stroke-dashoffset: 0; }",
+			"fade-in": "0% { opacity: 0; }\n100% { opacity: 1; }",
+			"outline-pulse": "0%, 100% { outline-width: 1px; }\n50% { outline-width: 2px; }"
+		},
+		"surfaces": {
+			"raised": "border border-foreground/20 bg-transparent",
+			"sunken": "bg-foreground/5",
+			"overlay": "bg-background/90 border border-foreground/20"
+		},
+		"themeSpecific": {
+			"skeletalColors": {
+				"outlines": ["#333333", "#666666", "#999999", "#CCCCCC"],
+				"backgrounds": [
+					"transparent",
+					"rgba(0,0,0,0.02)",
+					"rgba(0,0,0,0.05)"
+				],
+				"annotations": ["#0066CC", "#CC6600", "#009966"]
 			},
-			"grid": {
-				"visible": "show underlying grid structure",
-				"modular": "consistent spacing units"
+			"blueprint": {
+				"lines": {
+					"thin": "1px",
+					"medium": "2px",
+					"construction": "1px dashed",
+					"dimension": "1px solid #999"
+				},
+				"patterns": {
+					"grid": "linear-gradient(#ccc 1px, transparent 1px), linear-gradient(90deg, #ccc 1px, transparent 1px)",
+					"dots": "radial-gradient(circle, #999 1px, transparent 1px)",
+					"hash": "repeating-linear-gradient(45deg, transparent, transparent 10px, #eee 10px, #eee 11px)"
+				}
 			}
 		}
 	},

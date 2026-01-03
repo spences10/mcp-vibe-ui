@@ -1,36 +1,32 @@
 {
-	"version": "1",
+	"version": "2",
 	"id": "claymorphic",
 	"name": "Claymorphic",
 	"tags": ["soft", "pastel", "rounded", "depth"],
 	"aliases": ["clay"],
 	"tailwind": {
 		"colors": {
-			"base-100": "oklch(98% 0.02 210)",
-			"base-200": "oklch(95% 0.03 210)",
-			"base-300": "oklch(92% 0.03 210)",
-			"base-content": "oklch(22% 0.03 210)",
+			"background": "oklch(98% 0.02 210)",
+			"foreground": "oklch(22% 0.03 210)",
+			"muted": "oklch(95% 0.03 210)",
+			"muted-foreground": "oklch(40% 0.02 210)",
+			"border": "oklch(92% 0.03 210)",
 			"primary": "oklch(78% 0.09 250)",
-			"primary-content": "oklch(18% 0.02 250)",
+			"primary-foreground": "oklch(18% 0.02 250)",
 			"secondary": "oklch(85% 0.10 145)",
-			"secondary-content": "oklch(20% 0.02 145)",
+			"secondary-foreground": "oklch(20% 0.02 145)",
 			"accent": "oklch(88% 0.10 70)",
-			"accent-content": "oklch(22% 0.03 70)",
-			"neutral": "oklch(40% 0.02 210)",
-			"neutral-content": "oklch(96% 0.01 210)",
+			"accent-foreground": "oklch(22% 0.03 70)",
+			"destructive": "oklch(70% 0.18 25)",
+			"destructive-foreground": "oklch(98% 0.01 25)",
 			"info": "oklch(72% 0.12 230)",
-			"info-content": "oklch(10% 0.02 230)",
 			"success": "oklch(78% 0.12 140)",
-			"success-content": "oklch(12% 0.02 140)",
-			"warning": "oklch(86% 0.15 80)",
-			"warning-content": "oklch(20% 0.04 80)",
-			"error": "oklch(70% 0.18 25)",
-			"error-content": "oklch(98% 0.01 25)"
+			"warning": "oklch(86% 0.15 80)"
 		},
 		"borderRadius": {
-			"selector": "1rem",
-			"field": "1rem",
-			"box": "1.5rem"
+			"sm": "1rem",
+			"md": "1rem",
+			"lg": "1.5rem"
 		},
 		"fontFamily": {
 			"display": [
@@ -56,6 +52,14 @@
 			]
 		}
 	},
+	"patterns": {
+		"surface": "bg-background text-foreground",
+		"card": "bg-muted rounded-2xl p-4 shadow-[0_4px_8px_rgba(0,0,0,0.1),0_2px_4px_rgba(0,0,0,0.06)]",
+		"elevated": "shadow-[0_6px_20px_rgba(0,0,0,0.08)]",
+		"interactive": "hover:-translate-y-0.5 hover:scale-[1.02] active:translate-y-0.5 active:scale-[0.98] transition-transform",
+		"puffy": "rounded-[22px] shadow-[0_4px_8px_rgba(0,0,0,0.1),0_2px_4px_rgba(0,0,0,0.06)]",
+		"pressed": "shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)]"
+	},
 	"fonts": [
 		{
 			"package": "@fontsource/poppins",
@@ -74,60 +78,53 @@
 		}
 	],
 	"metadata": {
-		"description": "Soft, rounded surfaces with subtle depth and pastel accents.",
-		"builtInThemeHint": "pastel"
+		"description": "Soft, rounded surfaces with subtle depth and pastel accents."
 	},
 	"extended": {
 		"effects": {
-			"clay3D": {
-				"extrude": "0 4px 8px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)",
-				"compress": "inset 0 2px 4px rgba(0,0,0,0.1)",
-				"soft": "0 6px 20px rgba(0,0,0,0.08)"
-			},
-			"tactile": {
-				"press": "transform: translateY(2px) scale(0.98)",
-				"lift": "transform: translateY(-2px) scale(1.02)"
-			}
-		},
-		"pastelColors": {
-			"lavender": "#E6E6FA",
-			"mintGreen": "#98FB98",
-			"lightOrange": "#FFE4B5",
-			"babyBlue": "#87CEFA",
-			"palette": [
-				"#E6E6FA",
-				"#98FB98",
-				"#FFE4B5",
-				"#87CEFA",
-				"#F0E68C",
-				"#FFB6C1"
-			],
-			"gradients": [
-				"linear-gradient(135deg, #E6E6FA, #98FB98, #FFE4B5)",
-				"radial-gradient(circle, #87CEFA, #E6E6FA, #98FB98)"
-			]
+			"shadow": "0 4px 8px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06)",
+			"glow": null,
+			"blur": null
 		},
 		"animations": {
-			"puffy-hover": "puffy-hover 0.3s ease-out",
-			"clay-press": "clay-press 0.15s ease-out",
-			"gentle-bob": "gentle-bob 2s ease-in-out infinite"
+			"enter": "gentle-bob 2s ease-in-out infinite",
+			"hover": "puffy-hover 0.3s ease-out",
+			"press": "clay-press 0.15s ease-out"
 		},
-		"layout": {
+		"keyframes": {
+			"puffy-hover": "0% { transform: translateY(0) scale(1); }\n100% { transform: translateY(-2px) scale(1.02); }",
+			"clay-press": "0% { transform: scale(1); }\n100% { transform: translateY(2px) scale(0.98); }",
+			"gentle-bob": "0%, 100% { transform: translateY(0); }\n50% { transform: translateY(-4px); }"
+		},
+		"surfaces": {
+			"raised": "shadow-[0_6px_20px_rgba(0,0,0,0.08)] rounded-2xl",
+			"sunken": "shadow-[inset_0_2px_4px_rgba(0,0,0,0.1)]",
+			"overlay": "bg-background/90 rounded-3xl shadow-xl"
+		},
+		"themeSpecific": {
+			"pastelColors": {
+				"lavender": "#E6E6FA",
+				"mintGreen": "#98FB98",
+				"lightOrange": "#FFE4B5",
+				"babyBlue": "#87CEFA",
+				"palette": [
+					"#E6E6FA",
+					"#98FB98",
+					"#FFE4B5",
+					"#87CEFA",
+					"#F0E68C",
+					"#FFB6C1"
+				],
+				"gradients": [
+					"linear-gradient(135deg, #E6E6FA, #98FB98, #FFE4B5)",
+					"radial-gradient(circle, #87CEFA, #E6E6FA, #98FB98)"
+				]
+			},
 			"roundness": {
 				"small": "18px",
 				"medium": "22px",
 				"large": "28px",
 				"pill": "50px"
-			},
-			"depth": {
-				"shallow": "2px",
-				"medium": "4px",
-				"deep": "8px"
-			},
-			"tactileFeedback": {
-				"hover": "transform: translateY(-1px)",
-				"active": "transform: translateY(1px) scale(0.99)",
-				"focus": "box-shadow: 0 0 0 3px rgba(230, 230, 250, 0.5)"
 			}
 		}
 	},

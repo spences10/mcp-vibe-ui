@@ -1,36 +1,32 @@
 {
-	"version": "1",
+	"version": "2",
 	"id": "neumorphic",
 	"name": "Neumorphic",
 	"tags": ["soft", "shadowed", "embossed", "light"],
 	"aliases": ["neumorphism"],
 	"tailwind": {
 		"colors": {
-			"base-100": "oklch(98% 0.01 240)",
-			"base-200": "oklch(95% 0.01 240)",
-			"base-300": "oklch(90% 0.01 240)",
-			"base-content": "oklch(22% 0.02 240)",
+			"background": "oklch(98% 0.01 240)",
+			"foreground": "oklch(22% 0.02 240)",
+			"muted": "oklch(95% 0.01 240)",
+			"muted-foreground": "oklch(40% 0.01 240)",
+			"border": "oklch(90% 0.01 240)",
 			"primary": "oklch(70% 0.06 210)",
-			"primary-content": "oklch(14% 0.02 210)",
+			"primary-foreground": "oklch(14% 0.02 210)",
 			"secondary": "oklch(76% 0.06 150)",
-			"secondary-content": "oklch(14% 0.02 150)",
+			"secondary-foreground": "oklch(14% 0.02 150)",
 			"accent": "oklch(84% 0.06 90)",
-			"accent-content": "oklch(16% 0.02 90)",
-			"neutral": "oklch(40% 0.01 240)",
-			"neutral-content": "oklch(96% 0.01 240)",
+			"accent-foreground": "oklch(16% 0.02 90)",
+			"destructive": "oklch(62% 0.16 25)",
+			"destructive-foreground": "oklch(98% 0.01 25)",
 			"info": "oklch(72% 0.08 230)",
-			"info-content": "oklch(14% 0.02 230)",
 			"success": "oklch(68% 0.10 150)",
-			"success-content": "oklch(98% 0.01 150)",
-			"warning": "oklch(84% 0.12 85)",
-			"warning-content": "oklch(22% 0.04 85)",
-			"error": "oklch(62% 0.16 25)",
-			"error-content": "oklch(98% 0.01 25)"
+			"warning": "oklch(84% 0.12 85)"
 		},
 		"borderRadius": {
-			"selector": "1rem",
-			"field": "1rem",
-			"box": "1.5rem"
+			"sm": "1rem",
+			"md": "1rem",
+			"lg": "1.5rem"
 		},
 		"fontFamily": {
 			"display": [
@@ -52,6 +48,15 @@
 			"mono": ["SF Mono", "Monaco", "Consolas", "monospace"]
 		}
 	},
+	"patterns": {
+		"surface": "bg-background text-foreground",
+		"card": "bg-background rounded-2xl shadow-[8px_8px_16px_rgba(0,0,0,0.1),-8px_-8px_16px_rgba(255,255,255,0.8)]",
+		"elevated": "shadow-[8px_8px_16px_rgba(0,0,0,0.1),-8px_-8px_16px_rgba(255,255,255,0.8)]",
+		"interactive": "hover:shadow-[4px_4px_8px_rgba(0,0,0,0.1),-4px_-4px_8px_rgba(255,255,255,0.8)] transition-shadow",
+		"raised": "shadow-[5px_5px_10px_#d1d9e6,-5px_-5px_10px_#ffffff]",
+		"pressed": "shadow-[inset_5px_5px_10px_#d1d9e6,inset_-5px_-5px_10px_#ffffff]",
+		"button": "rounded-xl shadow-[5px_5px_10px_#d1d9e6,-5px_-5px_10px_#ffffff] active:shadow-[inset_5px_5px_10px_#d1d9e6,inset_-5px_-5px_10px_#ffffff]"
+	},
 	"fonts": [
 		{
 			"package": "@fontsource/inter",
@@ -60,41 +65,38 @@
 		}
 	],
 	"metadata": {
-		"description": "Soft, tactile surfaces with subtle inner/outer shadows.",
-		"builtInThemeHint": "cupcake"
+		"description": "Soft, tactile surfaces with subtle inner/outer shadows."
 	},
 	"extended": {
 		"effects": {
-			"shadows": {
-				"outer": "8px 8px 16px rgba(0,0,0,0.1), -8px -8px 16px rgba(255,255,255,0.8)",
-				"inner": "inset 4px 4px 8px rgba(0,0,0,0.1), inset -4px -4px 8px rgba(255,255,255,0.8)",
-				"pressed": "inset 2px 2px 4px rgba(0,0,0,0.2), inset -2px -2px 4px rgba(255,255,255,0.9)"
+			"shadow": "8px 8px 16px rgba(0,0,0,0.1), -8px -8px 16px rgba(255,255,255,0.8)",
+			"glow": null,
+			"blur": null
+		},
+		"animations": {
+			"enter": "soft-release 0.15s ease-out",
+			"hover": "gentle-hover 0.3s ease-out",
+			"press": "soft-press 0.15s ease-out"
+		},
+		"keyframes": {
+			"soft-press": "0% { box-shadow: 8px 8px 16px rgba(0,0,0,0.1), -8px -8px 16px rgba(255,255,255,0.8); }\n100% { box-shadow: inset 4px 4px 8px rgba(0,0,0,0.1), inset -4px -4px 8px rgba(255,255,255,0.8); }",
+			"soft-release": "0% { box-shadow: inset 4px 4px 8px rgba(0,0,0,0.1), inset -4px -4px 8px rgba(255,255,255,0.8); }\n100% { box-shadow: 8px 8px 16px rgba(0,0,0,0.1), -8px -8px 16px rgba(255,255,255,0.8); }",
+			"gentle-hover": "0% { transform: translateY(0); }\n100% { transform: translateY(-2px); }"
+		},
+		"surfaces": {
+			"raised": "shadow-[8px_8px_16px_rgba(0,0,0,0.1),-8px_-8px_16px_rgba(255,255,255,0.8)]",
+			"sunken": "shadow-[inset_4px_4px_8px_rgba(0,0,0,0.1),inset_-4px_-4px_8px_rgba(255,255,255,0.8)]",
+			"overlay": "bg-background/95 shadow-xl"
+		},
+		"themeSpecific": {
+			"softColors": {
+				"backgrounds": ["#f0f0f3", "#e6e6ea", "#f5f5f7", "#ebebef"],
+				"raised": ["#f8f8fb", "#f2f2f5", "#fafafa"],
+				"pressed": ["#e8e8eb", "#dedee2", "#e0e0e4"]
 			},
 			"highlights": {
 				"top": "rgba(255,255,255,0.9)",
 				"bottom": "rgba(0,0,0,0.1)"
-			}
-		},
-		"softColors": {
-			"backgrounds": ["#f0f0f3", "#e6e6ea", "#f5f5f7", "#ebebef"],
-			"raised": ["#f8f8fb", "#f2f2f5", "#fafafa"],
-			"pressed": ["#e8e8eb", "#dedee2", "#e0e0e4"]
-		},
-		"animations": {
-			"soft-press": "soft-press 0.15s ease-out",
-			"soft-release": "soft-release 0.15s ease-out",
-			"gentle-hover": "gentle-hover 0.3s ease-out"
-		},
-		"layout": {
-			"borderRadius": {
-				"soft": "12px",
-				"medium": "16px",
-				"large": "24px"
-			},
-			"spacing": {
-				"tight": "8px",
-				"normal": "16px",
-				"loose": "24px"
 			}
 		}
 	},

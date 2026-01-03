@@ -1,36 +1,32 @@
 {
-	"version": "1",
+	"version": "2",
 	"id": "pixel-art",
 	"name": "Pixel Art",
 	"tags": ["retro", "blocky", "low-radius", "high-contrast"],
 	"aliases": ["pixel"],
 	"tailwind": {
 		"colors": {
-			"base-100": "oklch(98% 0.02 250)",
-			"base-200": "oklch(94% 0.02 250)",
-			"base-300": "oklch(90% 0.02 250)",
-			"base-content": "oklch(18% 0.02 250)",
+			"background": "oklch(98% 0.02 250)",
+			"foreground": "oklch(18% 0.02 250)",
+			"muted": "oklch(94% 0.02 250)",
+			"muted-foreground": "oklch(30% 0.02 250)",
+			"border": "oklch(90% 0.02 250)",
 			"primary": "oklch(68% 0.28 30)",
-			"primary-content": "oklch(98% 0.01 30)",
+			"primary-foreground": "oklch(98% 0.01 30)",
 			"secondary": "oklch(68% 0.28 220)",
-			"secondary-content": "oklch(98% 0.01 220)",
+			"secondary-foreground": "oklch(98% 0.01 220)",
 			"accent": "oklch(72% 0.28 140)",
-			"accent-content": "oklch(12% 0.02 140)",
-			"neutral": "oklch(30% 0.02 250)",
-			"neutral-content": "oklch(96% 0.01 250)",
+			"accent-foreground": "oklch(12% 0.02 140)",
+			"destructive": "oklch(60% 0.30 25)",
+			"destructive-foreground": "oklch(98% 0.01 25)",
 			"info": "oklch(70% 0.2 230)",
-			"info-content": "oklch(98% 0.01 230)",
 			"success": "oklch(66% 0.22 150)",
-			"success-content": "oklch(98% 0.01 150)",
-			"warning": "oklch(84% 0.25 90)",
-			"warning-content": "oklch(22% 0.04 90)",
-			"error": "oklch(60% 0.30 25)",
-			"error-content": "oklch(98% 0.01 25)"
+			"warning": "oklch(84% 0.25 90)"
 		},
 		"borderRadius": {
-			"selector": "0rem",
-			"field": "0rem",
-			"box": "0rem"
+			"sm": "0rem",
+			"md": "0rem",
+			"lg": "0rem"
 		},
 		"fontFamily": {
 			"display": [
@@ -42,6 +38,14 @@
 			"body": ["VT323", "MS Gothic", "Terminal", "monospace"],
 			"mono": ["VT323", "Terminal", "Monaco", "monospace"]
 		}
+	},
+	"patterns": {
+		"surface": "bg-background text-foreground",
+		"card": "bg-muted border-4 border-foreground p-4",
+		"elevated": "shadow-[4px_4px_0_0_currentColor]",
+		"interactive": "hover:bg-primary hover:text-primary-foreground active:translate-x-1 active:translate-y-1 transition-none",
+		"pixel-button": "border-4 border-foreground px-4 py-2 bg-primary text-primary-foreground shadow-[4px_4px_0_0_#000] active:shadow-none active:translate-x-1 active:translate-y-1",
+		"chunky-border": "border-4 border-foreground"
 	},
 	"fonts": [
 		{
@@ -61,67 +65,60 @@
 		}
 	],
 	"metadata": {
-		"description": "Blocky, retro palette with crisp corners and bold colors.",
-		"builtInThemeHint": "retro"
+		"description": "Blocky, retro palette with crisp corners and bold colors."
 	},
 	"extended": {
-		"pixelArt": {
-			"alignment": {
-				"pixelPerfect": "align to pixel grid",
-				"noAntialiasing": "image-rendering: pixelated",
-				"sharpEdges": "never blur or smooth"
-			},
-			"chunkyBorders": {
-				"thin": "2px",
-				"medium": "3px",
-				"thick": "4px",
-				"mega": "6px"
-			}
-		},
-		"retroColors": {
-			"palette": [
-				"#FF6B35",
-				"#F9CA24",
-				"#6C5CE7",
-				"#A29BFE",
-				"#FD79A8",
-				"#FDCB6E",
-				"#00B894",
-				"#E84393"
-			],
-			"gameboy": ["#0F380F", "#306230", "#8BAC0F", "#9BBD0F"],
-			"nes": [
-				"#7C7C7C",
-				"#0000FC",
-				"#0000BC",
-				"#4428BC",
-				"#940084",
-				"#A80020",
-				"#A81000",
-				"#881400"
-			]
-		},
-		"gameUI": {
-			"hud": {
-				"healthBar": "chunky rectangular bars",
-				"buttons": "thick borders, flat fills",
-				"panels": "pixel-aligned rectangles"
-			},
-			"interactions": {
-				"hover": "hard color swap, no gradients",
-				"active": "immediate visual feedback",
-				"focus": "thick pixelated outline"
-			}
+		"effects": {
+			"shadow": "4px 4px 0 0 currentColor",
+			"glow": "0 0 8px currentColor",
+			"blur": null
 		},
 		"animations": {
-			"pixel-bounce": "steps(4, end) 0.6s",
-			"8bit-flash": "steps(2, end) 0.3s infinite",
-			"retro-scale": "steps(3, end) 0.2s"
+			"enter": "pixel-bounce steps(4, end) 0.6s",
+			"hover": null,
+			"press": "retro-scale steps(3, end) 0.2s"
 		},
-		"effects": {
-			"pixelatedGlow": {
-				"soft": "box-shadow: 0 0 8px currentColor",
-				"bright": "text-shadow: 2px 2px 0 currentColor"
+		"keyframes": {
+			"pixel-bounce": "0%, 100% { transform: translateY(0); }\n25% { transform: translateY(-4px); }\n50% { transform: translateY(0); }\n75% { transform: translateY(-2px); }",
+			"8bit-flash": "0%, 100% { opacity: 1; }\n50% { opacity: 0.5; }",
+			"retro-scale": "0% { transform: scale(1); }\n50% { transform: scale(0.95); }\n100% { transform: scale(1); }"
+		},
+		"surfaces": {
+			"raised": "border-4 border-foreground shadow-[4px_4px_0_0_#000]",
+			"sunken": "border-4 border-foreground shadow-[inset_2px_2px_0_0_rgba(0,0,0,0.2)]",
+			"overlay": "bg-background border-4 border-foreground"
+		},
+		"themeSpecific": {
+			"retroColors": {
+				"palette": [
+					"#FF6B35",
+					"#F9CA24",
+					"#6C5CE7",
+					"#A29BFE",
+					"#FD79A8",
+					"#FDCB6E",
+					"#00B894",
+					"#E84393"
+				],
+				"gameboy": ["#0F380F", "#306230", "#8BAC0F", "#9BBD0F"],
+				"nes": [
+					"#7C7C7C",
+					"#0000FC",
+					"#0000BC",
+					"#4428BC",
+					"#940084",
+					"#A80020",
+					"#A81000",
+					"#881400"
+				]
+			},
+			"pixelArt": {
+				"noAntialiasing": "image-rendering: pixelated",
+				"chunkyBorders": {
+					"thin": "2px",
+					"medium": "3px",
+					"thick": "4px"
+				}
 			},
 			"scanlines": "repeating-linear-gradient(0deg, transparent 0px, rgba(0,0,0,0.1) 1px, rgba(0,0,0,0.1) 2px, transparent 3px)"
 		}

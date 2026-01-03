@@ -1,36 +1,32 @@
 {
-	"version": "1",
+	"version": "2",
 	"id": "monochrome",
 	"name": "Monochrome",
 	"tags": ["grayscale", "neutral", "clean"],
 	"aliases": ["mono"],
 	"tailwind": {
 		"colors": {
-			"base-100": "oklch(98% 0.00 240)",
-			"base-200": "oklch(94% 0.00 240)",
-			"base-300": "oklch(90% 0.00 240)",
-			"base-content": "oklch(18% 0.00 240)",
+			"background": "oklch(98% 0.00 240)",
+			"foreground": "oklch(18% 0.00 240)",
+			"muted": "oklch(94% 0.00 240)",
+			"muted-foreground": "oklch(30% 0.00 240)",
+			"border": "oklch(90% 0.00 240)",
 			"primary": "oklch(40% 0.00 240)",
-			"primary-content": "oklch(98% 0.00 240)",
+			"primary-foreground": "oklch(98% 0.00 240)",
 			"secondary": "oklch(60% 0.00 240)",
-			"secondary-content": "oklch(10% 0.00 240)",
+			"secondary-foreground": "oklch(10% 0.00 240)",
 			"accent": "oklch(70% 0.00 240)",
-			"accent-content": "oklch(14% 0.00 240)",
-			"neutral": "oklch(30% 0.00 240)",
-			"neutral-content": "oklch(96% 0.00 240)",
+			"accent-foreground": "oklch(14% 0.00 240)",
+			"destructive": "oklch(55% 0.00 240)",
+			"destructive-foreground": "oklch(98% 0.00 240)",
 			"info": "oklch(75% 0.00 240)",
-			"info-content": "oklch(12% 0.00 240)",
 			"success": "oklch(65% 0.00 240)",
-			"success-content": "oklch(98% 0.00 240)",
-			"warning": "oklch(80% 0.00 240)",
-			"warning-content": "oklch(22% 0.00 240)",
-			"error": "oklch(55% 0.00 240)",
-			"error-content": "oklch(98% 0.00 240)"
+			"warning": "oklch(80% 0.00 240)"
 		},
 		"borderRadius": {
-			"selector": "0.25rem",
-			"field": "0.25rem",
-			"box": "0.25rem"
+			"sm": "0.25rem",
+			"md": "0.25rem",
+			"lg": "0.25rem"
 		},
 		"fontFamily": {
 			"display": [
@@ -56,6 +52,15 @@
 			]
 		}
 	},
+	"patterns": {
+		"surface": "bg-background text-foreground",
+		"card": "bg-muted rounded p-4",
+		"elevated": "shadow-sm",
+		"interactive": "hover:bg-foreground hover:text-background transition-colors",
+		"button-outlined": "border-2 border-foreground bg-transparent hover:bg-foreground hover:text-background",
+		"button-filled": "bg-foreground text-background hover:bg-foreground/90",
+		"button-ghost": "bg-transparent hover:bg-muted"
+	},
 	"fonts": [
 		{
 			"package": "@fontsource/inter",
@@ -69,62 +74,51 @@
 		}
 	],
 	"metadata": {
-		"description": "Strict grayscale palette with clean edges.",
-		"builtInThemeHint": "black"
+		"description": "Strict grayscale palette with clean edges."
 	},
 	"extended": {
-		"strictPalette": {
-			"black": "#000000",
-			"white": "#FFFFFF",
-			"greys": [
-				"#000000",
-				"#1A1A1A",
-				"#333333",
-				"#4D4D4D",
-				"#666666",
-				"#808080",
-				"#999999",
-				"#B3B3B3",
-				"#CCCCCC",
-				"#E6E6E6",
-				"#F5F5F5",
-				"#FFFFFF"
-			],
-			"singleAccent": {
-				"red": "#DC2626",
-				"blue": "#2563EB"
-			}
-		},
-		"contrast": {
-			"strong": "ensure AA accessibility",
-			"hierarchy": "use weight and size, not color",
-			"separation": "rely on spacing and contrast"
-		},
-		"interactions": {
-			"invert": {
-				"hover": "background: black to white, text: white to black",
-				"active": "full inversion for clarity",
-				"focus": "outline: 2px solid accent or invert"
-			},
-			"buttons": {
-				"outlined": "border: 2px solid black; background: transparent",
-				"filled": "background: black; color: white",
-				"ghost": "background: transparent; color: black"
-			}
+		"effects": {
+			"shadow": "0 1px 3px rgba(0,0,0,0.1)",
+			"glow": null,
+			"blur": null
 		},
 		"animations": {
-			"invert-hover": "all 0.2s ease",
-			"fade-in": "opacity 0.3s ease",
-			"clean-transition": "all 0.15s ease-out"
+			"enter": "fade-in 0.3s ease",
+			"hover": "invert-hover 0.2s ease",
+			"press": null
 		},
-		"layout": {
-			"grid": {
-				"clean": "use CSS Grid for precise alignment",
-				"spacing": "generous whitespace for separation"
-			},
-			"minimalism": {
-				"elegant": "less is more",
-				"timeless": "avoid trendy effects"
+		"keyframes": {
+			"invert-hover": "0% { filter: invert(0); }\n100% { filter: invert(1); }",
+			"fade-in": "0% { opacity: 0; }\n100% { opacity: 1; }",
+			"clean-transition": "0% { transform: translateY(2px); opacity: 0; }\n100% { transform: translateY(0); opacity: 1; }"
+		},
+		"surfaces": {
+			"raised": "bg-muted",
+			"sunken": "bg-border",
+			"overlay": "bg-background/95"
+		},
+		"themeSpecific": {
+			"strictPalette": {
+				"black": "#000000",
+				"white": "#FFFFFF",
+				"greys": [
+					"#000000",
+					"#1A1A1A",
+					"#333333",
+					"#4D4D4D",
+					"#666666",
+					"#808080",
+					"#999999",
+					"#B3B3B3",
+					"#CCCCCC",
+					"#E6E6E6",
+					"#F5F5F5",
+					"#FFFFFF"
+				],
+				"singleAccent": {
+					"red": "#DC2626",
+					"blue": "#2563EB"
+				}
 			}
 		}
 	},

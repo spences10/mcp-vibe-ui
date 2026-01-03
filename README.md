@@ -1,46 +1,41 @@
-# MCP Vibe UI 🎨
+# MCP Vibe UI
 
-A **Model Context Protocol (MCP)** server that provides AI assistants
-with comprehensive design token systems for daisyUI themes. Generate
-beautiful, consistent UI designs from natural language descriptions.
+A **Model Context Protocol (MCP)** server providing design tokens as
+resources for LLM-powered UI generation. Themes are exposed as MCP
+resources with Tailwind v4 CSS, patterns, and extended styling data.
 
-## ✨ What is MCP Vibe UI?
+## What This Does
 
-MCP Vibe UI bridges the gap between design intent and implementation
-by providing LLMs with rich, structured design tokens for 12 distinct
-UI aesthetics. Instead of generating generic CSS, AI assistants can
-now access curated design systems with:
+When an LLM needs to generate themed UI:
 
-- **daisyUI v5 compatible** CSS variables
-- **Extended design guidance** (typography, animations, effects)
-- **Theme-specific color palettes** and visual patterns
-- **Implementation notes** and best practices
+1. **Search by intent** - `theme_search("dark futuristic neon")` finds
+   matching theme
+2. **Get theme data** - Tailwind v4 `@theme` CSS block, patterns,
+   fonts, effects
+3. **Generate code** - LLM uses the tokens to create consistent,
+   styled components
 
-## 🎭 Available Design Themes
+## Available Themes (15)
 
-| Theme                      | Description                               | Best For                       |
-| -------------------------- | ----------------------------------------- | ------------------------------ |
-| **🎨 Claymorphic**         | Soft, puffy elements with pastel colors   | Friendly, approachable apps    |
-| **🌊 Cyberpunk**           | Dark backgrounds with neon accents        | Gaming, tech, futuristic UIs   |
-| **📰 Editorial**           | Magazine-inspired typography layouts      | Content-heavy applications     |
-| **⚡ Flat**                | Clean, minimal design with bright colors  | Modern web applications        |
-| **🔮 Glassmorphic**        | Frosted glass effects and translucency    | Premium, modern interfaces     |
-| **⚙️ Industrial**          | Utility-focused with warning accents      | Technical, professional tools  |
-| **🌸 Japanese Minimalist** | Zen aesthetics with natural tones         | Mindfulness, wellness apps     |
-| **⚫ Monochrome**          | Strict grayscale with single accent       | Timeless, professional designs |
-| **🏔️ Neu-Brutalist**       | Bold, high-contrast with raw aesthetics   | Statement designs, portfolios  |
-| **☁️ Neumorphic**          | Soft, tactile surfaces with shadows       | Touch interfaces, mobile apps  |
-| **🌿 Organic Flow**        | Natural, fluid shapes and curves          | Health, lifestyle applications |
-| **🎮 Pixel Art**           | Retro, blocky aesthetic with bitmap fonts | Gaming, nostalgic interfaces   |
-| **🔮 Retro Futurism**      | 80s-inspired neon and chrome              | Creative, entertainment apps   |
-| **📝 Typographic**         | Text-focused with grid systems            | Documentation, reading apps    |
-| **📐 Wireframe**           | Blueprint-style skeletal elements         | Prototyping, developer tools   |
+| Theme                   | Description                              | Tags                     |
+| ----------------------- | ---------------------------------------- | ------------------------ |
+| **Claymorphic**         | Soft, puffy elements with pastel colors  | soft, pastel, rounded    |
+| **Cyberpunk**           | Dark backgrounds with neon accents       | neon, dark, futuristic   |
+| **Editorial**           | Magazine-inspired typography layouts     | clean, classic, print    |
+| **Flat**                | Clean, minimal design with bright colors | minimal, flat, no-shadow |
+| **Glassmorphic**        | Frosted glass effects and translucency   | frosted, translucent     |
+| **Industrial**          | Utility-focused with warning accents     | utility, gritty, bold    |
+| **Japanese Minimalist** | Zen aesthetics with natural tones        | minimal, calm, balanced  |
+| **Monochrome**          | Strict grayscale with single accent      | grayscale, neutral       |
+| **Neu-Brutalist**       | Bold, high-contrast with raw aesthetics  | bold, high-contrast      |
+| **Neumorphic**          | Soft, tactile surfaces with shadows      | soft, shadowed           |
+| **Organic Flow**        | Natural, fluid shapes and curves         | natural, rounded, green  |
+| **Pixel Art**           | Retro, blocky aesthetic                  | retro, blocky            |
+| **Retro Futurism**      | 80s-inspired neon and chrome             | neon, vaporwave          |
+| **Typographic**         | Text-focused with grid systems           | content-first, readable  |
+| **Wireframe**           | Blueprint-style skeletal elements        | skeletal, blueprint      |
 
-## 🚀 Quick Start
-
-### Install as MCP Server
-
-1. **Add to your MCP configuration:**
+## Installation
 
 ```json
 {
@@ -53,208 +48,197 @@ now access curated design systems with:
 }
 ```
 
-2. **Build the project:**
-
 ```bash
 npm install
 npm run build
 ```
 
-### Usage Examples
+## API
 
-**Get all available themes:**
+### Resources
 
-```javascript
-// MCP Tool: tokens_list-designs
-// Returns: Array of all 12 themes with IDs, names, and tags
+Themes are exposed as MCP resources:
+
+```
+theme://cyberpunk
+theme://glassmorphic
+theme://neumorphic
+...
 ```
 
-**Get specific theme by name:**
+Use `resources/list` to get all available themes, `resources/read` to
+get theme data.
 
-```javascript
-// MCP Tool: tokens_by-name
-// Input: { name: "cyberpunk" }
-// Returns: daisyUI variables + extended design guidance
+### Tool: theme_search
+
+Find theme by intent description:
+
+```json
+{
+	"name": "theme_search",
+	"arguments": {
+		"intent": "dark futuristic neon"
+	}
+}
 ```
 
-**Find theme by design intent:**
+Returns:
 
-```javascript
-// MCP Tool: tokens_by-intent
-// Input: { intent: "dark futuristic neon" }
-// Returns: Best matching theme (cyberpunk) with full tokens
+```json
+{
+  "id": "cyberpunk",
+  "name": "Cyberpunk",
+  "uri": "theme://cyberpunk",
+  "tags": ["neon", "dark", "futuristic"],
+  "css": "@theme {\n  --color-background: oklch(12% 0.03 300);\n  ...\n}",
+  "patterns": {
+    "surface": "bg-background text-foreground",
+    "glow": "shadow-[0_0_20px_var(--color-primary)]"
+  },
+  "fonts": [...],
+  "extended": {...},
+  "notes": "..."
+}
 ```
 
-## 💡 AI Assistant Integration
+## Theme Structure
 
-### Claude Code Example
+Each theme provides:
+
+### Tailwind v4 CSS
+
+```css
+@theme {
+	--color-background: oklch(12% 0.03 300);
+	--color-foreground: oklch(95% 0.02 300);
+	--color-primary: oklch(65% 0.28 330);
+	--color-primary-foreground: oklch(98% 0.01 330);
+	--color-muted: oklch(16% 0.03 300);
+	--color-accent: oklch(72% 0.28 190);
+	--color-destructive: oklch(62% 0.3 25);
+
+	--radius-sm: 0.25rem;
+	--radius-md: 0.25rem;
+	--radius-lg: 0.5rem;
+
+	--font-display: 'Orbitron', monospace;
+	--font-body: 'Exo 2', sans-serif;
+}
+
+/* Animations */
+@keyframes neon-pulse {
+	0% {
+		opacity: 1;
+		filter: brightness(1);
+	}
+	100% {
+		opacity: 0.8;
+		filter: brightness(1.2);
+	}
+}
+```
+
+### Patterns
+
+Ready-to-use Tailwind class strings:
+
+```json
+{
+	"patterns": {
+		"surface": "bg-background text-foreground",
+		"card": "bg-muted rounded-lg border border-border",
+		"glow": "shadow-[0_0_20px_var(--color-primary)]",
+		"neon-text": "text-primary drop-shadow-[0_0_10px_var(--color-primary)]"
+	}
+}
+```
+
+### Extended
+
+Theme-specific effects, animations, and values:
+
+```json
+{
+	"extended": {
+		"effects": { "shadow": "...", "glow": "...", "blur": "..." },
+		"animations": { "enter": "...", "hover": "...", "press": "..." },
+		"keyframes": { "neon-pulse": "0% { ... } 100% { ... }" },
+		"surfaces": {
+			"raised": "...",
+			"sunken": "...",
+			"overlay": "..."
+		},
+		"themeSpecific": {
+			/* unique to this theme */
+		}
+	}
+}
+```
+
+### Fonts
+
+Fontsource packages for easy installation:
+
+```json
+{
+	"fonts": [
+		{
+			"package": "@fontsource/orbitron",
+			"weights": [400, 700, 900],
+			"variable": true
+		}
+	]
+}
+```
+
+## Usage Example
 
 ```
 Human: "Create a cyberpunk-themed login form with neon glow effects"
 
-Assistant: I'll use the cyberpunk theme tokens to create that for you.
-*Uses tokens_by-intent with "dark futuristic neon"*
+LLM: *calls theme_search("dark futuristic neon")*
+     *receives Cyberpunk theme with CSS, patterns, fonts*
 
-[Creates login form with daisyUI classes + cyberpunk design tokens:
-- Neon glow effects from theme.extended.neonGlow
-- Orbitron font from theme.extended.typography.fontStacks
-- Dark background with magenta/cyan accents
-- Glitch animations and scanlines]
+     *generates:*
+     - Injects @theme CSS block
+     - Uses `bg-background text-foreground` for surface
+     - Applies `shadow-[0_0_20px_var(--color-primary)]` for glow
+     - Uses `font-display` for headings
+     - Includes @keyframes for neon-pulse animation
 ```
 
-The AI assistant automatically:
+## Color Naming
 
-1. **Matches intent** to appropriate theme
-2. **Applies design tokens** (colors, fonts, effects)
-3. **Uses daisyUI components** with theme variables
-4. **Adds theme-specific enhancements** (animations, patterns)
+Colors use Tailwind v4 semantic naming:
 
-## 🛠️ Design Token Structure
+| Name                         | Purpose                 |
+| ---------------------------- | ----------------------- |
+| `background`                 | Page/app background     |
+| `foreground`                 | Primary text color      |
+| `muted`                      | Secondary backgrounds   |
+| `muted-foreground`           | Secondary text          |
+| `border`                     | Borders and dividers    |
+| `primary`                    | Primary actions/accents |
+| `primary-foreground`         | Text on primary         |
+| `secondary`                  | Secondary actions       |
+| `accent`                     | Highlights              |
+| `destructive`                | Error/danger states     |
+| `info`, `success`, `warning` | Status colors           |
 
-Each theme provides:
-
-### Core daisyUI Variables
-
-```css
-[data-theme='cyberpunk'] {
-	--color-base-100: oklch(12% 0.03 300);
-	--color-primary: oklch(65% 0.28 330);
-	--radius-box: 0.5rem;
-	/* ... all daisyUI v5 variables */
-}
-```
-
-### Extended Design Guidance
-
-```json
-{
-	"typography": {
-		"fontStacks": {
-			"display": {
-				"fontsource": {
-					"package": "@fontsource/orbitron",
-					"family": "Orbitron",
-					"weights": [400, 700, 900],
-					"variable": true
-				},
-				"fallbacks": ["Consolas", "Monaco", "monospace"],
-				"css": "Orbitron, Consolas, Monaco, monospace",
-				"performance": {
-					"fontDisplay": "swap",
-					"preload": true,
-					"priority": "high"
-				}
-			}
-		}
-	},
-	"neonColors": {
-		"backgrounds": ["#ff006e", "#8338ec", "#3a86ff"],
-		"gradients": ["linear-gradient(45deg, #ff006e, #8338ec)"]
-	},
-	"animations": {
-		"neon-pulse": "neon-pulse 2s ease-in-out infinite"
-	},
-	"notes": "Use neon glow effects sparingly for performance"
-}
-```
-
-### 📝 Font Integration
-
-Many themes now include **detailed font specifications** with:
-
-- **Fontsource package info** for easy npm installation
-- **Weight and style variants** for complete typography systems
-- **Fallback chains** for graceful degradation
-- **Performance optimization** (preloading, font-display, priority)
-- **Variable font support** where available
-
-This enables AI assistants to provide **complete font implementation
-guidance**, not just font names.
-
-## 🎯 Use Cases
-
-### For Designers
-
-- **Rapid prototyping** with consistent design systems
-- **Design handoff** with detailed token specifications
-- **Brand exploration** across different aesthetic directions
-
-### For Developers
-
-- **daisyUI integration** with pre-built theme variables
-- **Design consistency** across components and pages
-- **Performance optimization** with curated font and color choices
-
-### For AI Assistants
-
-- **Context-aware design** based on user intent
-- **Comprehensive styling** beyond basic CSS
-- **Best practice guidance** for each design aesthetic
-
-## 🔧 Development
-
-### Project Structure
+## Development
 
 ```
-mcp-vibe-ui/
-├── src/
-│   ├── design-tokens/          # 12 theme JSON files
-│   ├── lib/token_store.ts     # Token management logic
-│   └── index.ts               # MCP server implementation
-├── dist/                      # Compiled output
-└── prompts.md                 # Original design prompts
+src/
+├── index.ts              # MCP server + resources + tool
+├── lib/
+│   ├── schemas.ts        # Valibot validation schemas
+│   ├── cache.ts          # Theme cache (loads on startup)
+│   ├── search.ts         # Intent matching
+│   ├── css-builder.ts    # Tailwind v4 @theme generation
+│   └── response.ts       # MCP response formatting
+└── design-tokens/        # 15 theme JSON files
 ```
-
-### Build & Run
-
-```bash
-npm install
-npm run build
-node dist/index.js  # Start MCP server
-```
-
-### Available Tools
-
-- `tokens_list-designs` - Get all available themes
-- `tokens_by-name` - Get specific theme by name/ID
-- `tokens_by-intent` - Find theme matching description
-- `tokens_help` - Usage guide and examples
-
-## 📚 Theme Details
-
-Each theme includes:
-
-- **12+ daisyUI variables** (colors, radius, borders)
-- **Typography systems** with font stacks and fallbacks
-- **Color palettes** with semantic naming
-- **Visual effects** (shadows, glows, textures)
-- **Animation definitions** with timing and easing
-- **Layout patterns** and spacing systems
-- **Implementation notes** and performance tips
-
-## 🤝 Contributing
-
-Want to add a new theme or enhance existing ones?
-
-1. **Add theme JSON** in `src/design-tokens/`
-2. **Follow the structure** of existing themes
-3. **Include daisyUI variables** + extended properties
-4. **Test with various intents** for discoverability
-5. **Add implementation notes** for developers
-
-## 📖 Inspiration
-
-Based on design prompts from [uitovibe.com](https://uitovibe.com) -
-transformed into structured design tokens for programmatic use.
-
-## ⚡ Performance Notes
-
-- **Font loading** optimized with `font-display: swap`
-- **Color systems** use OKLCH for consistent perceptual brightness
-- **Animation guidance** includes performance considerations
-- **Token structure** enables efficient CSS generation
 
 ---
 
-**Made for daisyUI developers who want AI assistants to understand
-good design** 🎨✨
+**Design tokens for LLM UI generation**

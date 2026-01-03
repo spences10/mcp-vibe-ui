@@ -5,14 +5,12 @@ import { readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { McpServer } from 'tmcp';
+import { resource } from 'tmcp/utils';
 import * as v from 'valibot';
-import { get_all, init_cache } from './lib/cache.js';
-import {
-	build_tailwind_config,
-	build_tailwind_config_string,
-} from './lib/config-builder.js';
+import { get_all, get_by_id, init_cache } from './lib/cache.js';
+import { build_full_css } from './lib/css-builder.js';
 import { format_error, format_response } from './lib/response.js';
-import { find_by_intent, find_by_name } from './lib/search.js';
+import { find_by_intent } from './lib/search.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -28,116 +26,76 @@ const server = new McpServer(
 		name: 'mcp-vibe-ui',
 		version,
 		description:
-			'Design token server providing Tailwind-compatible themes',
+			'Design token server providing Tailwind v4 themes as MCP resources',
 	},
 	{
 		adapter,
 		capabilities: {
+			resources: { listChanged: true },
 			tools: { listChanged: true },
 		},
 	},
 );
 
+// Register theme resources after cache is initialized
+function register_theme_resources() {
+	const designs = get_all();
+
+	for (const design of designs) {
+		server.resource(
+			{
+				name: design.id,
+				description: design.metadata?.description || design.name,
+				uri: `theme://${design.id}`,
+			},
+			async () => {
+				const theme = get_by_id(design.id);
+				if (!theme) {
+					return resource.text(
+						`theme://${design.id}`,
+						JSON.stringify({ error: 'Theme not found' }),
+					);
+				}
+
+				const css = build_full_css(theme);
+
+				const response = {
+					id: theme.id,
+					name: theme.name,
+					tags: theme.tags,
+					css, // Tailwind v4 @theme block + keyframes
+					patterns: theme.patterns,
+					fonts: theme.fonts,
+					extended: theme.extended,
+					notes: theme.notes,
+				};
+
+				return resource.text(
+					`theme://${design.id}`,
+					JSON.stringify(response, null, 2),
+					'application/json',
+				);
+			},
+		);
+	}
+}
+
+// Single tool: theme_search - find theme by intent
 server.tool(
 	{
-		name: 'tokens_list',
+		name: 'theme_search',
 		description:
-			'Lists available design themes. Returns ~15 themes (cyberpunk, glassmorphic, neumorphic, etc). Use format="detailed" for full metadata including tags.',
-		schema: v.object({
-			format: v.optional(
-				v.union([v.literal('summary'), v.literal('detailed')]),
-				'summary',
-			),
-		}),
-	},
-	async ({ format = 'summary' }) => {
-		const designs = get_all();
-
-		if (format === 'summary') {
-			return format_response({
-				count: designs.length,
-				themes: designs.map((d) => d.id),
-			});
-		}
-
-		return format_response({
-			designs: designs.map((d) => ({
-				id: d.id,
-				name: d.name,
-				tags: d.tags,
-			})),
-		});
-	},
-);
-
-server.tool(
-	{
-		name: 'tokens_get',
-		description:
-			'Get Tailwind theme config by name or ID. Returns colors, borderRadius, fontFamily ready for tailwind.config.js. Use format="summary" for just the config, "detailed" for full theme data.',
-		schema: v.object({
-			name: v.pipe(
-				v.string(),
-				v.description('Theme name or ID (e.g., "cyberpunk")'),
-			),
-			format: v.optional(
-				v.union([v.literal('summary'), v.literal('detailed')]),
-				'detailed',
-			),
-		}),
-	},
-	async ({ name, format = 'detailed' }) => {
-		const design = find_by_name(name);
-		if (!design) {
-			return format_error('not_found', `Theme "${name}" not found`, {
-				name,
-			});
-		}
-
-		const tailwind_config = build_tailwind_config(design);
-		const config_string = build_tailwind_config_string(design);
-
-		if (format === 'summary') {
-			return format_response({
-				id: design.id,
-				name: design.name,
-				tailwind: tailwind_config,
-				tailwindConfig: config_string,
-			});
-		}
-
-		return format_response({
-			id: design.id,
-			name: design.name,
-			tags: design.tags,
-			tailwind: tailwind_config,
-			tailwindConfig: config_string,
-			fonts: design.fonts,
-			extended: design.extended,
-			notes: design.notes,
-		});
-	},
-);
-
-server.tool(
-	{
-		name: 'tokens_search',
-		description:
-			'Find theme by intent description (e.g., "dark futuristic neon"). Matches against tags, names, aliases. Returns best matching theme with Tailwind config.',
+			'Find theme by name OR intent. Accepts exact theme names (e.g., "editorial", "cyberpunk", "neu-brutalist") or style descriptions (e.g., "dark futuristic neon"). Returns Tailwind v4 CSS, patterns, and extended data.',
 		schema: v.object({
 			intent: v.pipe(
 				v.string(),
 				v.description(
-					'Description of desired style (e.g., "dark futuristic neon")',
+					'Theme name (e.g., "editorial", "cyberpunk") or style description (e.g., "dark futuristic neon")',
 				),
-			),
-			format: v.optional(
-				v.union([v.literal('summary'), v.literal('detailed')]),
-				'detailed',
 			),
 		}),
 	},
-	async ({ intent, format = 'detailed' }) => {
+	async ({ intent }) => {
 		const design = find_by_intent(intent);
 		if (!design) {
 			return format_error(
@@ -147,38 +105,30 @@ server.tool(
 			);
 		}
 
-		const tailwind_config = build_tailwind_config(design);
-		const config_string = build_tailwind_config_string(design);
-
-		if (format === 'summary') {
-			return format_response({
-				id: design.id,
-				name: design.name,
-				tailwind: tailwind_config,
-				tailwindConfig: config_string,
-				matchedBy: 'intent',
-			});
-		}
+		const css = build_full_css(design);
 
 		return format_response({
 			id: design.id,
 			name: design.name,
+			uri: `theme://${design.id}`,
 			tags: design.tags,
-			tailwind: tailwind_config,
-			tailwindConfig: config_string,
+			css, // Tailwind v4 @theme block + keyframes
+			patterns: design.patterns,
 			fonts: design.fonts,
 			extended: design.extended,
 			notes: design.notes,
-			matchedBy: 'intent',
 		});
 	},
 );
 
 async function main() {
 	await init_cache();
+	register_theme_resources();
 	const transport = new StdioTransport(server);
 	transport.listen();
-	console.error('MCP Vibe UI server started successfully');
+	console.error(
+		`[mcp-vibe-ui] Server started with ${get_all().length} themes`,
+	);
 }
 
 main().catch((error) => {

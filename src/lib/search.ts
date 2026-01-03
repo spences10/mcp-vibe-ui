@@ -29,6 +29,10 @@ export function find_by_name(name: string): DesignRecord | undefined {
 export function find_by_intent(
 	intent: string,
 ): DesignRecord | undefined {
+	// Try exact name/id/alias match first
+	const exact = find_by_name(intent);
+	if (exact) return exact;
+
 	const words = tokenize(intent);
 	if (words.length === 0) return undefined;
 

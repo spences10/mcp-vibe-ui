@@ -1,36 +1,32 @@
 {
-	"version": "1",
+	"version": "2",
 	"id": "cyberpunk",
 	"name": "Cyberpunk",
 	"tags": ["neon", "dark", "futuristic", "high-contrast"],
 	"aliases": ["synthwave", "cyber"],
 	"tailwind": {
 		"colors": {
-			"base-100": "oklch(12% 0.03 300)",
-			"base-200": "oklch(16% 0.03 300)",
-			"base-300": "oklch(22% 0.03 300)",
-			"base-content": "oklch(95% 0.02 300)",
+			"background": "oklch(12% 0.03 300)",
+			"foreground": "oklch(95% 0.02 300)",
+			"muted": "oklch(16% 0.03 300)",
+			"muted-foreground": "oklch(70% 0.02 300)",
+			"border": "oklch(22% 0.03 300)",
 			"primary": "oklch(65% 0.28 330)",
-			"primary-content": "oklch(98% 0.01 330)",
+			"primary-foreground": "oklch(98% 0.01 330)",
 			"secondary": "oklch(72% 0.28 260)",
-			"secondary-content": "oklch(98% 0.01 260)",
+			"secondary-foreground": "oklch(98% 0.01 260)",
 			"accent": "oklch(72% 0.28 190)",
-			"accent-content": "oklch(10% 0.02 190)",
-			"neutral": "oklch(30% 0.03 300)",
-			"neutral-content": "oklch(95% 0.02 300)",
+			"accent-foreground": "oklch(10% 0.02 190)",
+			"destructive": "oklch(62% 0.3 25)",
+			"destructive-foreground": "oklch(98% 0.01 25)",
 			"info": "oklch(70% 0.2 230)",
-			"info-content": "oklch(98% 0.01 230)",
 			"success": "oklch(65% 0.24 145)",
-			"success-content": "oklch(98% 0.01 145)",
-			"warning": "oklch(80% 0.25 85)",
-			"warning-content": "oklch(20% 0.05 85)",
-			"error": "oklch(62% 0.3 25)",
-			"error-content": "oklch(98% 0.01 25)"
+			"warning": "oklch(80% 0.25 85)"
 		},
 		"borderRadius": {
-			"selector": "0.25rem",
-			"field": "0.25rem",
-			"box": "0.5rem"
+			"sm": "0.25rem",
+			"md": "0.25rem",
+			"lg": "0.5rem"
 		},
 		"fontFamily": {
 			"display": [
@@ -50,6 +46,15 @@
 			]
 		}
 	},
+	"patterns": {
+		"surface": "bg-background text-foreground",
+		"card": "bg-muted rounded-lg border border-border",
+		"elevated": "shadow-lg shadow-primary/20",
+		"interactive": "hover:bg-accent/20 transition-colors",
+		"glow": "shadow-[0_0_20px_var(--color-primary)]",
+		"neon-text": "text-primary drop-shadow-[0_0_10px_var(--color-primary)]",
+		"scanlines": "bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,255,255,0.03)_2px,rgba(0,255,255,0.03)_4px)]"
+	},
 	"fonts": [
 		{
 			"package": "@fontsource/orbitron",
@@ -63,46 +68,51 @@
 		}
 	],
 	"metadata": {
-		"description": "Dark surfaces with neon accents and glows.",
-		"builtInThemeHint": "synthwave"
+		"description": "Dark surfaces with neon accents and glows."
 	},
 	"extended": {
 		"effects": {
-			"glow": "subtle",
-			"neonGlow": {
-				"primary": "0 0 20px var(--color-primary)",
-				"secondary": "0 0 30px var(--color-secondary)",
-				"accent": "0 0 25px var(--color-accent)"
-			}
-		},
-		"neonColors": {
-			"backgrounds": [
-				"#ff006e",
-				"#8338ec",
-				"#3a86ff",
-				"#06ffa5",
-				"#ffbe0b"
-			],
-			"accents": [
-				"#ff0080",
-				"#00ffff",
-				"#ff8c00",
-				"#ff1493",
-				"#00ff41",
-				"#bf00ff"
-			],
-			"gradients": [
-				"linear-gradient(45deg, #ff006e, #8338ec, #3a86ff)",
-				"linear-gradient(135deg, #06ffa5 0%, #ff0080 50%, #8338ec 100%)"
-			]
+			"shadow": "0 4px 14px rgba(0, 0, 0, 0.5)",
+			"glow": "0 0 20px var(--color-primary)",
+			"blur": null
 		},
 		"animations": {
-			"neon-pulse": "neon-pulse 2s ease-in-out infinite alternate",
-			"cyber-glitch": "cyber-glitch 0.3s linear infinite",
-			"matrix-scroll": "matrix-scroll 1s linear infinite"
+			"enter": "neon-pulse 2s ease-in-out infinite alternate",
+			"hover": "cyber-glitch 0.3s linear",
+			"press": null
 		},
-		"layout": {
-			"scanlines": "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,255,0.03) 2px, rgba(0,255,255,0.03) 4px)",
+		"keyframes": {
+			"neon-pulse": "0% { opacity: 1; filter: brightness(1); }\n100% { opacity: 0.8; filter: brightness(1.2); }",
+			"cyber-glitch": "0%, 100% { transform: translate(0); }\n20% { transform: translate(-2px, 2px); }\n40% { transform: translate(2px, -2px); }\n60% { transform: translate(-1px, -1px); }\n80% { transform: translate(1px, 1px); }",
+			"matrix-scroll": "0% { transform: translateY(0); }\n100% { transform: translateY(-100%); }"
+		},
+		"surfaces": {
+			"raised": "bg-muted shadow-lg shadow-primary/10",
+			"sunken": "bg-background shadow-inner",
+			"overlay": "bg-background/80 backdrop-blur-sm"
+		},
+		"themeSpecific": {
+			"neonColors": {
+				"backgrounds": [
+					"#ff006e",
+					"#8338ec",
+					"#3a86ff",
+					"#06ffa5",
+					"#ffbe0b"
+				],
+				"accents": [
+					"#ff0080",
+					"#00ffff",
+					"#ff8c00",
+					"#ff1493",
+					"#00ff41",
+					"#bf00ff"
+				],
+				"gradients": [
+					"linear-gradient(45deg, #ff006e, #8338ec, #3a86ff)",
+					"linear-gradient(135deg, #06ffa5 0%, #ff0080 50%, #8338ec 100%)"
+				]
+			},
 			"chromatic": {
 				"redShift": "2px",
 				"blueShift": "-2px"
